@@ -1,4 +1,12 @@
 @page
 @model CybersecurityTrainingApplication.Web.Pages.DashboardModel
 @{ ViewData["Title"] = "Dashboard"; }
-<div class="page-heading"><span class="eyebrow">Learner dashboard</span><h1>Welcome back</h1><p>Continue your cybersecurity awareness learning.</p></div><div class="row g-4 mb-4"><div class="col-md-4"><div class="stat-card"><span>Overall progress</span><strong>0%</strong><small>0 of 8 modules completed</small></div></div><div class="col-md-4"><div class="stat-card"><span>Assessments</span><strong>0</strong><small>Attempts recorded</small></div></div><div class="col-md-4"><div class="stat-card"><span>Next task</span><strong>Module 1</strong><small>Cybersecurity Fundamentals</small></div></div></div><div class="content-panel"><h2>Continue learning</h2><p>Start with the fundamentals and build your security knowledge step by step.</p><a class="btn btn-primary" asp-page="/Modules">View all modules</a></div>
+<div class="page-heading"><span class="eyebrow">Learner dashboard</span><h1>Your learning overview</h1><p>Continue from the last section you confirmed.</p></div>
+<div class="row g-4 mb-4">
+    <div class="col-md-4"><div class="stat-card" data-module-one-progress><span>Module 1 progress</span><strong data-progress-value>0%</strong><small data-progress-sections>0 of 7 sections complete</small></div></div>
+    <div class="col-md-4"><div class="stat-card"><span>Assessments</span><strong>—</strong><small>Question banks will be connected later</small></div></div>
+    <div class="col-md-4"><div class="stat-card"><span>Current module</span><strong>Module 1</strong><small>Cybersecurity Fundamentals</small></div></div>
+</div>
+<div class="content-panel dashboard-next" data-module-one-progress><div><span class="eyebrow">Continue learning</span><h2>Cybersecurity Fundamentals</h2><p>Complete the seven guided learning sections. Your progress changes only when you confirm each section.</p></div><a class="btn btn-primary" asp-page="/Module" asp-route-id="1" data-progress-action>Start Module 1</a></div>
+
+@section Scripts { <script src="~/js/module-progress.js" asp-append-version="true"></script> }

@@ -8,6 +8,19 @@ public static class TrainingSeedData
     public static async Task InitialiseAsync(TrainingDbContext db)
     {
         await db.Database.EnsureCreatedAsync();
+        await db.Database.ExecuteSqlRawAsync("""
+            CREATE TABLE IF NOT EXISTS "ModuleSectionProgress" (
+                "Id" INTEGER NOT NULL CONSTRAINT "PK_ModuleSectionProgress" PRIMARY KEY AUTOINCREMENT,
+                "LearnerKey" TEXT NOT NULL,
+                "ModuleId" INTEGER NOT NULL,
+                "SectionKey" TEXT NOT NULL,
+                "CompletedAtUtc" TEXT NOT NULL
+            );
+            """);
+        await db.Database.ExecuteSqlRawAsync("""
+            CREATE UNIQUE INDEX IF NOT EXISTS "IX_ModuleSectionProgress_LearnerKey_ModuleId_SectionKey"
+            ON "ModuleSectionProgress" ("LearnerKey", "ModuleId", "SectionKey");
+            """);
         if (await db.TrainingModules.AnyAsync()) return;
         var module = new TrainingModule
         {

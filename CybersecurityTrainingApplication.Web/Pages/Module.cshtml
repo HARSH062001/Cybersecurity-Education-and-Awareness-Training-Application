@@ -2,19 +2,108 @@
 @model CybersecurityTrainingApplication.Web.Pages.ModuleModel
 @{ ViewData["Title"] = Model.Title; }
 <a class="back-link" asp-page="/Modules">← Back to modules</a>
-<div class="module-hero"><span class="eyebrow">Module @Model.ModuleId</span><h1>@Model.Title</h1><p>@Model.Purpose</p></div>
-<div class="row g-4"><div class="col-lg-8"><div class="content-panel module-content">
-@foreach (var block in Model.Blocks)
+
+@if (Model.ModuleId == 1)
 {
-    if (block.Kind == "heading") { <h2>@block.Text</h2> }
-    else if (block.Kind == "bullet") { <p class="content-bullet">• @block.Text</p> }
-    else if (block.Kind == "table")
-    {
-        <div class="table-responsive module-table-wrap"><table class="table table-bordered module-table"><tbody>
-        @foreach (var row in block.Rows) { <tr>@foreach (var cell in row) { <td>@cell</td> }</tr> }
-        </tbody></table></div>
-    }
-    else { <p>@block.Text</p> }
+    <main class="learning-workspace" data-module-learning="1" data-total-sections="@Model.LearningSections.Count">
+        <header class="learning-header">
+            <div class="learning-header__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4.5 6v5.2c0 4.7 3.1 8.5 7.5 9.8 4.4-1.3 7.5-5.1 7.5-9.8V6L12 3Z"/><path d="m8.8 12.1 2.1 2.1 4.5-4.7"/></svg>
+            </div>
+            <div class="learning-header__copy">
+                <span class="eyebrow">Module 1 · Foundation</span>
+                <h1>@Model.Title</h1>
+                <p>@Model.Purpose</p>
+                <div class="module-meta" aria-label="Module details">
+                    <span>7 learning sections</span><span>About 25 minutes</span><span>Employee level</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="learning-layout">
+            <aside class="learning-sidebar" aria-label="Module progress and navigation">
+                <div class="progress-card">
+                    <div class="progress-ring" data-progress-ring style="--progress: 0">
+                        <div><strong data-progress-percent>0%</strong><span>complete</span></div>
+                    </div>
+                    <div class="progress-copy">
+                        <strong data-progress-count>0 of 7 sections</strong>
+                        <span>Your progress is saved on this device.</span>
+                    </div>
+                </div>
+                <nav class="section-navigation" aria-label="Learning sections">
+                    @for (var index = 0; index < Model.LearningSections.Count; index++)
+                    {
+                        var learningSection = Model.LearningSections[index];
+                        <a href="#@learningSection.Key" data-section-link="@learningSection.Key"><span class="section-step">@(index + 1)</span><span>@learningSection.Title</span></a>
+                    }
+                </nav>
+                <div class="completion-rule">
+                    <strong>How completion works</strong>
+                    <p>Read each section and select “Mark section complete”. The module reaches 100% after all seven sections are confirmed.</p>
+                </div>
+            </aside>
+
+            <div class="learning-content">
+                <div class="completion-banner" data-completion-banner hidden>
+                    <span aria-hidden="true">✓</span><div><strong>Module learning complete</strong><p>You have reviewed all seven sections. The assessment can be completed when question banks are connected.</p></div>
+                </div>
+
+                @for (var sectionIndex = 0; sectionIndex < Model.LearningSections.Count; sectionIndex++)
+                {
+                    var learningSection = Model.LearningSections[sectionIndex];
+                    <section class="learning-section" id="@learningSection.Key" data-progress-section="@learningSection.Key">
+                        <header class="learning-section__header">
+                            <div><span class="section-label">Section @(sectionIndex + 1) of @Model.LearningSections.Count</span><h2>@learningSection.Title</h2><p>@learningSection.Summary</p></div>
+                            <span class="section-status" data-section-status>Not completed</span>
+                        </header>
+                        <div class="learning-section__body module-content">
+                            @foreach (var block in learningSection.Blocks)
+                            {
+                                if (block.Kind == "heading") { <h3>@block.Text</h3> }
+                                else if (block.Kind == "bullet") { <div class="learning-point"><span aria-hidden="true">✓</span><p>@block.Text</p></div> }
+                                else if (block.Kind == "table")
+                                {
+                                    <div class="table-responsive module-table-wrap"><table class="table module-table"><tbody>
+                                    @foreach (var row in block.Rows) { <tr>@foreach (var cell in row) { <td>@cell</td> }</tr> }
+                                    </tbody></table></div>
+                                }
+                                else { <p>@block.Text</p> }
+                            }
+                        </div>
+                        <footer class="learning-section__footer">
+                            <button type="button" class="section-complete-button" data-complete-section="@learningSection.Key"><span aria-hidden="true">✓</span><span data-button-label>Mark section complete</span></button>
+                            @if (sectionIndex < Model.LearningSections.Count - 1)
+                            {
+                                <a href="#@Model.LearningSections[sectionIndex + 1].Key">Next section →</a>
+                            }
+                        </footer>
+                    </section>
+                }
+
+                <section class="assessment-preview" aria-labelledby="assessment-heading">
+                    <div><span class="eyebrow">After learning</span><h2 id="assessment-heading">Knowledge assessment</h2><p>Question banks will be connected in the assessment phase. Learning progress and assessment results will be recorded separately.</p></div>
+                    <button class="btn btn-secondary" disabled>Assessment coming next</button>
+                </section>
+            </div>
+        </div>
+    </main>
 }
-</div></div><div class="col-lg-4"><div class="content-panel"><h2>Assessment</h2><p>Choose a question bank. A different bank can be used for a repeated attempt.</p>@foreach(var bank in Model.Banks){<a class="btn btn-outline-primary w-100 mb-2" asp-page="/Assessment" asp-route-bank="@bank">Question Bank @bank</a>}</div></div></div>
+else
+{
+    <div class="module-hero"><span class="eyebrow">Module @Model.ModuleId</span><h1>@Model.Title</h1><p>@Model.Purpose</p></div>
+    <div class="row g-4"><div class="col-lg-8"><div class="content-panel module-content">
+    @foreach (var block in Model.Blocks)
+    {
+        if (block.Kind == "heading") { <h2>@block.Text</h2> }
+        else if (block.Kind == "bullet") { <p class="content-bullet">• @block.Text</p> }
+        else if (block.Kind == "table") { <div class="table-responsive module-table-wrap"><table class="table table-bordered module-table"><tbody>@foreach (var row in block.Rows) { <tr>@foreach (var cell in row) { <td>@cell</td> }</tr> }</tbody></table></div> }
+        else { <p>@block.Text</p> }
+    }
+    </div></div><div class="col-lg-4"><div class="content-panel"><h2>Assessment</h2><p>Choose a question bank. A different bank can be used for a repeated attempt.</p>@foreach(var bank in Model.Banks){<a class="btn btn-outline-primary w-100 mb-2" asp-page="/Assessment" asp-route-bank="@bank">Question Bank @bank</a>}</div></div></div>
+}
+
+@section Scripts {
+    <script src="~/js/module-progress.js" asp-append-version="true"></script>
+}
 

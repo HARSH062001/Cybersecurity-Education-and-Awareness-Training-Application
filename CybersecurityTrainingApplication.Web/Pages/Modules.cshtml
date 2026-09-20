@@ -3,10 +3,30 @@
 @{
     ViewData["Title"] = "Training Modules";
 }
-<div class="page-heading"><span class="eyebrow">Learning catalogue</span><h1>Cybersecurity training modules</h1><p>Choose a module to learn practical security behaviours and complete its assessment.</p></div>
+<div class="page-heading catalogue-heading"><span class="eyebrow">Learning catalogue</span><h1>Build safer workplace habits</h1><p>Begin with the fundamentals. Your Module 1 progress is based on completed learning sections and is saved on this device.</p></div>
+
+@{ var firstModule = Model.Modules.First(); }
+<section class="featured-module" data-module-one-progress style="--module-progress:0">
+    <div class="featured-module__main">
+        <span class="module-number">Recommended first · Module 1</span>
+        <h2>@firstModule.Title</h2>
+        <p>@firstModule.Summary</p>
+        <div class="featured-module__details"><span>7 guided sections</span><span>About 25 minutes</span><span>No prior knowledge needed</span></div>
+        <a class="btn btn-primary" asp-page="/Module" asp-route-id="1" data-progress-action>Start Module 1</a>
+    </div>
+    <div class="featured-module__progress" aria-label="Module 1 progress">
+        <div class="catalogue-progress-ring"><strong data-progress-value>0%</strong><span>complete</span></div>
+        <p data-progress-sections>0 of 7 sections complete</p>
+        <small>Progress changes only when you confirm a section.</small>
+    </div>
+</section>
+
+<div class="catalogue-subheading"><div><span class="eyebrow">Next modules</span><h2>Continue the learning pathway</h2></div><span class="planned-label">Content available · Progress setup pending</span></div>
 <div class="row g-4">
-@foreach (var module in Model.Modules)
+@foreach (var module in Model.Modules.Skip(1))
 {
-    <div class="col-md-6 col-xl-4"><div class="card module-card h-100"><div class="card-body"><span class="module-number">Module @module.Number</span><h2>@module.Title</h2><p>@module.Summary</p><div class="progress mb-3" role="progressbar"><div class="progress-bar" style="width:@module.Progress%"></div></div><small>@module.Progress% complete</small><a class="btn btn-primary w-100 mt-3" asp-page="/Module" asp-route-id="@module.Number">View module</a></div></div></div>
+    <div class="col-md-6 col-xl-4"><div class="card module-card h-100"><div class="card-body"><div class="module-card__top"><span class="module-number">Module @module.Number</span><span class="status-pill">Planned</span></div><h2>@module.Title</h2><p>@module.Summary</p><a class="module-text-link" asp-page="/Module" asp-route-id="@module.Number">Preview content →</a></div></div></div>
 }
 </div>
+
+@section Scripts { <script src="~/js/module-progress.js" asp-append-version="true"></script> }
