@@ -19,7 +19,31 @@ html {
 
 body {
   margin-bottom: 60px;
+  color: #172033;
+  background: #f7f9fc;
 }
+
+.page-heading { padding: 3rem 0 2rem; }
+.page-heading h1 { font-weight: 700; letter-spacing: -.03em; }
+.eyebrow { color: #2764d8; text-transform: uppercase; font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+.module-number { color: #2764d8; font-weight: 700; font-size: .8rem; text-transform: uppercase; }
+.module-card, .content-panel, .question-panel, .assessment-side, .stat-card { border: 1px solid #e3e9f2; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(25,45,80,.06); }
+.module-card h2 { font-size: 1.25rem; margin-top: .7rem; }
+.content-panel, .question-panel, .assessment-side { padding: 1.5rem; }
+.module-hero, .result-hero { padding: 2.5rem; border-radius: 16px; background: linear-gradient(135deg,#163b78,#2764d8); color: #fff; margin: 2rem 0; }
+.module-hero .eyebrow, .result-hero .eyebrow { color: #cfe0ff; }
+.back-link { display: inline-block; margin-top: 1.5rem; text-decoration: none; }
+.check-list p { background:#f1f5fb; padding:.7rem 1rem; border-radius:8px; }
+.assessment-layout { display:grid; grid-template-columns: 1fr 300px; gap:1.5rem; }
+.question-progress { color:#2764d8; font-weight:700; margin-bottom:1.5rem; }
+.answer-option { display:block; padding:1rem; margin:.75rem 0; border:1px solid #dfe6f0; border-radius:10px; cursor:pointer; }
+.answer-option:hover { background:#f4f7fc; border-color:#2764d8; }
+.answer-option input { margin-right:.7rem; }
+.score-circle { width:125px; height:125px; border-radius:50%; background:#fff; color:#2764d8; display:grid; place-items:center; font-weight:800; font-size:2rem; margin:1.5rem 0; }
+.feedback-row { display:flex; gap:1rem; padding:1rem 0; border-bottom:1px solid #e8edf4; }
+.status-dot { width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-weight:700; flex:none; }.success{background:#dcf7e7;color:#087a3d}.review{background:#fff1cf;color:#956600}
+.stat-card { padding:1.5rem; }.stat-card span,.stat-card small { display:block; color:#69758a; }.stat-card strong { display:block; font-size:2rem; margin:.5rem 0; }
+@media(max-width:768px){.assessment-layout{grid-template-columns:1fr}.module-hero,.result-hero{padding:1.5rem}}
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);

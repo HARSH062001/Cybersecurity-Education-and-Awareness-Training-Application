@@ -1,0 +1,12 @@
+@page
+@model CybersecurityTrainingApplication.Web.Pages.ModulesModel
+@{
+    ViewData["Title"] = "Training Modules";
+}
+<div class="page-heading"><span class="eyebrow">Learning catalogue</span><h1>Cybersecurity training modules</h1><p>Choose a module to learn practical security behaviours and complete its assessment.</p></div>
+<div class="row g-4">
+@foreach (var module in Model.Modules)
+{
+    <div class="col-md-6 col-xl-4"><div class="card module-card h-100"><div class="card-body"><span class="module-number">Module @module.Number</span><h2>@module.Title</h2><p>@module.Summary</p><div class="progress mb-3" role="progressbar"><div class="progress-bar" style="width:@module.Progress%"></div></div><small>@module.Progress% complete</small><a class="btn btn-primary w-100 mt-3" asp-page="/Module" asp-route-id="@module.Number">View module</a></div></div></div>
+}
+</div>
