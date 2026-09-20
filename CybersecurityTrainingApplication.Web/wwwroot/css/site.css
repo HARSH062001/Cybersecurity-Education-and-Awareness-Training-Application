@@ -53,3 +53,9 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+﻿.module-content h2 { margin-top: 1.8rem; }
+.module-content h2:first-child { margin-top: 0; }
+.content-bullet { margin-left: 1rem; }
+.module-table-wrap { margin: 1rem 0 1.25rem; }
+.module-table { margin-bottom: 0; background: #fff; }
+.module-table td { vertical-align: top; min-width: 10rem; }

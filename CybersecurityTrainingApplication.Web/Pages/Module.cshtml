@@ -1,7 +1,20 @@
-@page
+@page "/Module"
 @model CybersecurityTrainingApplication.Web.Pages.ModuleModel
 @{ ViewData["Title"] = Model.Title; }
 <a class="back-link" asp-page="/Modules">← Back to modules</a>
 <div class="module-hero"><span class="eyebrow">Module @Model.ModuleId</span><h1>@Model.Title</h1><p>@Model.Purpose</p></div>
-<div class="row g-4"><div class="col-lg-8"><div class="content-panel"><h2>What you will learn</h2><p>@Model.ModuleContent</p><h2>Workplace focus</h2><p>Apply the ideas in ordinary work situations. Pause before unusual requests, use approved tools, protect information and report concerns promptly.</p><h2>Learning checklist</h2><div class="check-list"><p>✓ I can explain the main risks.</p><p>✓ I can choose a safe response.</p><p>✓ I know when to report a concern.</p></div></div></div><div class="col-lg-4"><div class="content-panel"><h2>Assessment</h2><p>Choose a question bank. A different bank can be used for a repeated attempt.</p>@foreach(var bank in Model.Banks){<a class="btn btn-outline-primary w-100 mb-2" asp-page="/Assessment" asp-route-bank="@bank">Question Bank @bank</a>}</div></div></div>
+<div class="row g-4"><div class="col-lg-8"><div class="content-panel module-content">
+@foreach (var block in Model.Blocks)
+{
+    if (block.Kind == "heading") { <h2>@block.Text</h2> }
+    else if (block.Kind == "bullet") { <p class="content-bullet">• @block.Text</p> }
+    else if (block.Kind == "table")
+    {
+        <div class="table-responsive module-table-wrap"><table class="table table-bordered module-table"><tbody>
+        @foreach (var row in block.Rows) { <tr>@foreach (var cell in row) { <td>@cell</td> }</tr> }
+        </tbody></table></div>
+    }
+    else { <p>@block.Text</p> }
+}
+</div></div><div class="col-lg-4"><div class="content-panel"><h2>Assessment</h2><p>Choose a question bank. A different bank can be used for a repeated attempt.</p>@foreach(var bank in Model.Banks){<a class="btn btn-outline-primary w-100 mb-2" asp-page="/Assessment" asp-route-bank="@bank">Question Bank @bank</a>}</div></div></div>
 

@@ -1,0 +1,2969 @@
+[
+  {
+    "id": 1,
+    "title": "Module 1 – Cybersecurity Fundamentals",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "This module introduces the everyday habits and decisions that help protect people, information and technology at work. It explains cybersecurity in practical language so employees can recognise common risks, choose safer actions and report concerns early. The focus is on responsible behaviour rather than technical administration.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Cybersecurity is part of every employee’s role. A stolen password, a rushed click, an unlocked laptop or an incorrectly shared file can give an attacker an opportunity to access business systems. Good security reduces the likelihood of fraud, data loss, service disruption and harm to customers or colleagues. Early reporting also gives the organisation more time to contain an incident.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain confidentiality, integrity and availability in an everyday workplace context.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise common threats such as phishing, malware, weak passwords, unauthorised access and accidental disclosure.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Apply safer behaviours when using accounts, devices, email, websites and business information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use the organisation’s approved process to report suspicious activity or a mistake.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Describe how an employee action can affect business operations, privacy, trust and legal obligations.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "The CIA triad: confidentiality, integrity and availability",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Threats, vulnerabilities and risk",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Accounts, identity and least privilege",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Devices, software and updates",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Safe handling of information",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Suspicious activity and incident reporting",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Security as a shared workplace responsibility",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "The CIA triad",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Confidentiality means information is seen only by people who need and are allowed to see it. Integrity means information is correct, complete and protected from unauthorised changes. Availability means approved users can access systems and information when they need them. A single event can affect all three: ransomware may prevent access to files, alter or encrypt them, and expose stolen copies.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Threats, vulnerabilities and risk",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "A threat is a potential source of harm, such as a criminal sending a fake invoice. A vulnerability is a weakness, such as a reused password or an unpatched device. Risk is the chance and impact of the threat succeeding. Employees reduce risk by following procedures, checking unusual requests and reporting weaknesses rather than trying to hide them.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Accounts and access",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Use your own account and keep credentials private. Do not share passwords or approve a login request that you did not initiate. Access should match a person’s work needs. If you no longer need access, or notice access that seems excessive, contact the appropriate support or security team.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Devices, software and updates",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Lock your screen when stepping away. Install updates through approved channels and do not disable security tools without authorisation. Unapproved software, removable media and browser extensions can introduce malware or expose information.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Information handling",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Before sending, storing or discussing information, check who should receive it and whether the method is approved. Use approved storage and sharing tools, verify recipients, and avoid placing sensitive business information in personal accounts or public services.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Reporting suspicious activity",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Report unusual messages, lost devices, unexpected login alerts, suspected malware, accidental disclosure and other concerns promptly using the organisation’s approved reporting channel. Do not delay because you are unsure or worried about blame. Fast reporting improves the chance of containment and recovery.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "An employee receives an unexpected request to buy gift cards. They verify the request using a known phone number instead of replying to the email.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member notices a login approval on their phone while they are not signing in. They deny it and report the alert.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A laptop is left unattended in a shared meeting room. The employee locks the screen and stores the device securely before leaving.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A spreadsheet containing customer details is being sent to an external partner. The sender checks the recipient, confirms the approved sharing method and uses the minimum necessary information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A user clicks a suspicious link and notices unusual browser behaviour. They disconnect only as instructed by the incident process, contact support and provide the message details.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use unique passwords and approved multi-factor authentication.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Pause and verify unexpected requests, links, attachments and payment changes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Lock screens and protect devices in public or shared spaces.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved software, storage, email and collaboration tools.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Share information only with the right people and only when needed.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Keep devices and applications updated through approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly and honestly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module assessment uses one of three question banks: Question Bank A, B or C. Each bank contains 10 questions, with a mixture of multiple-choice and workplace scenario questions. Questions cover the CIA triad, threats and vulnerabilities, account protection, device security, information handling, reporting and business impact. The application should record the selected bank, attempt, answers and score. A different bank should be selected for repeated attempts where available.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Cybersecurity is a shared responsibility built from small, repeatable actions. Protect accounts and information, use approved systems, keep devices secure, verify unusual requests and report concerns quickly. These behaviours help preserve confidentiality, integrity and availability while reducing disruption, financial loss and harm to people.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2023). Essential Eight maturity model. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security tips for employees. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "National Institute of Standards and Technology. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "National Institute of Standards and Technology. (2020). Security and Privacy Controls for Information Systems and Organizations, SP 800-53 Rev. 5. https://doi.org/10.6028/NIST.SP.800-53r5",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "ISO/IEC. (2022). ISO/IEC 27001:2022 Information security, cybersecurity and privacy protection Information security management systems Requirements. https://www.iso.org/standard/27001",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Plain-language meaning"
+          ],
+          [
+            "Cybersecurity",
+            "Protecting systems, devices, accounts and information from misuse, damage or unauthorised access."
+          ],
+          [
+            "Asset",
+            "Something valuable that needs protection, such as a laptop, account, customer record or business process."
+          ],
+          [
+            "Threat",
+            "A person, event or activity that could cause harm."
+          ],
+          [
+            "Vulnerability",
+            "A weakness that could be used by a threat."
+          ],
+          [
+            "Risk",
+            "The possibility that a threat will use a vulnerability and cause an unwanted outcome."
+          ],
+          [
+            "Confidentiality",
+            "Only authorised people can see information."
+          ],
+          [
+            "Integrity",
+            "Information remains accurate and is changed only by authorised people."
+          ],
+          [
+            "Availability",
+            "Systems and information are accessible when authorised users need them."
+          ],
+          [
+            "Multi-factor authentication",
+            "Using two or more different types of evidence to verify identity, such as a password and an approval on a trusted device."
+          ],
+          [
+            "Malware",
+            "Malicious software designed to disrupt, damage, spy on or gain unauthorised access to systems."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Security failure",
+            "Possible business impact"
+          ],
+          [
+            "Compromised account",
+            "Fraudulent payments, unauthorised access, privacy breach and loss of customer trust."
+          ],
+          [
+            "Malware infection",
+            "Interrupted work, recovery costs, lost data and possible spread to shared systems."
+          ],
+          [
+            "Incorrect data change",
+            "Poor decisions, incorrect customer records, compliance problems and rework."
+          ],
+          [
+            "Unprotected confidential file",
+            "Privacy harm, contractual consequences, reputational damage and notification obligations."
+          ],
+          [
+            "Late incident reporting",
+            "More time for attackers to move through systems and a harder, more expensive recovery."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Completed"
+          ],
+          [
+            "I use my own account and do not share credentials.",
+            ""
+          ],
+          [
+            "I use multi-factor authentication when it is available.",
+            ""
+          ],
+          [
+            "I lock my screen when I step away.",
+            ""
+          ],
+          [
+            "I verify unusual requests through a trusted channel.",
+            ""
+          ],
+          [
+            "I check recipients before sending information.",
+            ""
+          ],
+          [
+            "I use approved storage, software and devices.",
+            ""
+          ],
+          [
+            "I install required updates and do not bypass security controls.",
+            ""
+          ],
+          [
+            "I know how to report a suspected incident.",
+            ""
+          ],
+          [
+            "I report mistakes promptly, even if I am unsure of the impact.",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Module 2 – Phishing and Social Engineering",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Recognise deceptive messages and social pressure, verify requests and report suspected scams before they cause harm.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about phishing and social engineering during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with phishing and social engineering.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Phishing messages",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Social engineering",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Urgency and authority",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Links and attachments",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Business email compromise",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verification and reporting",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phishing messages",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Phishing messages affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Social engineering",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Social engineering affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Urgency and authority",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Urgency and authority affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Links and attachments",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Links and attachments affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business email compromise",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Business email compromise affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Verification and reporting",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Verification and reporting affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving phishing, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving social engineering, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving verification, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving email, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving links, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover Phishing messages, Social engineering, Urgency and authority, Links and attachments, Business email compromise, Verification and reporting. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Phishing and Social Engineering is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "CISA. (2024). Recognize and report phishing. https://www.cisa.gov/",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "phishing",
+            "Phishing is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "social engineering",
+            "Social engineering is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "verification",
+            "Verification is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "email",
+            "Email is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "links",
+            "Links is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "attachments",
+            "Attachments is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe phishing handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe social engineering handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe verification handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe email handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            ""
+          ],
+          [
+            "I use approved tools and processes.",
+            ""
+          ],
+          [
+            "I verify unusual requests.",
+            ""
+          ],
+          [
+            "I protect business and personal information.",
+            ""
+          ],
+          [
+            "I know where to report a concern.",
+            ""
+          ],
+          [
+            "I report mistakes promptly.",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Module 3 – Password and Identity Security",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Protect accounts by using strong authentication, managing passwords safely and understanding access permissions.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about password and identity security during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with password and identity security.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Passwords and passphrases",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Multi-factor authentication",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Password managers",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Account recovery",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Least privilege",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Login alerts",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Passwords and passphrases",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Passwords and passphrases affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Multi-factor authentication",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Multi-factor authentication affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Password managers",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Password managers affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Account recovery",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Account recovery affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Least privilege",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Least privilege affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Login alerts",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Login alerts affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving password, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving passphrase, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving MFA, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving password manager, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving login alert, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover Passwords and passphrases, Multi-factor authentication, Password managers, Account recovery, Least privilege, Login alerts. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Password and Identity Security is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2020). Digital Identity Guidelines, SP 800-63B. https://doi.org/10.6028/NIST.SP.800-63b",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "password",
+            "Password is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "passphrase",
+            "Passphrase is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "MFA",
+            "Mfa is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "password manager",
+            "Password manager is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "login alert",
+            "Login alert is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "account sharing",
+            "Account sharing is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe password handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe passphrase handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe MFA handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe password manager handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            "☐"
+          ],
+          [
+            "I use approved tools and processes.",
+            "☐"
+          ],
+          [
+            "I verify unusual requests.",
+            "☐"
+          ],
+          [
+            "I protect business and personal information.",
+            "☐"
+          ],
+          [
+            "I know where to report a concern.",
+            "☐"
+          ],
+          [
+            "I report mistakes promptly.",
+            "☐"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Module 4 – Data Security and Privacy",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Handle business and personal information carefully from collection through storage, sharing, retention and disposal.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about data security and privacy during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with data security and privacy.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Information classification",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Personal information",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Need to know",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Secure sharing",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Storage and retention",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Privacy incidents",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Information classification",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Information classification affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Personal information",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Personal information affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Need to know",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Need to know affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Secure sharing",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Secure sharing affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Storage and retention",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Storage and retention affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Privacy incidents",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Privacy incidents affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving personal information, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving classification, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving need to know, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving sharing, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving storage, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover Information classification, Personal information, Need to know, Secure sharing, Storage and retention, Privacy incidents. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Data Security and Privacy is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "OAIC. (2024). Australian Privacy Principles guidelines. https://www.oaic.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "personal information",
+            "Personal information is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "classification",
+            "Classification is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "need to know",
+            "Need to know is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "sharing",
+            "Sharing is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "storage",
+            "Storage is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "retention",
+            "Retention is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe personal information handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe classification handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe need to know handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe sharing handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            ""
+          ],
+          [
+            "I use approved tools and processes.",
+            ""
+          ],
+          [
+            "I verify unusual requests.",
+            ""
+          ],
+          [
+            "I protect business and personal information.",
+            ""
+          ],
+          [
+            "I know where to report a concern.",
+            ""
+          ],
+          [
+            "I report mistakes promptly.",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Module 5 – Network and Internet Security",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Use networks and online services safely, recognise unsafe connections and protect information while browsing or working remotely.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about network and internet security during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with network and internet security.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Web addresses and HTTPS",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Public Wi-Fi",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "VPN and remote access",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Downloads and websites",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Browser security",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Online scams",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Web addresses and HTTPS",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Web addresses and HTTPS affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Public Wi-Fi",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Public Wi-Fi affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "VPN and remote access",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "VPN and remote access affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Downloads and websites",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Downloads and websites affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Browser security",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Browser security affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Online scams",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Online scams affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving HTTPS, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving public Wi-Fi, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving VPN, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving browser, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving downloads, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover Web addresses and HTTPS, Public Wi-Fi, VPN and remote access, Downloads and websites, Browser security, Online scams. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Network and Internet Security is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "ACSC. (2023). Secure online business. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "HTTPS",
+            "Https is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "public Wi-Fi",
+            "Public wi-fi is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "VPN",
+            "Vpn is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "browser",
+            "Browser is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "downloads",
+            "Downloads is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "website",
+            "Website is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe HTTPS handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe public Wi-Fi handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe VPN handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe browser handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            ""
+          ],
+          [
+            "I use approved tools and processes.",
+            ""
+          ],
+          [
+            "I verify unusual requests.",
+            ""
+          ],
+          [
+            "I protect business and personal information.",
+            ""
+          ],
+          [
+            "I know where to report a concern.",
+            ""
+          ],
+          [
+            "I report mistakes promptly.",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Module 6 – Device and Physical Security",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Protect laptops, phones, removable media and workplaces from loss, theft, unauthorised use and technical compromise.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about device and physical security during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with device and physical security.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Screen locking",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Updates",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Endpoint protection",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Removable media",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Physical security",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Backups and recovery",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Screen locking",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Screen locking affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Updates",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Updates affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Endpoint protection",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Endpoint protection affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Removable media",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Removable media affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Physical security",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Physical security affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Backups and recovery",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Backups and recovery affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving screen lock, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving updates, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving antivirus, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving USB, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving lost device, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover Screen locking, Updates, Endpoint protection, Removable media, Physical security, Backups and recovery. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Device and Physical Security is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "CIS. (2021). CIS Controls v8. https://www.cisecurity.org/controls",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "screen lock",
+            "Screen lock is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "updates",
+            "Updates is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "antivirus",
+            "Antivirus is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "USB",
+            "Usb is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "lost device",
+            "Lost device is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "physical security",
+            "Physical security is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe screen lock handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe updates handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe antivirus handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe USB handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            ""
+          ],
+          [
+            "I use approved tools and processes.",
+            ""
+          ],
+          [
+            "I verify unusual requests.",
+            ""
+          ],
+          [
+            "I protect business and personal information.",
+            ""
+          ],
+          [
+            "I know where to report a concern.",
+            ""
+          ],
+          [
+            "I report mistakes promptly.",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Module 7 – AI Literacy and AI Security",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Use AI tools responsibly by understanding their limits, protecting information and checking outputs. This module teaches AI literacy and AI security only; it does not provide AI-powered functionality.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about ai literacy and ai security during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with ai literacy and ai security.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "What AI tools do",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Accuracy and hallucinations",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Sensitive information",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Copyright and confidentiality",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Human review",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Deepfakes and manipulation",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "What AI tools do",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "What AI tools do affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Accuracy and hallucinations",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Accuracy and hallucinations affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Sensitive information",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Sensitive information affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Copyright and confidentiality",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Copyright and confidentiality affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Human review",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Human review affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Deepfakes and manipulation",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Deepfakes and manipulation affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving AI tool, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving hallucination, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving sensitive information, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving prompt, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving human review, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover What AI tools do, Accuracy and hallucinations, Sensitive information, Copyright and confidentiality, Human review, Deepfakes and manipulation. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "AI Literacy and AI Security is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2023). Artificial Intelligence Risk Management Framework 1.0. https://doi.org/10.6028/NIST.AI.100-1",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "AI tool",
+            "Ai tool is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "hallucination",
+            "Hallucination is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "sensitive information",
+            "Sensitive information is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "prompt",
+            "Prompt is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "human review",
+            "Human review is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "deepfake",
+            "Deepfake is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe AI tool handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe hallucination handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe sensitive information handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe prompt handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            ""
+          ],
+          [
+            "I use approved tools and processes.",
+            ""
+          ],
+          [
+            "I verify unusual requests.",
+            ""
+          ],
+          [
+            "I protect business and personal information.",
+            ""
+          ],
+          [
+            "I know where to report a concern.",
+            ""
+          ],
+          [
+            "I report mistakes promptly.",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Module 8 – Incident Reporting and Cyber Hygiene",
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "Build reliable daily security habits and report suspicious events quickly so the organisation can contain and recover from incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Why the module is important",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Employees make decisions about incident reporting and cyber hygiene during ordinary work. A short pause, a verified request and timely reporting can prevent a small warning from becoming a business incident. This module connects practical behaviour with the protection of people, information, services and organisational trust.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Learning outcomes",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain the main risks associated with incident reporting and cyber hygiene.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Recognise warning signs in ordinary workplace situations.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Choose a safe employee response using approved processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Explain possible business, privacy and operational impacts.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Know when and how to ask for help or report a concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Key terms",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Main topics",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "What is an incident",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "When to report",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Reporting channels",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Containment instructions",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Updates and backups",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Daily cyber hygiene",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Explanations of the topics",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "What is an incident",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "What is an incident affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "When to report",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "When to report affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Reporting channels",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Reporting channels affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Containment instructions",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Containment instructions affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Updates and backups",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Updates and backups affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Daily cyber hygiene",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Daily cyber hygiene affects everyday work because employees use accounts, devices, information and online services to complete tasks. Follow the approved process, check unusual requests, use the minimum necessary access and report concerns promptly. The goal is to reduce preventable mistakes while making it easier for support staff to respond.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Workplace examples",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving incident, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving reporting, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving containment, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving evidence, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "A staff member pauses before acting on an unusual request involving backup, verifies it through a trusted channel and records the concern.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Business impact examples",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Safe employee behaviours",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use approved tools and processes.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Verify unusual requests before acting.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Protect accounts, devices and information.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Use only the access needed for the task.",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Report mistakes and suspicious activity promptly.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Employee security checklist",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Assessment coverage",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "This module uses Question Banks A, B and C. Each bank contains 10 questions, combining multiple-choice and workplace scenario questions. The banks cover What is an incident, When to report, Reporting channels, Containment instructions, Updates and backups, Daily cyber hygiene. The application should record the selected bank, attempt, answers, score and feedback, and use a different bank for a repeated attempt where available.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "Phase 1 planning evidence",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "The module structure, learning outcomes, topic list, assessment coverage and three-bank design are defined for the project foundation phase. The planned content supports the agreed 8 modules x 3 banks x 10 questions = 240-question assessment design. Final technical integration, scheduling, notifications and administration workflows can be completed during later phases.",
+        "rows": []
+      },
+      {
+        "kind": "paragraph",
+        "text": "Incident Reporting and Cyber Hygiene is an everyday responsibility. Employees should recognise warning signs, follow approved controls, protect information and report concerns early. These actions reduce the chance and impact of security incidents.",
+        "rows": []
+      },
+      {
+        "kind": "heading",
+        "text": "References",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "NIST. (2018). Framework for Improving Critical Infrastructure Cybersecurity, Version 1.1. https://doi.org/10.6028/NIST.CSWP.04162018",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "Australian Cyber Security Centre. (2024). Cyber security guidance. https://www.cyber.gov.au/",
+        "rows": []
+      },
+      {
+        "kind": "bullet",
+        "text": "CISA. (2023). Incident response recommendations. https://www.cisa.gov/",
+        "rows": []
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Term",
+            "Employee meaning"
+          ],
+          [
+            "incident",
+            "Incident is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "reporting",
+            "Reporting is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "containment",
+            "Containment is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "evidence",
+            "Evidence is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "backup",
+            "Backup is a security concept employees should understand and apply during daily work."
+          ],
+          [
+            "updates",
+            "Updates is a security concept employees should understand and apply during daily work."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Failure",
+            "Possible impact"
+          ],
+          [
+            "Unsafe incident handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe reporting handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe containment handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ],
+          [
+            "Unsafe evidence handling",
+            "Unauthorised access, rework, interruption, privacy harm or loss of customer trust."
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "text": "",
+        "rows": [
+          [
+            "Check",
+            "Complete"
+          ],
+          [
+            "I understand the main risks in this module.",
+            ""
+          ],
+          [
+            "I use approved tools and processes.",
+            ""
+          ],
+          [
+            "I verify unusual requests.",
+            ""
+          ],
+          [
+            "I protect business and personal information.",
+            ""
+          ],
+          [
+            "I know where to report a concern.",
+            ""
+          ],
+          [
+            "I report mistakes promptly.",
+            ""
+          ]
+        ]
+      }
+    ]
+  }
+]
