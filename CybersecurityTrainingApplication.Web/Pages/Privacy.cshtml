@@ -1,8 +1,7 @@
-﻿@page
+@page
 @model PrivacyModel
-@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+@{ ViewData["Title"] = "Privacy and learner data"; }
 
-<p>Use this page to detail your site's privacy policy.</p>
+<section class="privacy-hero"><span class="eyebrow">Privacy and learner data</span><h1>How this training application handles information</h1><p>This page explains the information used by the current learning prototype and the privacy controls required before deployment.</p></section>
+
+<div class="privacy-layout"><main class="privacy-content"><section><h2>Information used in the current prototype</h2><p>The current prototype uses an anonymous browser identifier and local browser storage to remember completed learning sections. This allows progress to remain available during local testing without creating a learner account.</p></section><section><h2>Information planned for the connected application</h2><p>After authentication and backend integration, the application may store a learner identifier, role, module progress, assessment attempts, selected answers, scores and completion dates. The exact fields and retention period must be approved by the project team before deployment.</p></section><section><h2>Why information is used</h2><p>Learner information is used to provide access to training, record progress, calculate assessment results, support repeat attempts and give authorised managers the reporting access defined by the project requirements.</p></section><section><h2>Access and protection</h2><p>Learners should only be able to view their own progress and assessment history. Manager or administrator access must be role-based. Passwords must be protected, secrets must not be stored in source control, and the backend must validate requests before returning or changing learner data.</p></section><section><h2>Before deployment</h2><p>This prototype privacy information is not a final legal privacy notice. Before a public or organisational deployment, the team must confirm the data owner, hosting location, retention rules, authorised roles, contact process and applicable University or organisational privacy requirements.</p></section></main><aside class="privacy-sidebar"><h2>Privacy commitments for the build</h2><ul><li>Collect only information needed for learning and assessment.</li><li>Do not expose correct answers before submission.</li><li>Keep learner attempts separate by account.</li><li>Use approved access controls for managers and administrators.</li><li>Keep credentials and secrets out of GitHub.</li></ul><a class="btn btn-outline-primary w-100" asp-page="/Modules">View learning modules</a></aside></div>

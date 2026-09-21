@@ -1,12 +1,13 @@
 @page
 @model CybersecurityTrainingApplication.Web.Pages.DashboardModel
 @{ ViewData["Title"] = "Dashboard"; }
-<div class="page-heading"><span class="eyebrow">Learner dashboard</span><h1>Your learning overview</h1><p>Continue from the last section you confirmed.</p></div>
-<div class="row g-4 mb-4">
-    <div class="col-md-4"><div class="stat-card" data-module-one-progress><span>Module 1 progress</span><strong data-progress-value>0%</strong><small data-progress-sections>0 of 7 sections complete</small></div></div>
-    <div class="col-md-4"><div class="stat-card"><span>Assessments</span><strong>—</strong><small>Question banks will be connected later</small></div></div>
-    <div class="col-md-4"><div class="stat-card"><span>Current module</span><strong>Module 1</strong><small>Cybersecurity Fundamentals</small></div></div>
-</div>
-<div class="content-panel dashboard-next" data-module-one-progress><div><span class="eyebrow">Continue learning</span><h2>Cybersecurity Fundamentals</h2><p>Complete the seven guided learning sections. Your progress changes only when you confirm each section.</p></div><a class="btn btn-primary" asp-page="/Module" asp-route-id="1" data-progress-action>Start Module 1</a></div>
+
+<section class="dashboard-hero"><div><span class="eyebrow">Learner dashboard</span><h1>Your learning overview</h1><p>Track your module progress and continue from the last section you confirmed.</p></div><a class="btn btn-primary" asp-page="/Modules">Browse all modules</a></section>
+
+<section class="dashboard-stats" aria-label="Learning summary"><article class="dashboard-stat" data-overall-progress><span>Overall learning</span><strong data-overall-percent>0%</strong><small data-overall-detail>0 of 8 modules completed</small><div class="dashboard-stat__bar"><span data-overall-bar></span></div></article><article class="dashboard-stat" data-module-progress="1"><span>Module 1 progress</span><strong data-progress-value>0%</strong><small data-progress-sections>0 of 7 sections complete</small><div class="dashboard-stat__bar"><span data-module-bar></span></div></article><article class="dashboard-stat dashboard-stat--assessment"><span>Knowledge assessments</span><strong>Coming next</strong><small>Question banks will appear here after backend integration.</small></article></section>
+
+<section class="dashboard-continue" data-module-progress="1"><div class="dashboard-continue__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4.5 6v5.2c0 4.7 3.1 8.5 7.5 9.8 4.4-1.3 7.5-5.1 7.5-9.8V6L12 3Z"/><path d="m8.8 12.1 2.1 2.1 4.5-4.7"/></svg></div><div><span class="eyebrow">Continue learning</span><h2>Cybersecurity Fundamentals</h2><p>Complete the seven guided learning sections, then move to the assessment when the question-bank service is connected.</p></div><a class="btn btn-primary" asp-page="/Module" asp-route-id="1" data-progress-action>Start Module 1</a></section>
+
+<section class="dashboard-pathway"><div class="home-section__heading"><span class="eyebrow">Learning pathway</span><h2>What comes next</h2></div><div class="dashboard-pathway__items"><div><span>1</span><strong>Complete learning sections</strong><p>Work through each module at your own pace.</p></div><div><span>2</span><strong>Take a knowledge assessment</strong><p>Question banks will be supplied by the backend.</p></div><div><span>3</span><strong>Review your result</strong><p>Your result and progress will be recorded after integration.</p></div></div></section>
 
 @section Scripts { <script src="~/js/module-progress.js" asp-append-version="true"></script> }

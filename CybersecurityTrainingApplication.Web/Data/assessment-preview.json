@@ -1,0 +1,5668 @@
+[
+  {
+    "moduleId": 1,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m1aq1",
+        "number": 1,
+        "text": "Which statement best describes confidentiality?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Information is available whenever needed"
+          },
+          {
+            "code": "B",
+            "text": "Information is accurate and unchanged"
+          },
+          {
+            "code": "C",
+            "text": "Information is accessible only to authorised people"
+          },
+          {
+            "code": "D",
+            "text": "Information is backed up every day"
+          }
+        ]
+      },
+      {
+        "id": "m1aq2",
+        "number": 2,
+        "text": "A colleague asks you to approve a sign-in notification, but you are not logging in. What should you do?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1aq3",
+        "number": 3,
+        "text": "What is a vulnerability?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "A weakness that could be used to cause harm"
+          },
+          {
+            "code": "B",
+            "text": "A security policy"
+          },
+          {
+            "code": "C",
+            "text": "A completed incident report"
+          },
+          {
+            "code": "D",
+            "text": "A type of backup"
+          }
+        ]
+      },
+      {
+        "id": "m1aq4",
+        "number": 4,
+        "text": "You receive a request to send a customer list to an external address. What is the safest first action?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1aq5",
+        "number": 5,
+        "text": "Which action best protects availability?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Locking a screen"
+          },
+          {
+            "code": "B",
+            "text": "Keeping systems maintained and reporting outages or malware quickly"
+          },
+          {
+            "code": "C",
+            "text": "Sharing an account"
+          },
+          {
+            "code": "D",
+            "text": "Disabling updates"
+          }
+        ]
+      },
+      {
+        "id": "m1aq6",
+        "number": 6,
+        "text": "A laptop is left unattended in a meeting room. What should the employee do?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1aq7",
+        "number": 7,
+        "text": "Why should employees use their own account?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "It makes passwords public"
+          },
+          {
+            "code": "B",
+            "text": "It supports accountability and appropriate access"
+          },
+          {
+            "code": "C",
+            "text": "It removes the need for MFA"
+          },
+          {
+            "code": "D",
+            "text": "It prevents all malware"
+          }
+        ]
+      },
+      {
+        "id": "m1aq8",
+        "number": 8,
+        "text": "You clicked a suspicious link and the browser behaves strangely. What should you do?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1aq9",
+        "number": 9,
+        "text": "Which is an example of integrity?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Only authorised staff can view a payroll file"
+          },
+          {
+            "code": "B",
+            "text": "A payroll file is accurate and unauthorised changes are prevented"
+          },
+          {
+            "code": "C",
+            "text": "Staff can access payroll at any time"
+          },
+          {
+            "code": "D",
+            "text": "A file is stored on a USB drive"
+          }
+        ]
+      },
+      {
+        "id": "m1aq10",
+        "number": 10,
+        "text": "Why should a mistake be reported even when no harm is obvious?",
+        "type": "scenario",
+        "options": []
+      }
+    ]
+  },
+  {
+    "moduleId": 1,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m1bq1",
+        "number": 1,
+        "text": "What does risk describe?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "The possibility and impact of an unwanted event"
+          },
+          {
+            "code": "B",
+            "text": "A password manager"
+          },
+          {
+            "code": "C",
+            "text": "A software update"
+          },
+          {
+            "code": "D",
+            "text": "An approved recipient"
+          }
+        ]
+      },
+      {
+        "id": "m1bq2",
+        "number": 2,
+        "text": "A manager emails from an unusual address asking for an urgent payment. What should you do?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1bq3",
+        "number": 3,
+        "text": "Which behaviour is safest for passwords?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Reusing one memorable password"
+          },
+          {
+            "code": "B",
+            "text": "Sharing a password with a teammate"
+          },
+          {
+            "code": "C",
+            "text": "Using unique passwords and approved MFA"
+          },
+          {
+            "code": "D",
+            "text": "Writing passwords on a monitor"
+          }
+        ]
+      },
+      {
+        "id": "m1bq4",
+        "number": 4,
+        "text": "What is malware?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Approved training content"
+          },
+          {
+            "code": "B",
+            "text": "Malicious software"
+          },
+          {
+            "code": "C",
+            "text": "A security checklist"
+          },
+          {
+            "code": "D",
+            "text": "A business impact review"
+          }
+        ]
+      },
+      {
+        "id": "m1bq5",
+        "number": 5,
+        "text": "Before sharing a document, which question matters most?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1bq6",
+        "number": 6,
+        "text": "Which action supports confidentiality?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Sending sensitive files to a personal email"
+          },
+          {
+            "code": "B",
+            "text": "Sharing information only with authorised people using approved tools"
+          },
+          {
+            "code": "C",
+            "text": "Disabling screen lock"
+          },
+          {
+            "code": "D",
+            "text": "Posting the file publicly"
+          }
+        ]
+      },
+      {
+        "id": "m1bq7",
+        "number": 7,
+        "text": "Why are updates important?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1bq8",
+        "number": 8,
+        "text": "You find a USB drive in the workplace. What is the safest response?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1bq9",
+        "number": 9,
+        "text": "What is least privilege?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Everyone has administrator access"
+          },
+          {
+            "code": "B",
+            "text": "Users receive only the access needed for their work"
+          },
+          {
+            "code": "C",
+            "text": "Access is never reviewed"
+          },
+          {
+            "code": "D",
+            "text": "One account is shared"
+          }
+        ]
+      },
+      {
+        "id": "m1bq10",
+        "number": 10,
+        "text": "What is the best reason to report quickly?",
+        "type": "scenario",
+        "options": []
+      }
+    ]
+  },
+  {
+    "moduleId": 1,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m1cq1",
+        "number": 1,
+        "text": "Which set contains the three parts of the CIA triad?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Control, Internet, Authentication"
+          },
+          {
+            "code": "B",
+            "text": "Confidentiality, Integrity, Availability"
+          },
+          {
+            "code": "C",
+            "text": "Compliance, Identity, Access"
+          },
+          {
+            "code": "D",
+            "text": "Confidentiality, Internet, Accounts"
+          }
+        ]
+      },
+      {
+        "id": "m1cq2",
+        "number": 2,
+        "text": "A colleague wants to borrow your login because their account is locked. What should you do?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1cq3",
+        "number": 3,
+        "text": "Which is the best example of a threat?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "A criminal attempting to steal credentials"
+          },
+          {
+            "code": "B",
+            "text": "A locked screen"
+          },
+          {
+            "code": "C",
+            "text": "An approved update"
+          },
+          {
+            "code": "D",
+            "text": "A verified recipient"
+          }
+        ]
+      },
+      {
+        "id": "m1cq4",
+        "number": 4,
+        "text": "You accidentally email a sensitive file to the wrong recipient. What should you do?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1cq5",
+        "number": 5,
+        "text": "What should you do before installing software?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Download from any search result"
+          },
+          {
+            "code": "B",
+            "text": "Use an approved source or ask support"
+          },
+          {
+            "code": "C",
+            "text": "Disable security software"
+          },
+          {
+            "code": "D",
+            "text": "Use a personal account"
+          }
+        ]
+      },
+      {
+        "id": "m1cq6",
+        "number": 6,
+        "text": "A screen lock mainly helps protect which security goal?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Confidentiality"
+          },
+          {
+            "code": "B",
+            "text": "Weather forecasts"
+          },
+          {
+            "code": "C",
+            "text": "Marketing reach"
+          },
+          {
+            "code": "D",
+            "text": "Internet speed"
+          }
+        ]
+      },
+      {
+        "id": "m1cq7",
+        "number": 7,
+        "text": "Why should recipients be checked before sending?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1cq8",
+        "number": 8,
+        "text": "Which statement about employee cybersecurity is correct?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "It is only the IT team\u2019s responsibility"
+          },
+          {
+            "code": "B",
+            "text": "It is a shared responsibility supported by technical controls"
+          },
+          {
+            "code": "C",
+            "text": "It ends after training"
+          },
+          {
+            "code": "D",
+            "text": "It matters only for remote workers"
+          }
+        ]
+      },
+      {
+        "id": "m1cq9",
+        "number": 9,
+        "text": "A login alert arrives while you are offline. What is a sensible response?",
+        "type": "scenario",
+        "options": []
+      },
+      {
+        "id": "m1cq10",
+        "number": 10,
+        "text": "What does availability mean?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Information is secret"
+          },
+          {
+            "code": "B",
+            "text": "Information is accurate"
+          },
+          {
+            "code": "C",
+            "text": "Authorised users can access systems when needed"
+          },
+          {
+            "code": "D",
+            "text": "Everyone can access information"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 2,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m2aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Phishing messages?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Social engineering. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Urgency and authority?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Links and attachments. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Business email compromise?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Verification and reporting. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to phishing?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving social engineering. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to verification?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving email. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 2,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m2bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Phishing messages?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Social engineering. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Urgency and authority?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Links and attachments. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Business email compromise?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Verification and reporting. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to phishing?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving social engineering. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to verification?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving email. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 2,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m2cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Phishing messages?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Social engineering. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Urgency and authority?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Links and attachments. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Business email compromise?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Verification and reporting. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to phishing?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving social engineering. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m2cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to verification?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m2cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving email. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 3,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m3aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Passwords and passphrases?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Multi-factor authentication. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Password managers?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Account recovery. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Least privilege?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Login alerts. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to password?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving passphrase. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to MFA?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving password manager. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 3,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m3bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Passwords and passphrases?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Multi-factor authentication. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Password managers?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Account recovery. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Least privilege?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Login alerts. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to password?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving passphrase. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to MFA?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving password manager. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 3,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m3cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Passwords and passphrases?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Multi-factor authentication. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Password managers?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Account recovery. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Least privilege?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Login alerts. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to password?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving passphrase. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m3cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to MFA?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m3cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving password manager. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 4,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m4aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Information classification?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Personal information. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Need to know?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Secure sharing. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Storage and retention?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Privacy incidents. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to personal information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving classification. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to need to know?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving sharing. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 4,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m4bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Information classification?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Personal information. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Need to know?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Secure sharing. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Storage and retention?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Privacy incidents. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to personal information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving classification. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to need to know?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving sharing. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 4,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m4cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Information classification?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Personal information. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Need to know?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Secure sharing. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Storage and retention?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Privacy incidents. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to personal information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving classification. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m4cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to need to know?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m4cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving sharing. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 5,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m5aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Web addresses and HTTPS?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Public Wi-Fi. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to VPN and remote access?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Downloads and websites. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Browser security?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Online scams. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to HTTPS?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving public Wi-Fi. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to VPN?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving browser. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 5,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m5bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Web addresses and HTTPS?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Public Wi-Fi. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to VPN and remote access?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Downloads and websites. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Browser security?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Online scams. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to HTTPS?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving public Wi-Fi. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to VPN?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving browser. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 5,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m5cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Web addresses and HTTPS?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Public Wi-Fi. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to VPN and remote access?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Downloads and websites. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Browser security?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Online scams. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to HTTPS?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving public Wi-Fi. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m5cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to VPN?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m5cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving browser. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 6,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m6aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Screen locking?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Updates. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Endpoint protection?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Removable media. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Physical security?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Backups and recovery. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to screen lock?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving updates. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to antivirus?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving USB. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 6,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m6bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Screen locking?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Updates. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Endpoint protection?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Removable media. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Physical security?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Backups and recovery. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to screen lock?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving updates. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to antivirus?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving USB. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 6,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m6cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to Screen locking?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Updates. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Endpoint protection?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Removable media. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Physical security?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Backups and recovery. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to screen lock?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving updates. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m6cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to antivirus?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m6cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving USB. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 7,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m7aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to What AI tools do?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Accuracy and hallucinations. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Sensitive information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Copyright and confidentiality. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Human review?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Deepfakes and manipulation. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to AI tool?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving hallucination. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to sensitive information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving prompt. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 7,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m7bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to What AI tools do?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Accuracy and hallucinations. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Sensitive information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Copyright and confidentiality. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Human review?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Deepfakes and manipulation. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to AI tool?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving hallucination. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to sensitive information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving prompt. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 7,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m7cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to What AI tools do?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Accuracy and hallucinations. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Sensitive information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Copyright and confidentiality. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Human review?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Deepfakes and manipulation. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to AI tool?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving hallucination. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m7cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to sensitive information?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m7cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving prompt. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 8,
+    "bank": "A",
+    "questions": [
+      {
+        "id": "m8aq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to What is an incident?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8aq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving When to report. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8aq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Reporting channels?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8aq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Containment instructions. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8aq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Updates and backups?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8aq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Daily cyber hygiene. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8aq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to incident?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8aq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving reporting. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8aq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to containment?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8aq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving evidence. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 8,
+    "bank": "B",
+    "questions": [
+      {
+        "id": "m8bq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to What is an incident?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8bq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving When to report. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8bq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Reporting channels?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8bq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Containment instructions. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8bq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Updates and backups?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8bq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Daily cyber hygiene. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8bq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to incident?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8bq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving reporting. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8bq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to containment?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8bq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving evidence. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleId": 8,
+    "bank": "C",
+    "questions": [
+      {
+        "id": "m8cq1",
+        "number": 1,
+        "text": "Which option represents the safest approach to What is an incident?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8cq2",
+        "number": 2,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving When to report. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8cq3",
+        "number": 3,
+        "text": "Which option represents the safest approach to Reporting channels?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8cq4",
+        "number": 4,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Containment instructions. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8cq5",
+        "number": 5,
+        "text": "Which option represents the safest approach to Updates and backups?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8cq6",
+        "number": 6,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving Daily cyber hygiene. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8cq7",
+        "number": 7,
+        "text": "Which option represents the safest approach to incident?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8cq8",
+        "number": 8,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving reporting. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      },
+      {
+        "id": "m8cq9",
+        "number": 9,
+        "text": "Which option represents the safest approach to containment?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Use the approved process and check before acting"
+          },
+          {
+            "code": "B",
+            "text": "Assume every request is genuine"
+          },
+          {
+            "code": "C",
+            "text": "Share access when work is busy"
+          },
+          {
+            "code": "D",
+            "text": "Disable a security control to save time"
+          }
+        ]
+      },
+      {
+        "id": "m8cq10",
+        "number": 10,
+        "text": "Workplace scenario: A colleague asks what to do about an issue involving evidence. What is the safest response?",
+        "type": "multipleChoice",
+        "options": [
+          {
+            "code": "A",
+            "text": "Ignore it unless someone complains"
+          },
+          {
+            "code": "B",
+            "text": "Take an approved safe action and report it through the correct process"
+          },
+          {
+            "code": "C",
+            "text": "Share the issue publicly"
+          },
+          {
+            "code": "D",
+            "text": "Try to bypass the organisation's controls"
+          }
+        ]
+      }
+    ]
+  }
+]

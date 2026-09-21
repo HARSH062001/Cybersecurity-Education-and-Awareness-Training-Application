@@ -33,7 +33,7 @@ app.UseAuthorization();
 
 app.UseStaticFiles();
 
-var moduleOneSections = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+var learningSectionKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
 {
     "purpose", "outcomes", "terms", "concepts", "workplace", "behaviours", "review"
 };
@@ -67,7 +67,7 @@ app.MapGet("/api/progress/modules/{moduleId:int}", async (int moduleId, HttpCont
 
 app.MapPost("/api/progress/modules/{moduleId:int}", async (int moduleId, ProgressUpdate update, HttpContext context, TrainingDbContext db) =>
 {
-    if (moduleId != 1 || !moduleOneSections.Contains(update.SectionKey)) return Results.BadRequest(new { message = "Unknown learning section." });
+    if (moduleId is < 1 or > 8 || !learningSectionKeys.Contains(update.SectionKey)) return Results.BadRequest(new { message = "Unknown learning section." });
     var learnerKey = GetLearnerKey(context);
     var existing = await db.ModuleSectionProgress.FirstOrDefaultAsync(x => x.LearnerKey == learnerKey && x.ModuleId == moduleId && x.SectionKey == update.SectionKey);
     if (update.Completed && existing is null)

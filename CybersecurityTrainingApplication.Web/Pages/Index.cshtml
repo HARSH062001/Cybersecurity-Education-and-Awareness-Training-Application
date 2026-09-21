@@ -1,34 +1,27 @@
-﻿@page
+@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center mb-5">
-    <h1 class="display-4">Cybersecurity Education and Awareness Training</h1>
-    <p class="lead">Employee learning prototype</p>
-</div>
-
-@if (Model.Module is not null)
-{
-    <section class="mb-4">
-        <h2>@Model.Module.Title</h2>
-        <p>@Model.Module.Purpose</p>
-        <p>@Model.Module.Content</p>
-    </section>
-    <h3>Assessment banks</h3>
-    <div class="row">
-        @foreach (var bank in Model.Module.QuestionBanks)
-        {
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title">@bank.Title</h4>
-                        <p class="card-text">Assessment bank for repeated-attempt support.</p>
-                        <a class="btn btn-primary" href="#">Start assessment</a>
-                    </div>
-                </div>
-            </div>
-        }
+<section class="home-hero">
+    <div class="home-hero__copy">
+        <span class="eyebrow">Employee security learning</span>
+        <h1>Build safer habits,<br /><span>one decision at a time.</span></h1>
+        <p>Practical cybersecurity learning for everyday work. Explore eight short modules, confirm what you have learned and prepare for knowledge assessments.</p>
+        <div class="home-hero__actions"><a class="btn btn-primary btn-lg" asp-page="/Modules">Explore learning modules</a><a class="home-secondary-link" asp-page="/Dashboard">View my learning overview <span aria-hidden="true">→</span></a></div>
+        <div class="home-trust-row"><span>8 employee-focused modules</span><span>24 planned question banks</span><span>Progress saved as you learn</span></div>
     </div>
-}
+    <div class="home-hero__panel" aria-label="Learning progress summary" data-overall-progress>
+        <div class="home-panel__icon" aria-hidden="true">✓</div><span class="eyebrow">Your learning path</span><strong data-overall-percent>0%</strong><p data-overall-detail>0 of 8 modules completed</p><div class="home-panel__track"><span data-overall-bar></span></div><a asp-page="/Dashboard">Open learning overview →</a>
+    </div>
+</section>
+
+<section class="home-section">
+    <div class="home-section__heading"><span class="eyebrow">How it works</span><h2>A clear path from awareness to action</h2><p>The application keeps cybersecurity learning practical, short and relevant to normal workplace decisions.</p></div>
+    <div class="home-steps"><article><span>01</span><h3>Learn</h3><p>Read focused guidance, examples and safe behaviours for each cybersecurity topic.</p></article><article><span>02</span><h3>Confirm progress</h3><p>Mark each learning section complete when you have reviewed it at your own pace.</p></article><article><span>03</span><h3>Assess knowledge</h3><p>Complete a question bank when the connected assessment service is ready.</p></article></div>
+</section>
+
+<section class="home-ready-card"><div><span class="eyebrow">Start with the basics</span><h2>Cybersecurity Fundamentals</h2><p>Understand common threats, secure accounts and devices, handle information safely and report concerns early.</p></div><a class="btn btn-light" asp-page="/Module" asp-route-id="1">Start Module 1</a></section>
+
+@section Scripts { <script src="~/js/module-progress.js" asp-append-version="true"></script> }

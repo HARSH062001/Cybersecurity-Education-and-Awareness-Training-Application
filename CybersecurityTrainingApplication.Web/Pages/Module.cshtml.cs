@@ -20,11 +20,11 @@ public class ModuleModel : PageModel
         Title = record.Title.Replace($"Module {record.Id} – ", "");
         Blocks = record.Blocks;
         Purpose = Blocks.FirstOrDefault(x => x.Kind == "paragraph")?.Text ?? "Build practical cybersecurity knowledge and safe workplace habits.";
-        if (ModuleId == 1) LearningSections = BuildModuleOneSections(Blocks);
+        LearningSections = BuildLearningSections(Blocks);
         return Page();
     }
 
-    private static List<LearningSection> BuildModuleOneSections(List<ContentBlock> blocks)
+    private static List<LearningSection> BuildLearningSections(List<ContentBlock> blocks)
     {
         var tables = blocks.Where(x => x.Kind == "table").ToList();
         var content = blocks.Where(x => x.Kind != "table").ToList();
@@ -38,16 +38,19 @@ public class ModuleModel : PageModel
             new("purpose", "Purpose and importance", "Why this matters in everyday work", Before("Learning outcomes")),
             new("outcomes", "Learning outcomes", "What you should be able to do", Between("Learning outcomes", "Key terms")),
             new("terms", "Key terms", "Plain-language definitions", tables.Count > 0 ? [tables[0]] : []),
-            new("concepts", "Core cybersecurity concepts", "The knowledge behind safer decisions", Between("Main topics", "Workplace examples")),
-            new("workplace", "Workplace examples", "How the risks appear during normal work", AddTable(Between("Workplace examples", "Safe employee behaviours"), tables, 1)),
-            new("behaviours", "Safe employee behaviours", "Actions to use every day", AddTable(Between("Safe employee behaviours", "Assessment coverage"), tables, 2)),
+            new("concepts", "Core concepts", "The knowledge behind safer decisions", Between("Main topics", "Workplace examples")),
+            new("workplace", "Workplace examples", "How the risks appear during normal work", Between("Workplace examples", "Business impact examples")),
+            new("behaviours", "Business impact and safe behaviours", "Actions to use every day", AddTables(Between("Business impact examples", "Assessment coverage"), tables, 1, 2)),
             new("review", "Review and next steps", "Confirm coverage and revisit sources", From("Assessment coverage"))
         ];
     }
 
-    private static List<ContentBlock> AddTable(List<ContentBlock> blocks, List<ContentBlock> tables, int tableIndex)
+    private static List<ContentBlock> AddTables(List<ContentBlock> blocks, List<ContentBlock> tables, params int[] tableIndexes)
     {
-        if (tables.Count > tableIndex) blocks.Add(tables[tableIndex]);
+        foreach (var tableIndex in tableIndexes)
+        {
+            if (tables.Count > tableIndex) blocks.Add(tables[tableIndex]);
+        }
         return blocks;
     }
     public sealed class ModuleContentRecord { public int Id { get; set; } public string Title { get; set; } = ""; public List<ContentBlock> Blocks { get; set; } = []; }

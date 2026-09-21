@@ -1,5 +1,33 @@
 @page
 @model CybersecurityTrainingApplication.Web.Pages.AssessmentModel
 @{ ViewData["Title"] = "Assessment"; }
-<a class="back-link" asp-page="/Modules">← Back to modules</a><div class="page-heading"><span class="eyebrow">Module 1 · Question Bank @Model.Bank</span><h1>Cybersecurity Fundamentals assessment</h1><p>Answer the question below. Your answers will be saved by the connected backend.</p></div>
-<div class="assessment-layout"><div class="question-panel"><div class="question-progress">Question @Model.QuestionNumber of @Model.TotalQuestions</div><h2>@Model.Question</h2>@foreach(var option in Model.Options){<label class="answer-option"><input type="radio" name="answer" value="@option.Code" /> <span><b>@option.Code</b> @option.Text</span></label>}<div class="d-flex justify-content-between mt-4"><button class="btn btn-outline-secondary" disabled>Previous</button><a class="btn btn-primary" asp-page="/Results" asp-route-bank="@Model.Bank">Submit assessment</a></div></div><aside class="assessment-side"><h3>Assessment guide</h3><p>Take your time and select the answer that best matches the safe workplace response.</p><hr/><p><b>Bank:</b> @Model.Bank</p><p><b>Questions:</b> 10</p><p><b>Attempts:</b> Recorded by the application</p></aside></div>
+
+<a class="back-link" asp-page="/Module" asp-route-id="@Model.ModuleId">← Back to Module @Model.ModuleId</a>
+<main class="assessment-workspace" data-assessment data-module-id="@Model.ModuleId" data-bank="@Model.Bank" data-total-questions="@Model.Questions.Count">
+    <header class="assessment-header"><div><span class="eyebrow">Module @Model.ModuleId · Assigned assessment</span><h1>@Model.ModuleTitle</h1><p>A question bank has been assigned automatically for this attempt. Read each question carefully and choose the safest workplace response.</p></div><div class="assessment-header__meta"><strong>@Model.Questions.Count questions</strong><span>Bank assigned automatically</span></div></header>
+    <div class="assessment-progress"><div><strong data-assessment-count>Question 1 of @Model.Questions.Count</strong><span data-assessment-answered>0 answered</span></div><div class="assessment-progress__track"><span data-assessment-bar></span></div></div>
+
+    <div class="assessment-workspace__grid">
+        <aside class="assessment-nav" aria-label="Assessment question navigation"><span class="eyebrow">Questions</span><div class="assessment-nav__grid">@for (var index = 0; index < Model.Questions.Count; index++) { <button type="button" data-question-nav="@index" aria-label="Go to question @(index + 1)">@(index + 1)</button> }</div><div class="assessment-nav__notice"><strong>Your responses</strong><p>Responses remain in this browser while you work. The backend will record the assigned bank and final attempt after integration.</p></div></aside>
+        <div class="assessment-questions">
+            @for (var index = 0; index < Model.Questions.Count; index++)
+            {
+                var question = Model.Questions[index];
+                <section class="assessment-question" data-question-panel="@index" hidden="@(index != 0 ? "hidden" : null)">
+                    <span class="question-tag">Question @(index + 1)</span><h2>@question.Text</h2>
+                    @if (question.Type == "multipleChoice")
+                    {
+                        <fieldset><legend>Select one answer</legend><div class="answer-options">@foreach (var option in question.Options) { <label class="answer-card"><input type="radio" name="@question.Id" value="@option.Code" data-answer-input="@question.Id" /><span class="answer-card__code">@option.Code</span><span>@option.Text</span></label> }</div></fieldset>
+                    }
+                    else
+                    {
+                        <div class="scenario-response"><span class="scenario-response__label">Workplace scenario</span><p>Describe the safest action you would take. Your response will be reviewed using the assessment rules supplied by the backend.</p><label for="@question.Id">Your response</label><textarea id="@question.Id" rows="5" data-answer-input="@question.Id" placeholder="Describe the safe action you would take..."></textarea></div>
+                    }
+                    <footer class="assessment-question__footer"><button type="button" class="btn btn-outline-secondary" data-previous-question>Previous</button><span data-question-feedback aria-live="polite"></span><button type="button" class="btn btn-primary" data-next-question>Next question</button><button type="button" class="btn btn-primary" data-submit-assessment hidden>Submit assessment</button></footer>
+                </section>
+            }
+        </div>
+    </div>
+</main>
+
+@section Scripts { <script src="~/js/assessment.js" asp-append-version="true"></script> }
