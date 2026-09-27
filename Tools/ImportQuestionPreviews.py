@@ -14,7 +14,7 @@ from docx import Document
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "02_Question Banks"
-OUTPUT = ROOT / "CybersecurityTrainingApplication.Web" / "Data" / "assessment-preview.json"
+OUTPUT = ROOT / "CybersecurityTrainingWeb" / "Data" / "assessment-preview.json"
 QUESTION_MARKER = re.compile(r"^Question\s+(\d+)\s*$", re.IGNORECASE)
 OPTION_MARKER = re.compile(r"^([A-D])\.\s+(.+)$")
 

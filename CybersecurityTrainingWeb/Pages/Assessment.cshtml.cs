@@ -2,7 +2,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CybersecurityTrainingApplication.Web.Pages;
+namespace CybersecurityTrainingWeb.Pages;
 
 public class AssessmentModel : PageModel
 {
@@ -13,7 +13,7 @@ public class AssessmentModel : PageModel
 
     public IActionResult OnGet(int moduleId = 1, string? bank = null)
     {
-        if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
+        if (moduleId is < 1 or > 2) return RedirectToPage("/Modules");
         if (bank is null || bank.Length != 1 || bank[0] is < 'A' or > 'C') bank = ((char)('A' + Random.Shared.Next(3))).ToString();
         var path = Path.Combine(AppContext.BaseDirectory, "Data", "assessment-preview.json");
         var banks = System.IO.File.Exists(path)

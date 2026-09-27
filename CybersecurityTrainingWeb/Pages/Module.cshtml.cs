@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-namespace CybersecurityTrainingApplication.Web.Pages;
+namespace CybersecurityTrainingWeb.Pages;
 public class ModuleModel : PageModel
 {
     public int ModuleId { get; private set; }
@@ -12,6 +12,8 @@ public class ModuleModel : PageModel
     public string[] Banks => ["A", "B", "C"];
     public IActionResult OnGet(int id = 1)
     {
+        if (id is < 1 or > 2) return RedirectToPage("/Modules");
+
         var path = Path.Combine(AppContext.BaseDirectory, "Data", "module-content.json");
         var records = System.IO.File.Exists(path) ? JsonSerializer.Deserialize<List<ModuleContentRecord>>(System.IO.File.ReadAllText(path), new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? [] : [];
         var record = records.FirstOrDefault(x => x.Id == id) ?? records.FirstOrDefault(x => x.Id == 1);
