@@ -1,4 +1,36 @@
-﻿<!DOCTYPE html>
+﻿@using CybersecurityTrainingWeb.Data
+@using Microsoft.AspNetCore.Antiforgery
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@inject IAntiforgery Antiforgery
+
+@{
+    var isSignedIn = User.Identity?.IsAuthenticated == true;
+    var authState = isSignedIn ? "true" : "false";
+    var badgeText = "CT";
+
+    if (isSignedIn)
+    {
+        var account = await UserManager.GetUserAsync(User);
+        var fullName = account?.FullName?.Trim();
+
+        if (!string.IsNullOrWhiteSpace(fullName))
+        {
+            var words = fullName.Split(
+                ' ',
+                StringSplitOptions.RemoveEmptyEntries);
+
+            badgeText = words.Length == 1
+                ? words[0][0].ToString().ToUpperInvariant()
+                : $"{words[0][0]}{words[^1][0]}".ToUpperInvariant();
+        }
+    }
+
+    var csrfToken = isSignedIn
+        ? Antiforgery.GetAndStoreTokens(Context).RequestToken
+        : null;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,19 +38,27 @@
 
     <title>@ViewData["Title"] - Cybersecurity Training</title>
 
+    @if (!string.IsNullOrEmpty(csrfToken))
+    {
+        <meta name="csrf-token" content="@csrfToken" />
+    }
+
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CybersecurityTrainingWeb.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body data-authenticated="@authState">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     @* Shared site header and navigation. *@
     <header class="signal-header">
         <div class="signal-header__inner">
-            <a class="signal-brand" asp-area="" asp-page="/Index" aria-label="Cybersecurity Training home">
-                <span class="signal-brand__mark" aria-hidden="true">S/8</span>
+            <a class="signal-brand"
+               asp-area=""
+               asp-page="/Index"
+               aria-label="Cybersecurity Training home">
+                <span class="signal-brand__mark" aria-hidden="true">@badgeText</span>
                 <span>
                     <strong>Cybersecurity Training</strong>
                     <small>Workplace cyber awareness</small>
@@ -29,9 +69,30 @@
                 <a asp-area="" asp-page="/Dashboard">Dashboard</a>
                 <a asp-area="" asp-page="/Modules">Learning route</a>
                 <a asp-area="" asp-page="/Index">Home</a>
+
                 <a class="signal-nav__action" asp-area="" asp-page="/Modules">
                     View modules <span aria-hidden="true">↗</span>
                 </a>
+
+                @if (isSignedIn)
+                {
+                    <a asp-area="" asp-page="/Profile">My profile</a>
+
+                    <form asp-area="Identity"
+                          asp-page="/Account/Logout"
+                          asp-route-returnUrl="/"
+                          method="post"
+                          class="m-0">
+                        <button type="submit" class="btn btn-outline-light">
+                            Sign out
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login">Sign in</a>
+                    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+                }
             </nav>
         </div>
     </header>

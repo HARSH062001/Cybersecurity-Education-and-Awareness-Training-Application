@@ -8,8 +8,7 @@
     <p class="eyebrow">Privacy information</p>
     <h1>How this learning prototype handles information</h1>
     <p class="lead">
-        This page explains the browser storage used by the current version of the
-        cybersecurity training application.
+        This page explains how the current application handles account details, learning progress and practice assessment responses.
     </p>
 </section>
 
@@ -18,9 +17,7 @@
         <section>
             <h2>Learning progress</h2>
             <p>
-                The current prototype saves confirmed module-section progress in your
-                browser’s local storage so it can be shown again on this device.
-                Clearing the browser’s site data may remove that progress.
+                When you are signed in, confirmed module-section progress is saved to your account in the application database. Signed-out visitors cannot save section progress.
             </p>
         </section>
 
@@ -36,9 +33,7 @@
         <section>
             <h2>Backend connection</h2>
             <p>
-                The application may be updated to save progress and assessment results
-                through a backend service. This notice should be reviewed and updated
-                before that service is used with real learner information.
+                Account details and signed-in learning progress are stored by the application. Assessment responses currently remain in the browser session; server-side marking, scores and saved attempt history are not connected yet.
             </p>
         </section>
 

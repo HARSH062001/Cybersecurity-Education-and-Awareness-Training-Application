@@ -1,0 +1,100 @@
+@page
+@model ProfileModel
+@{
+    ViewData["Title"] = "My profile";
+}
+
+<section class="privacy-hero">
+    <p class="eyebrow">Your account</p>
+    <h1>My profile</h1>
+    <p class="lead">
+        Keep your account details up to date. The fields below are optional.
+    </p>
+</section>
+
+<div class="row">
+    <div class="col-12 col-lg-7">
+        <section class="panel p-4" aria-labelledby="profile-heading">
+            <h2 id="profile-heading">Profile details</h2>
+
+            @if (TempData["ProfileStatus"] is string status)
+            {
+                <div class="alert alert-success" role="status">
+                    @status
+                </div>
+            }
+
+            <form method="post">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3"
+                     role="alert"></div>
+
+                <div class="mb-3">
+                    <label for="account-email" class="form-label">Email address</label>
+                    <input id="account-email"
+                           class="form-control"
+                           type="email"
+                           value="@Model.Email"
+                           readonly />
+                    <div class="form-text">
+                        To change your email, use account settings.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.FullName" class="form-label"></label>
+                    <input asp-for="Input.FullName"
+                           class="form-control"
+                           autocomplete="name"
+                           maxlength="100"
+                           placeholder="Your full name" />
+                    <span asp-validation-for="Input.FullName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.Department" class="form-label"></label>
+                    <input asp-for="Input.Department"
+                           class="form-control"
+                           maxlength="100"
+                           placeholder="For example, Finance" />
+                    <span asp-validation-for="Input.Department"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Input.JobTitle" class="form-label"></label>
+                    <input asp-for="Input.JobTitle"
+                           class="form-control"
+                           maxlength="100"
+                           placeholder="For example, Team member" />
+                    <span asp-validation-for="Input.JobTitle"
+                          class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Save profile
+                </button>
+            </form>
+        </section>
+
+        <section class="panel p-4 mt-3" aria-labelledby="security-heading">
+            <h2 id="security-heading">Sign-in and security</h2>
+            <p>
+                Manage your email, password, phone number and
+                two-factor authentication in account settings.
+            </p>
+            <a class="btn btn-outline-primary"
+               asp-area="Identity"
+               asp-page="/Account/Manage/Index">
+                Open account settings
+            </a>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

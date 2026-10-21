@@ -46,7 +46,14 @@
                 <strong data-progress-count>
                     0 of @Model.LearningSections.Count sections
                 </strong>
-                <p>Your progress is saved on this device.</p>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <p>Section progress is saved to your account.</p>
+                }
+                else
+                {
+                    <p>Sign in to save your section progress.</p>
+                }
             </div>
         </div>
 
@@ -225,6 +232,6 @@
 </div>
 
 @section Scripts {
-    @* Updates section completion and progress from this browser. *@
+    @* Loads account-based section progress. *@
     <script src="~/js/module-progress.js" asp-append-version="true"></script>
 }

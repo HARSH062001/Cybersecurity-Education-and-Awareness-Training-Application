@@ -2,108 +2,84 @@
 
 COMP6900 Computing Project — University of Newcastle
 
-## What this project is
+This repository contains a workplace cybersecurity learning prototype, source learning and question-bank documents, and project documentation. The web application uses ASP.NET Core Razor Pages on .NET 10.
 
-A team-built ASP.NET Core Razor Pages prototype for practical cybersecurity awareness training in the workplace. The repository contains the learning materials, references, question-bank documents, technical documentation and the current web application.
+## Current working scope
 
-The learning pathway is planned to contain eight modules. The current website enables **Module 1: Cybersecurity Fundamentals** and **Module 2: Phishing and Social Engineering**. The other six modules will be added as team members provide and review their content and question banks.
+- Eight modules appear in the catalogue and have seven learning sections each.
+- Visitors can browse learning content and try the assessment preview.
+- Users can register, sign in, sign out, and edit a profile containing a name, department, and job title. Account security settings use ASP.NET Core Identity.
+- Signed-in users can confirm module sections as complete. Section progress is stored in SQLite against their user account and appears in the home page, catalogue, modules, and dashboard. Signed-out visitors show zero progress and cannot save completion. Progress was manually checked with two separate test accounts.
+- The navigation badge displays the signed-in user's initials, or `CT` for a visitor.
+- A practice assessment preview displays learner-facing questions and options from `CybersecurityTrainingWeb/Data/assessment-preview.json`; the results page confirms the number of responses entered.
+- Entity Framework Core migrations create the Identity, profile, section-progress, and assessment-record tables.
 
-## Current website features
+The assessment **database schema is only groundwork**. The assessment preview does not yet write attempts to it or award marks.
 
-- Cybersecurity-themed home page, learner dashboard and module catalogue.
-- Module 1 and Module 2 pages, each organised into seven learning sections.
-- Section completion controls and progress summaries.
-- Assessment preview with ten questions, automatic A/B/C bank assignment, question navigation and answer selection.
-- Results confirmation page that reports how many responses were entered.
-- Responsive layout and browser-side progress/assessment state.
+## Known limitations and remaining work
 
-## Important prototype limitations
+1. The learner-facing JSON content has not been fully reconciled with the latest module and question-bank Word documents. The source documents must be reviewed before a final content import. Do not assume the preview questions are the approved final banks.
+2. Assessment bank choice is currently a frontend preview: it is not assigned and persisted server-side. The current assessment route can accept a bank parameter. Production behaviour should expose one start action and assign a bank server-side.
+3. Assessment answers remain in the browser session. There is no server-side answer checking, score, feedback, durable attempt record, or attempt history. The results page is not an official marked result.
+4. Correct answers, marking rules, and explanations must remain server-side when the approved banks are imported. Multiple-choice questions can then be marked immediately; free-text answers need an approved rubric and review workflow before a reliable mark can be shown.
+5. Roles infrastructure exists, but owner/admin role assignment, management screens, reporting, schedules, retakes, and notifications are not implemented.
+6. Account confirmation is required outside Development, but a production email delivery service and deployment configuration are not in place. This prototype is not ready for real learner data or public deployment.
+7. Automated test coverage, full accessibility/mobile checks, and final team acceptance testing remain to be completed.
 
-This version is a frontend prototype, not a production learning-management system:
+## Run locally
 
-- Module progress is saved in the current browser using local storage; it is not linked to an account or shared across devices.
-- Assessment answers are held in the browser for the current session. The results page does not calculate a score.
-- Bank selection is a frontend preview. Server-side bank history, marking, explanations and durable attempt/result storage are not implemented.
-- Login, user roles, database persistence and deployment are not included in this frontend version.
-- The website currently exposes only Modules 1 and 2. Do not treat the other six planned modules as available until their content has been integrated and tested.
-
-## Team
-
-- Harsh Chaudhary — current website contribution and Modules 1–2 content/question banks.
-- Vraj Ajaykumar Chauhan
-- Ankitkumar Chimanbhai Patel
-- Samuel John Gabo
-
-Each team member is contributing two modules under the team’s agreed allocation. Please coordinate module ownership and integration with the group before changing shared files. Other members’ modules and question banks should be added when supplied and reviewed.
-
-## Run the website locally
-
-### Requirements
-
-- .NET 10 SDK.
-- Visual Studio or Visual Studio Code (recommended).
-- Git to clone and collaborate on the repository.
-
-Check that .NET is available in PowerShell:
+Requirements: .NET 10 SDK. For migrations, install the matching EF Core tool if it is not already available:
 
 ```powershell
-dotnet --version
+dotnet tool install --global dotnet-ef --version 10.0.13
 ```
 
-From the repository root, restore, build and run:
+From the repository root:
 
 ```powershell
-dotnet restore .\CybersecurityTrainingApplication.slnx
-dotnet build .\CybersecurityTrainingApplication.slnx
-dotnet run --project .\CybersecurityTrainingWeb\CybersecurityTrainingWeb.csproj
+cd .\CybersecurityTrainingWeb
+dotnet restore
+dotnet ef database update
+dotnet run --launch-profile http
 ```
 
-Open the local address printed in the terminal. Useful routes are:
+Open `http://localhost:5260`. The database is a local `cybertraining.db` file configured in `appsettings.json`; it is ignored by Git. Run migrations from the **web project folder** so the application and EF tool use the same relative database path. On a new clone, no user accounts or progress will be present. Development mode permits local registration without email confirmation; that is not a production setup.
 
-```text
-/
-/Dashboard
-/Modules
-/Module?id=1
-/Module?id=2
-/Assessment?moduleId=1
-/Assessment?moduleId=2
-```
-
-If a build reports that files are locked, stop any running copy of the website with **Ctrl+C** in its terminal and build again.
-
-## Updating question-bank preview data
-
-After reviewed question-bank Word files change, regenerate the learner-facing preview from the repository root:
+To validate after changes, stop the running site with Ctrl+C, then run:
 
 ```powershell
-python -m pip install python-docx
-python .\Tools\ImportQuestionPreviews.py
+dotnet build
+dotnet ef migrations list
 ```
 
-The importer writes question text and answer options to `CybersecurityTrainingWeb/Data/assessment-preview.json`. Correct answers, explanations, business impacts and references remain in the source Word documents and are not included in the learner preview.
+Useful routes: `/`, `/Dashboard`, `/Modules`, `/Module?id=1`, `/Assessment?moduleId=1`, `/Profile`, and `/Privacy`.
+
+## Manual smoke test
+
+1. While signed out, confirm that the badge shows `CT` and progress shows zero.
+2. Register a local test account, fill in profile details, and complete one learning section. Refresh and confirm its progress remains.
+3. Sign out and sign back in; confirm the same account's progress remains.
+4. Register a second account and confirm that it starts at zero rather than inheriting the first user's progress.
+5. Try an assessment and confirm that the results page **does not** claim to have marked or stored an official result.
+
+Do not use real passwords or personal learner data for this prototype. Never commit local `.db` files, secrets, or test credentials.
 
 ## Repository layout
 
 ```text
-01_Module Content/          Module learning documents
-02_Question Banks/          Question Bank A, B and C documents by module
-04_Project Documentation/   Project planning and records
-05_Presentation/             Presentation material
-06_Technical Design/         Architecture and technical design
-CybersecurityTrainingWeb/    Current ASP.NET Core Razor Pages website
-CybersecurityTrainingApplication.slnx
-README.md
+01_Module Content/          Source learning documents
+02_Question Banks/          Source question-bank documents
+04_Project Documentation/   Planning and project records
+05_Presentation/            Presentation material
+06_Technical Design/        Architecture and design
+CybersecurityTrainingWeb/    Razor Pages application, data, and EF migrations
 ```
 
-## Adding the remaining modules
+## Next integration steps for the team
 
-When a team member submits a module, integrate its reviewed learning content and its question banks into the shared application. Keep the content/data structure consistent with Modules 1 and 2, update the catalogue and module-routing limits deliberately, and test the module and assessment routes before merging. Do not expose answer keys in learner-facing pages.
+1. Agree which Word documents are the approved versions, then reconcile `module-content.json` and the learner-facing assessment data with those documents. Check module titles, section text, questions, and options. Keep answer keys out of learner-facing JSON.
+2. Import approved banks, questions, options, answer keys, and scoring rules into protected server-side records; verify all eight modules and three banks per module.
+3. Replace the assessment preview with authenticated, persisted bank assignment and submissions. Mark objective questions server-side and store responses, scores, and feedback. Define manual-review rules for any free-text questions.
+4. Add results and attempt history, role-based owner/admin workflows, automated tests, and deployment/email configuration. Review privacy and security before using real learners.
 
-## Collaboration and safe Git use
-
-1. Pull the latest `main` before starting shared work.
-2. Use a feature branch for a change and make focused commits.
-3. Review changes with the team before merging.
-4. Do not commit passwords, tokens, private connection strings, database files, or build output.
-5. Describe prototype limitations accurately; do not claim authentication, backend marking, or cross-device progress until implemented and tested.
+Coordinate ownership and review changes with the team. Do not present assessment scoring, persistent attempts, or production readiness as completed features.

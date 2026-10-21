@@ -4,6 +4,7 @@
         "workplace", "behaviours", "review"
     ];
 
+    const signedIn = document.body.dataset.authenticated === "true";
     const workspace = document.querySelector("[data-module-learning]");
     const moduleId = Number(workspace?.dataset.moduleLearning || 0);
     const workspaceKeys = workspace
@@ -22,114 +23,117 @@
 
     const progressByModule = new Map();
 
-    const storageKey = id => `cybertraining.module.${id}.sections.v1`;
+    function showMessage(message, kind = "warning") {
+        const container = workspace || document.querySelector("#main-content");
+        if (!container) return;
 
-    const readCompleted = (id, allowedKeys = sectionKeys) => {
-        try {
-            const saved = JSON.parse(localStorage.getItem(storageKey(id)) || "[]");
-            return new Set(
-                Array.isArray(saved)
-                    ? saved.filter(key => allowedKeys.includes(key))
-                    : []
-            );
-        } catch {
-            return new Set();
-        }
-    };
-
-    const saveCompleted = (id, completed) => {
-        try {
-            localStorage.setItem(storageKey(id), JSON.stringify([...completed]));
-        } catch {
-            // Progress still works on this page if browser storage is unavailable.
+        let notice = container.querySelector("[data-progress-notice]");
+        if (!notice) {
+            notice = document.createElement("p");
+            notice.dataset.progressNotice = "";
+            notice.setAttribute("role", "status");
+            container.prepend(notice);
         }
 
-        window.dispatchEvent(
-            new CustomEvent("moduleprogresschanged", { detail: { moduleId: id } })
-        );
-    };
+        notice.className = `alert alert-${kind}`;
+        notice.textContent = message;
+        notice.hidden = !message;
+    }
 
-    const percentageOf = (completed, total = sectionKeys.length) =>
-        total ? Math.round((completed.size / total) * 100) : 0;
+    function percentageOf(completed, total = sectionKeys.length) {
+        return total ? Math.round((completed.size / total) * 100) : 0;
+    }
 
-    const updateSummaryCards = (id, completed) => {
+    function updateSummaryCards(id, completed) {
         const percentage = percentageOf(completed);
 
-        document.querySelectorAll(`[data-module-progress="${id}"]`).forEach(card => {
-            card.style.setProperty("--module-progress", percentage);
+        document.querySelectorAll(`[data-module-progress="${id}"]`)
+            .forEach(card => {
+                card.style.setProperty("--module-progress", percentage);
 
-            card.querySelectorAll("[data-progress-value]").forEach(element => {
-                element.textContent = `${percentage}%`;
+                card.querySelectorAll("[data-progress-value]")
+                    .forEach(element => {
+                        element.textContent = `${percentage}%`;
+                    });
+
+                card.querySelectorAll("[data-progress-sections]")
+                    .forEach(element => {
+                        element.textContent =
+                            `${completed.size} of ${sectionKeys.length} sections complete`;
+                    });
+
+                card.querySelectorAll("[data-module-bar]")
+                    .forEach(element => {
+                        element.style.width = `${percentage}%`;
+                    });
+
+                card.querySelectorAll("[data-module-status]")
+                    .forEach(element => {
+                        element.textContent = percentage === 100
+                            ? "Complete"
+                            : percentage > 0 ? "In progress" : "Not started";
+                    });
+
+                card.querySelectorAll('[role="progressbar"]')
+                    .forEach(element => {
+                        element.setAttribute("aria-valuenow", String(percentage));
+                    });
+
+                const action = card.querySelector("[data-progress-action]");
+                if (action) {
+                    action.textContent = percentage === 0
+                        ? `Start Module ${id}`
+                        : percentage === 100
+                            ? `Review Module ${id}`
+                            : `Continue Module ${id}`;
+                }
             });
+    }
 
-            card.querySelectorAll("[data-progress-sections]").forEach(element => {
-                element.textContent =
-                    `${completed.size} of ${sectionKeys.length} sections complete`;
-            });
-
-            card.querySelectorAll("[data-module-bar]").forEach(element => {
-                element.style.width = `${percentage}%`;
-            });
-
-            card.querySelectorAll("[data-module-status]").forEach(element => {
-                element.textContent = percentage === 100
-                    ? "Complete"
-                    : percentage > 0 ? "In progress" : "Not started";
-            });
-
-            card.querySelectorAll('[role="progressbar"]').forEach(element => {
-                element.setAttribute("aria-valuenow", String(percentage));
-            });
-
-            const action = card.querySelector("[data-progress-action]");
-            if (action) {
-                action.textContent = percentage === 0
-                    ? `Start Module ${id}`
-                    : percentage === 100
-                        ? `Review Module ${id}`
-                        : `Continue Module ${id}`;
-            }
-        });
-    };
-
-    const updateOverallProgress = () => {
-        if (!document.querySelector("[data-overall-progress]")) return;
-
+    function updateOverallProgress() {
         const completedSections = [...progressByModule.values()]
             .reduce((total, completed) => total + completed.size, 0);
 
         const completedModules = [...progressByModule.values()]
-            .filter(completed => completed.size === sectionKeys.length).length;
+            .filter(completed => completed.size === sectionKeys.length)
+            .length;
 
         const percentage = Math.round(
             (completedSections / (8 * sectionKeys.length)) * 100
         );
 
-        document.querySelectorAll("[data-overall-progress]").forEach(card => {
-            card.querySelectorAll("[data-overall-percent]").forEach(element => {
-                element.textContent = `${percentage}%`;
-            });
+        document.querySelectorAll("[data-overall-progress]")
+            .forEach(card => {
+                card.querySelectorAll("[data-overall-percent]")
+                    .forEach(element => {
+                        element.textContent = `${percentage}%`;
+                    });
 
-            card.querySelectorAll("[data-overall-detail]").forEach(element => {
-                element.textContent =
-                    `${completedModules} of 8 modules completed`;
-            });
+                card.querySelectorAll("[data-overall-detail]")
+                    .forEach(element => {
+                        element.textContent =
+                            `${completedModules} of 8 modules completed`;
+                    });
 
-            card.querySelectorAll("[data-overall-bar]").forEach(element => {
-                element.style.width = `${percentage}%`;
-            });
+                card.querySelectorAll("[data-overall-bar]")
+                    .forEach(element => {
+                        element.style.width = `${percentage}%`;
+                    });
 
-            card.querySelectorAll('[role="progressbar"]').forEach(element => {
-                element.setAttribute("aria-valuenow", String(percentage));
+                card.querySelectorAll('[role="progressbar"]')
+                    .forEach(element => {
+                        element.setAttribute(
+                            "aria-valuenow",
+                            String(percentage)
+                        );
+                    });
             });
-        });
-    };
+    }
 
-    const updateDashboardFocus = () => {
+    function updateDashboardFocus() {
         const focusCards = document.querySelectorAll("[data-dashboard-focus]");
         if (!focusCards.length) return;
 
-        // Move forward only when every section of the current module is complete.
         const availableIds = moduleNames.size
             ? [...moduleNames.keys()].sort((a, b) => a - b)
             : [1, 2, 3, 4, 5, 6, 7, 8];
@@ -154,12 +158,10 @@
         const progressBar = document.querySelector(
             "[data-dashboard-focus] [role='progressbar']"
         );
-        if (progressBar) {
-            progressBar.setAttribute(
-                "aria-label",
-                `Module ${currentId} progress`
-            );
-        }
+        progressBar?.setAttribute(
+            "aria-label",
+            `Module ${currentId} progress`
+        );
 
         const title = document.querySelector("[data-current-module-title]");
         if (title) {
@@ -178,9 +180,9 @@
 
             if (allComplete) action.textContent = "Review all modules";
         }
-    };
+    }
 
-    const updateModulePage = completed => {
+    function updateModulePage(completed) {
         if (!workspace) return;
 
         const percentage = percentageOf(completed, workspaceKeys.length);
@@ -188,152 +190,225 @@
         workspace.querySelector("[data-progress-ring]")
             ?.style.setProperty("--progress", percentage);
 
-        workspace.querySelectorAll("[data-progress-percent]").forEach(element => {
-            element.textContent = `${percentage}%`;
-        });
+        workspace.querySelectorAll("[data-progress-percent]")
+            .forEach(element => {
+                element.textContent = `${percentage}%`;
+            });
 
-        workspace.querySelectorAll("[data-progress-count]").forEach(element => {
-            element.textContent =
-                `${completed.size} of ${workspaceKeys.length} sections`;
-        });
+        workspace.querySelectorAll("[data-progress-count]")
+            .forEach(element => {
+                element.textContent =
+                    `${completed.size} of ${workspaceKeys.length} sections`;
+            });
 
         workspaceKeys.forEach(key => {
             const isComplete = completed.has(key);
-            const learningSection = workspace.querySelector(
+            const section = workspace.querySelector(
                 `[data-progress-section="${key}"]`
             );
-            const navigationLink = workspace.querySelector(
+            const link = workspace.querySelector(
                 `[data-section-link="${key}"]`
             );
 
-            learningSection?.classList.toggle("is-complete", isComplete);
-            navigationLink?.classList.toggle("is-complete", isComplete);
+            section?.classList.toggle("is-complete", isComplete);
+            link?.classList.toggle("is-complete", isComplete);
 
-            const status = learningSection?.querySelector("[data-section-status]");
-            const label = learningSection?.querySelector("[data-button-label]");
-            const button = learningSection?.querySelector("[data-complete-section]");
+            const status = section?.querySelector("[data-section-status]");
+            const label = section?.querySelector("[data-button-label]");
+            const button = section?.querySelector("[data-complete-section]");
 
-            if (status) status.textContent =
-                isComplete ? "Completed" : "Not completed";
+            if (status) {
+                status.textContent = isComplete
+                    ? "Completed"
+                    : "Not completed";
+            }
 
-            if (label) label.textContent =
-                isComplete ? "Completed — undo" : "Mark section complete";
+            if (label) {
+                label.textContent = isComplete
+                    ? "Completed — undo"
+                    : "Mark section complete";
+            }
 
             button?.setAttribute("aria-pressed", String(isComplete));
         });
 
         const banner = workspace.querySelector("[data-completion-banner]");
         if (banner) banner.hidden = percentage !== 100;
-    };
+    }
 
-    const refreshFromApi = id =>
-        fetch(`/api/progress/modules/${id}`)
-            .then(response => response.ok ? response.json() : Promise.reject())
-            .then(data => {
-                if (!Array.isArray(data.completedSections)) return;
-
-                const completed = new Set(
-                    data.completedSections.filter(key => sectionKeys.includes(key))
-                );
-
-                saveCompleted(id, completed);
-                progressByModule.set(id, completed);
-                updateSummaryCards(id, completed);
-                updateOverallProgress();
-                updateDashboardFocus();
-            })
-            .catch(() => {
-                // Use saved browser progress until the backend is connected.
-            });
-
-    if (!workspace) {
-        const ids = new Set(
-            [...document.querySelectorAll("[data-module-progress]")]
-                .map(card => Number(card.dataset.moduleProgress))
-                .filter(id => id >= 1 && id <= 8)
-        );
-
-        if (document.querySelector("[data-overall-progress]")) {
-            for (let id = 1; id <= 8; id++) ids.add(id);
+    function parseProgress(data, allowedKeys) {
+        if (!Array.isArray(data?.completedSections)) {
+            throw new Error("The progress response was invalid.");
         }
 
-        // Read all saved modules before deciding what the dashboard should show.
-        ids.forEach(id => {
-            const completed = readCompleted(id);
-            progressByModule.set(id, completed);
-            updateSummaryCards(id, completed);
+        return new Set(
+            data.completedSections.filter(key => allowedKeys.includes(key))
+        );
+    }
+
+    async function getProgress(id, allowedKeys = sectionKeys) {
+        const response = await fetch(`/api/progress/modules/${id}`, {
+            credentials: "same-origin",
+            cache: "no-store"
         });
 
-        updateOverallProgress();
-        updateDashboardFocus();
+        if (!response.ok) {
+            throw new Error(`Progress could not be loaded (${response.status}).`);
+        }
 
-        ids.forEach(id => { void refreshFromApi(id); });
+        return parseProgress(await response.json(), allowedKeys);
+    }
+
+    if (!signedIn) {
+        if (workspace) {
+            workspace.querySelectorAll("[data-complete-section]")
+                .forEach(button => {
+                    button.disabled = true;
+                });
+
+            showMessage(
+                "Sign in to save and view your own learning progress.",
+                "info"
+            );
+        }
+
+        // The page's initial HTML shows 0%. Never read another visitor's
+        // browser-stored progress.
         return;
     }
 
-    const completed = readCompleted(moduleId, workspaceKeys);
-    updateModulePage(completed);
-    updateSummaryCards(moduleId, completed);
+    if (workspace) {
+        const buttons = [
+            ...workspace.querySelectorAll("[data-complete-section]")
+        ];
+        let completed = new Set();
 
-    fetch(`/api/progress/modules/${moduleId}`)
-        .then(response => response.ok ? response.json() : Promise.reject())
-        .then(data => {
-            if (!Array.isArray(data.completedSections)) return;
-
-            completed.clear();
-            data.completedSections
-                .filter(key => workspaceKeys.includes(key))
-                .forEach(key => completed.add(key));
-
-            saveCompleted(moduleId, completed);
-            updateModulePage(completed);
-            updateSummaryCards(moduleId, completed);
-        })
-        .catch(() => {
-            // Keep the learner's saved browser progress.
+        buttons.forEach(button => {
+            button.disabled = true;
         });
 
-    document.querySelectorAll("[data-complete-section]").forEach(button => {
-        button.addEventListener("click", async () => {
-            const key = button.dataset.completeSection;
-            if (!workspaceKeys.includes(key)) return;
+        showMessage("Loading your progress…", "info");
 
-            if (completed.has(key)) completed.delete(key);
-            else completed.add(key);
-
-            saveCompleted(moduleId, completed);
-            updateModulePage(completed);
-            updateSummaryCards(moduleId, completed);
-
+        async function loadModule() {
             try {
-                const response = await fetch(
-                    `/api/progress/modules/${moduleId}`,
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            sectionKey: key,
-                            completed: completed.has(key)
-                        })
-                    }
-                );
-
-                if (!response.ok) return;
-
-                const data = await response.json();
-                if (!Array.isArray(data.completedSections)) return;
-
-                completed.clear();
-                data.completedSections
-                    .filter(item => workspaceKeys.includes(item))
-                    .forEach(item => completed.add(item));
-
-                saveCompleted(moduleId, completed);
+                completed = await getProgress(moduleId, workspaceKeys);
                 updateModulePage(completed);
                 updateSummaryCards(moduleId, completed);
+                buttons.forEach(button => {
+                    button.disabled = false;
+                });
+                showMessage("");
             } catch {
-                // The section remains saved in this browser.
+                showMessage(
+                    "Your progress could not be loaded. Try refreshing the page. Completion controls are unavailable until it loads."
+                );
             }
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener("click", async () => {
+                const key = button.dataset.completeSection;
+                if (!workspaceKeys.includes(key)) return;
+
+                const token = document.querySelector(
+                    'meta[name="csrf-token"]'
+                )?.content;
+
+                if (!token) {
+                    showMessage(
+                        "Your security token is missing. Refresh the page and try again."
+                    );
+                    return;
+                }
+
+                button.disabled = true;
+
+                try {
+                    const response = await fetch(
+                        `/api/progress/modules/${moduleId}`,
+                        {
+                            method: "POST",
+                            credentials: "same-origin",
+                            cache: "no-store",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRF-TOKEN": token
+                            },
+                            body: JSON.stringify({
+                                sectionKey: key,
+                                completed: !completed.has(key)
+                            })
+                        }
+                    );
+
+                    if (!response.ok) {
+                        throw new Error(
+                            `Progress could not be saved (${response.status}).`
+                        );
+                    }
+
+                    // Change the display only after the server confirms it.
+                    completed = parseProgress(
+                        await response.json(),
+                        workspaceKeys
+                    );
+
+                    updateModulePage(completed);
+                    updateSummaryCards(moduleId, completed);
+                    showMessage("");
+
+                    window.dispatchEvent(
+                        new CustomEvent("moduleprogresschanged", {
+                            detail: { moduleId }
+                        })
+                    );
+                } catch {
+                    showMessage(
+                        "Your change was not saved. Check your connection, then try again."
+                    );
+                } finally {
+                    button.disabled = false;
+                }
+            });
         });
-    });
+
+        void loadModule();
+        return;
+    }
+
+    const ids = new Set(
+        [...document.querySelectorAll("[data-module-progress]")]
+            .map(card => Number(card.dataset.moduleProgress))
+            .filter(id => id >= 1 && id <= 8)
+    );
+
+    if (document.querySelector("[data-overall-progress]")) {
+        for (let id = 1; id <= 8; id++) ids.add(id);
+    }
+
+    if (!ids.size) return;
+
+    showMessage("Loading your progress…", "info");
+
+    void Promise.all(
+        [...ids].map(async id => {
+            const completed = await getProgress(id);
+            return { id, completed };
+        })
+    )
+        .then(results => {
+            results.forEach(({ id, completed }) => {
+                progressByModule.set(id, completed);
+                updateSummaryCards(id, completed);
+            });
+
+            updateOverallProgress();
+            updateDashboardFocus();
+            showMessage("");
+        })
+        .catch(() => {
+            showMessage(
+                "Your progress could not be loaded. The percentages below may not reflect your saved progress; try refreshing the page."
+            );
+        });
 })();
