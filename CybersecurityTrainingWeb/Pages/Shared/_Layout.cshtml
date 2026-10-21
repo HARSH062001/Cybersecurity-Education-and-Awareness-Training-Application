@@ -3,20 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"] - Cybersecurity Training</title>
+
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CybersecurityTrainingWeb.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    @* Shared site header and navigation. *@
     <header class="signal-header">
         <div class="signal-header__inner">
-            <a class="signal-brand" asp-area="" asp-page="/Index">
-                <span class="signal-brand__mark" aria-hidden="true">SD</span>
+            <a class="signal-brand" asp-area="" asp-page="/Index" aria-label="Cybersecurity Training home">
+                <span class="signal-brand__mark" aria-hidden="true">S/8</span>
                 <span>
                     <strong>Cybersecurity Training</strong>
-                    <small>Workplace security learning</small>
+                    <small>Workplace cyber awareness</small>
                 </span>
             </a>
 
@@ -24,20 +29,21 @@
                 <a asp-area="" asp-page="/Dashboard">Dashboard</a>
                 <a asp-area="" asp-page="/Modules">Learning route</a>
                 <a asp-area="" asp-page="/Index">Home</a>
-                <a class="signal-nav__action" asp-area="" asp-page="/Modules">View modules <span aria-hidden="true">↗</span></a>
+                <a class="signal-nav__action" asp-area="" asp-page="/Modules">
+                    View modules <span aria-hidden="true">↗</span>
+                </a>
             </nav>
         </div>
     </header>
 
-    <div class="site-shell">
-        <main role="main" class="site-main">
-            @RenderBody()
-        </main>
-    </div>
+    <main id="main-content" class="site-shell site-main">
+        @RenderBody()
+    </main>
 
+    @* Shared footer. *@
     <footer class="signal-footer">
         <div class="site-shell signal-footer__inner">
-            <span>Cybersecurity Training · Workplace security learning</span>
+            <span>Cybersecurity Training · Eight-module learning pathway</span>
             <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
@@ -45,6 +51,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* Lets individual pages load their own scripts. *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

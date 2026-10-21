@@ -1,8 +1,72 @@
 @page
 @model CybersecurityTrainingWeb.Pages.ResultsModel
-@{ ViewData["Title"] = "Assessment submitted"; }
+@{
+    ViewData["Title"] = "Practice attempt";
+}
 
-<main class="results-workspace">
-    <section class="results-hero"><span class="eyebrow">Assessment submitted</span><h1>Your responses are ready for marking</h1><p>Module @Model.ModuleId · @Model.ModuleTitle · Assessment set assigned automatically</p><div class="results-hero__stat"><strong>@Model.Answered</strong><span>of 10 responses recorded in this frontend preview</span></div></section>
-<div class="results-grid"><section class="results-card"><span class="eyebrow">What happens next</span><h2>Secure server-side marking</h2><p>The final score, answer explanations, result status and attempt record must be calculated and stored by the backend. This prevents the browser from deciding a learner’s score.</p><div class="results-card__note"><span aria-hidden="true">i</span><p>When Ankit and Samuel connect the assessment service, this screen will receive the real score, assigned-bank history and personalised feedback automatically.</p></div></section><aside class="results-card results-card--details"><h2>Attempt summary</h2><dl><div><dt>Module</dt><dd>Module @Model.ModuleId</dd></div><div><dt>Assessment bank</dt><dd>Assigned automatically</dd></div><div><dt>Responses completed</dt><dd>@Model.Answered of 10</dd></div><div><dt>Marking status</dt><dd>Pending backend connection</dd></div></dl><a class="btn btn-primary w-100" asp-page="/Module" asp-route-id="@Model.ModuleId">Return to module</a><a class="results-link" asp-page="/Assessment" asp-route-moduleId="@Model.ModuleId">Start another attempt</a></aside></div>
-</main>
+<section class="results-hero">
+    <p class="eyebrow">Practice attempt</p>
+    <h1>Your practice responses are saved in this browser</h1>
+    <p>Module @Model.ModuleId · @Model.ModuleTitle · Bank assigned automatically</p>
+
+    <div class="results-hero__stat">
+        <strong>@Model.Answered</strong>
+        <span>of 10 questions answered in this frontend preview</span>
+    </div>
+</section>
+
+<div class="results-workspace">
+    <section class="results-card">
+        <p class="eyebrow">Current status</p>
+        <h2>Marking is not connected yet</h2>
+        <p>
+            This practice attempt has not been sent to a server for marking.
+            Your answers remain in this browser session, so no score or official
+            attempt record is available yet.
+        </p>
+
+        @* Show what will change when the assessment backend is connected. *@
+        <div class="completion-note">
+            <strong>Backend integration is still needed</strong>
+            <p>
+                Once connected, the backend can receive responses, mark them securely,
+                save the attempt and return feedback to this page.
+            </p>
+        </div>
+    </section>
+
+    <aside class="results-card">
+        <h2>Practice summary</h2>
+
+        <dl class="results-summary">
+            <div class="results-summary__row">
+                <dt>Module</dt>
+                <dd>Module @Model.ModuleId</dd>
+            </div>
+            <div class="results-summary__row">
+                <dt>Assessment bank</dt>
+                <dd>Assigned automatically</dd>
+            </div>
+            <div class="results-summary__row">
+                <dt>Questions answered</dt>
+                <dd>@Model.Answered of 10</dd>
+            </div>
+            <div class="results-summary__row">
+                <dt>Score</dt>
+                <dd>Not available yet</dd>
+            </div>
+        </dl>
+
+        <a class="btn btn-primary w-100"
+           asp-page="/Module"
+           asp-route-id="@Model.ModuleId">
+            Return to module
+        </a>
+
+        <p class="mt-3">
+            <a asp-page="/Assessment" asp-route-moduleId="@Model.ModuleId">
+                Open assessment again
+            </a>
+        </p>
+    </aside>
+</div>

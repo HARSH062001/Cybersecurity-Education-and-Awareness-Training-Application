@@ -12,7 +12,7 @@ public class ModuleModel : PageModel
     public string[] Banks => ["A", "B", "C"];
     public IActionResult OnGet(int id = 1)
     {
-        if (id is < 1 or > 2) return RedirectToPage("/Modules");
+        if (id is < 1 or > 8) return RedirectToPage("/Modules");
 
         var path = Path.Combine(AppContext.BaseDirectory, "Data", "module-content.json");
         var records = System.IO.File.Exists(path) ? JsonSerializer.Deserialize<List<ModuleContentRecord>>(System.IO.File.ReadAllText(path), new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? [] : [];

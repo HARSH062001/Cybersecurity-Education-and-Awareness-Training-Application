@@ -18,8 +18,9 @@
     const update = () => {
         panels.forEach((panel, index) => panel.hidden = index !== current);
         navigation.forEach((button, index) => {
-            button.classList.toggle("is-active", index === current);
-            button.classList.toggle("is-answered", Boolean(responses[panels[index].querySelector("[data-answer-input]")?.dataset.answerInput]));
+            const isCurrent = index === current;
+            button.classList.toggle("is-current", isCurrent);
+            button.classList.toggle("is-answered", !isCurrent && Boolean(responses[panels[index].querySelector("[data-answer-input]")?.dataset.answerInput]));
             button.setAttribute("aria-current", index === current ? "step" : "false");
         });
         assessment.querySelectorAll("[data-assessment-count]").forEach(value => value.textContent = `Question ${current + 1} of ${total}`);

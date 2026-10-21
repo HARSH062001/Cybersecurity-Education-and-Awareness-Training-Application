@@ -2,78 +2,85 @@
 @model ModulesModel
 @{
     ViewData["Title"] = "Training Modules";
-}
-
-<div class="page-heading catalogue-heading">
-    <span class="eyebrow">Learning catalogue</span>
-    <h1>Build safer workplace habits</h1>
-    <p>Choose one of the currently available modules in the eight-module learning pathway.</p>
-</div>
-
-@{
     var firstModule = Model.Modules.First();
 }
 
-<section class="featured-module" data-module-progress="1" style="--module-progress:0">
-    <div class="featured-module__main">
-        <span class="module-number">Recommended first · Module 1</span>
+<section class="catalogue-hero">
+    <div>
+        <p class="eyebrow">Learning catalogue</p>
+        <h1>Build safer workplace habits</h1>
+        <p class="lead">
+            Explore the eight modules in the workplace cybersecurity learning pathway.
+        </p>
+    </div>
+</section>
+
+@* Saved progress changes each module's status and button label. *@
+<section class="featured-module" data-module-progress="1">
+    <div class="featured-module__content">
+        <p class="eyebrow">Recommended first · Module 1</p>
         <h2>@firstModule.Title</h2>
-        <p>@firstModule.Summary</p>
-        <div class="featured-module__details">
+        <p class="lead">@firstModule.Summary</p>
+
+        <div class="module-meta">
             <span>7 guided sections</span>
             <span>About 25 minutes</span>
             <span>No prior knowledge needed</span>
         </div>
-        <a class="btn btn-primary" asp-page="/Module" asp-route-id="1" data-progress-action>
+
+        <a class="btn btn-primary"
+           asp-page="/Module"
+           asp-route-id="1"
+           data-progress-action>
             Start Module 1
         </a>
     </div>
 
     <div class="featured-module__progress" aria-label="Module 1 progress">
-        <div class="catalogue-progress-ring">
+        <div class="progress-ring">
             <strong data-progress-value>0%</strong>
-            <span>complete</span>
         </div>
         <p data-progress-sections>0 of 7 sections complete</p>
-        <small>Progress changes only when you confirm a section.</small>
+        <small>Progress updates when you confirm a section.</small>
     </div>
 </section>
 
-<div class="catalogue-subheading">
-    <div>
-        <span class="eyebrow">Currently available</span>
+<section class="pathway-section">
+    <div class="home-section__intro">
+        <p class="eyebrow">Currently available</p>
         <h2>Continue the learning pathway</h2>
+        <p class="lead">
+            Eight modules and 24 assessment banks are planned for the full pathway.
+        </p>
     </div>
-    <span class="planned-label">Six more modules will be added as they are provided</span>
-</div>
 
-<div class="row g-4">
-    @foreach (var module in Model.Modules.Skip(1))
-    {
-        <div class="col-md-6 col-xl-4">
-            <div class="card module-card h-100" data-module-progress="@module.Number">
-                <div class="card-body">
-                    <div class="module-card__top">
-                        <span class="module-number">Module @module.Number</span>
-                        <span class="status-pill" data-module-status>Not started</span>
-                    </div>
-                    <h2>@module.Title</h2>
-                    <p>@module.Summary</p>
-                    <div class="module-card__progress">
-                        <strong data-progress-value>0%</strong>
-                        <span data-progress-sections>0 of 7 sections complete</span>
-                    </div>
-                    <a class="module-text-link"
-                       asp-page="/Module"
-                       asp-route-id="@module.Number"
-                       data-progress-action>
-                        Start module →
-                    </a>
+    <div class="module-grid">
+        @foreach (var module in Model.Modules.Skip(1))
+        {
+            <article class="module-card" data-module-progress="@module.Number">
+                <div class="module-card__top">
+                    <span class="eyebrow">Module @module.Number</span>
+                    <span class="module-status" data-module-status>Not started</span>
                 </div>
-            </div>
-        </div>
-    }
-</div>
+
+                <h3>@module.Title</h3>
+                <p>@module.Summary</p>
+
+                <div class="module-card__meta">
+                    <strong data-progress-value>0%</strong>
+                    <span data-progress-sections>0 of 7 sections complete</span>
+                </div>
+
+                <a class="btn btn-primary"
+                   asp-page="/Module"
+                   asp-route-id="@module.Number"
+                   data-progress-action>
+                    Start Module @module.Number
+                </a>
+            </article>
+        }
+    </div>
+</section>
 
 @section Scripts {
     <script src="~/js/module-progress.js" asp-append-version="true"></script>

@@ -1,8 +1,66 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Privacy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<section class="privacy-hero">
+    <p class="eyebrow">Privacy information</p>
+    <h1>How this learning prototype handles information</h1>
+    <p class="lead">
+        This page explains the browser storage used by the current version of the
+        cybersecurity training application.
+    </p>
+</section>
+
+<div class="privacy-layout">
+    <article class="privacy-content">
+        <section>
+            <h2>Learning progress</h2>
+            <p>
+                The current prototype saves confirmed module-section progress in your
+                browser’s local storage so it can be shown again on this device.
+                Clearing the browser’s site data may remove that progress.
+            </p>
+        </section>
+
+        <section>
+            <h2>Assessment responses</h2>
+            <p>
+                While you complete an assessment, your responses are kept in the
+                browser session. The results page is a frontend preview; final scoring
+                and server-side assessment records are not yet connected.
+            </p>
+        </section>
+
+        <section>
+            <h2>Backend connection</h2>
+            <p>
+                The application may be updated to save progress and assessment results
+                through a backend service. This notice should be reviewed and updated
+                before that service is used with real learner information.
+            </p>
+        </section>
+
+        @* This prototype notice is not a substitute for an approved production policy. *@
+        <section>
+            <h2>For this project</h2>
+            <p>
+                This is project information about the current prototype, not a
+                production privacy policy or legal advice. The team should confirm
+                the final data-handling notice with the appropriate project or
+                university contact before deployment.
+            </p>
+        </section>
+    </article>
+
+    <aside class="privacy-sidebar">
+        <p class="eyebrow">Quick links</p>
+        <h2>Continue learning</h2>
+        <p>Return to the training pages when you are ready.</p>
+
+        <p><a asp-page="/Modules">View learning modules →</a></p>
+        <p><a asp-page="/Dashboard">Open your dashboard →</a></p>
+        <p><a asp-page="/Index">Return home →</a></p>
+    </aside>
+</div>
