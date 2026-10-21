@@ -88,7 +88,6 @@ The importer writes question text and answer options to `CybersecurityTrainingWe
 ```text
 01_Module Content/          Module learning documents
 02_Question Banks/          Question Bank A, B and C documents by module
-03_References/              Source/reference documents
 04_Project Documentation/   Project planning and records
 05_Presentation/             Presentation material
 06_Technical Design/         Architecture and technical design
