@@ -129,7 +129,7 @@ def parse_bank(path: Path, module_id: int, bank_code: str) -> dict:
 
     merge_questions_and_answers(questions, answer_dict)
 
-    return {"moduleId": module_id, "bank": bank_code, "questions": questions}
+    return {"moduleId": module_id, "bank": bank_code, "questions": questions, "version": 1}
 
 def main() -> None:
     question_banks = []
