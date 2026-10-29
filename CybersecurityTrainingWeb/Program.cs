@@ -1,6 +1,8 @@
+using System.Text.Json;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
         "The DefaultConnection database setting is missing.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options
+    .UseSqlite(connectionString)
+    .UseSeeding((context, _) => QuestionBankSeeder.Seed(context))
+);
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
@@ -30,6 +35,12 @@ builder.Services.AddAntiforgery(options =>
 
 var app = builder.Build();
 
+//Seed initial question banks, answers, and options
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    QuestionBankSeeder.Seed(db);
+}
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
