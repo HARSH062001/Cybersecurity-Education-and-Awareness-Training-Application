@@ -8,7 +8,8 @@ public static class QuestionBankSeeder
 {
     public static void Seed(DbContext context)
     {
-        var banks = ReadSeedFile();
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "question_banks.json");
+        var banks = ReadSeedFile(path);
 
         //Check if the bank exists in the db and if the versions match
         //If yes, then skip adding the database
@@ -80,11 +81,9 @@ public static class QuestionBankSeeder
         public List<QuestionJsonDto> Questions { get; set; } = [];
     }
 
-    public static List<BankJsonDto> ReadSeedFile()
+    public static List<BankJsonDto> ReadSeedFile(string path)
     {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "question_banks.json");
         var text = File.ReadAllText(path);
-
         var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true };
         return JsonSerializer.Deserialize<List<BankJsonDto>>(text, options) ?? [];
     }
