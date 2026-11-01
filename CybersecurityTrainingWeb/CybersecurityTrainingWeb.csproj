@@ -18,10 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Data\module-content.json"
-             CopyToOutputDirectory="PreserveNewest" />
-    <Content Update="Data\assessment-preview.json"
-             CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="Data\module-content.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="Data\assessment-preview.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
