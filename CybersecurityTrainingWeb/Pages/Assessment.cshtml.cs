@@ -3,11 +3,16 @@ using CybersecurityTrainingWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using CybersecurityTrainingWeb.Services;
 
 namespace CybersecurityTrainingWeb.Pages;
 
+[Authorize]
 public class AssessmentModel : PageModel
 {
+    private readonly UserManager<ApplicationUser> _userManager; //get user information
     public int ModuleId { get; private set; }
     public string Bank { get; private set; } = "A";
     public string ModuleTitle { get; private set; } = "Cybersecurity Fundamentals";
@@ -15,22 +20,38 @@ public class AssessmentModel : PageModel
 
     private readonly ApplicationDbContext _dbContext;
 
-    public AssessmentModel(ApplicationDbContext dbContext)
+    public AssessmentModel(
+        ApplicationDbContext dbContext, 
+        UserManager<ApplicationUser> userManager
+    )
     {
         _dbContext = dbContext;
+        _userManager = userManager;
     }
 
-    public async Task<IActionResult> OnGetAsync(int moduleId = 1, string? bank = null)
+    public async Task<IActionResult> OnGetAsync(int moduleId = 1)
     {
+        // Get id of the user logged in
+        var userId = _userManager.GetUserId(User);
+        if (userId is null) // Just in case the user is not logged in (should not happen)
+        {
+            return Unauthorized();
+        }
         //returns to module page if no bank is found
         if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
-        if (bank is null || bank.Length != 1 || bank[0] is < 'A' or > 'C') bank = ((char)('A' + Random.Shared.Next(3))).ToString();
 
-        //Takes an instance of a question bank from the database
+        // Check whether user has any existing attempts,
+        // If not, create a new attempt and assign bank based on attempt history
+        var assessmentAttempt = AttemptFinder.GetOrCreateAttempt(_dbContext, userId, moduleId);
+        var bankId = assessmentAttempt.AssessmentBankId;
+
+        // Takes the question bank from the database
+        // Since a question bank can be updated, match the version of the bank
+        // with the bank version in the AssessmentAttempt (b.Id == bankId)
         var realBank = await _dbContext.AssessmentBanks
             .Where(b => b.ModuleId == moduleId)
             .Where(b => b.IsPublished)
-            .Where(b => b.Code == bank.ToUpperInvariant())
+            .Where(b => b.Id == bankId)
             .OrderByDescending(b => b.Version)
             .AsNoTracking()
             .Include(b => b.Questions)
@@ -41,14 +62,14 @@ public class AssessmentModel : PageModel
         if (realBank is null) return RedirectToPage("/Modules");
 
         ModuleId = moduleId;
-        Bank = bank.ToUpperInvariant();
+        Bank = realBank.Code;
         ModuleTitle = ModuleTitles[moduleId - 1];
 
         Questions = realBank.Questions
             .OrderBy(q => q.Number)
             .Select(q => new QuestionDto
             {
-                Id = $"m{moduleId}{bank.ToLowerInvariant()}q{q.Number}",
+                Id = $"m{moduleId}{realBank.Code}q{q.Number}",
                 Number = q.Number,
                 Text = q.Text,
                 Type = q.Type,
