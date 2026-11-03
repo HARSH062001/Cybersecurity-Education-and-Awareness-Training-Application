@@ -8,6 +8,8 @@ namespace CybersecurityTrainingWeb.Services;
 /// </summary>
 public static class BankPicker
 {
+    // Returns either A, B, or C based on the banks that have been attempted. 
+    // If no banks have been attempted, returns a random bank code
     public static string PickBank (IReadOnlyList<string> banksAttempted)
     {
         // Get the count of each bank code attempted
@@ -27,8 +29,8 @@ public static class BankPicker
 
         // Get the bank codes that have been attempted the least
         var leastAttemptedBanks = bankDictionary
-            .Where(kvp => kvp.Value == leastAttemptedCount)
-            .Select(kvp => kvp.Key)
+            .Where(item => item.Value == leastAttemptedCount)
+            .Select(item => item.Key)
             .ToList();
 
         // if more than one bank code has been attempted the least, remove the last bank attempted from the list of least attempted banks and return a random bank code from the remaining least attempted banks

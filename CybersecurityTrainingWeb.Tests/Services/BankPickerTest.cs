@@ -2,6 +2,8 @@ using CybersecurityTrainingWeb.Services;
 
 namespace CybersecurityTrainingWeb.Tests.Data
 {
+    // Tests the BankPicker class to ensure that it returns a random bank code 
+    // based on the banks that have been attempted
     public class BankPickerTest
     {
 

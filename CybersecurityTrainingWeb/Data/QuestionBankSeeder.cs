@@ -14,7 +14,7 @@ public static class QuestionBankSeeder
         //Check if the bank exists in the db and if the versions match
         //If yes, then skip adding the database
         var existingKeys = context.Set<AssessmentBank>()
-            .Select(b => new {b.ModuleId, b.Code, b.Version })
+            .Select(b => new { b.ModuleId, b.Code, b.Version })
             .AsEnumerable()
             .Select(b => (b.ModuleId, b.Code, b.Version))
             .ToHashSet();
@@ -48,7 +48,7 @@ public static class QuestionBankSeeder
                 }).ToList()
             };
             context.Set<AssessmentBank>().Add(entity);
-            
+
             added++;
         }
         context.SaveChanges();
@@ -84,7 +84,7 @@ public static class QuestionBankSeeder
     public static List<BankJsonDto> ReadSeedFile(string path)
     {
         var text = File.ReadAllText(path);
-        var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true };
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         return JsonSerializer.Deserialize<List<BankJsonDto>>(text, options) ?? [];
     }
 }

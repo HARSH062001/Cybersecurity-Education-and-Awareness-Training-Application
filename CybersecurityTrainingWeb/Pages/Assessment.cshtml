@@ -13,7 +13,8 @@
      data-assessment
      data-module-id="@Model.ModuleId"
      data-bank="@Model.Bank"
-     data-total-questions="@Model.Questions.Count">
+     data-total-questions="@Model.Questions.Count"
+     data-attempt-id="@Model.AttemptId">
 
     <header class="assessment-hero">
         <div>
@@ -70,8 +71,9 @@
                 <p>Final marking and saved assessment records require the backend connection.</p>
             </div>
         </aside>
-
-        <div class="assessment-questions">
+        <form method="post" data-assessment-form>
+            <input type="hidden" asp-for="AttemptId"/>
+            <div class="assessment-questions">
             @for (var index = 0; index < Model.Questions.Count; index++)
             {
                 var question = Model.Questions[index];
@@ -91,7 +93,7 @@
                             {
                                 <label class="answer-option">
                                     <input type="radio"
-                                           name="@question.Id"
+                                           name="Answers[@question.DatabaseId]"
                                            value="@option.Code"
                                            data-answer-input="@question.Id" />
                                     <span class="answer-option__code">@option.Code</span>
@@ -129,16 +131,20 @@
                             Next question
                         </button>
 
-                        <button class="btn btn-primary"
-                                type="button"
+                        
+                    </footer>
+                    <button class="btn btn-primary"
+                                type="submit"
                                 data-submit-assessment
-                                hidden>
+                                hidden
+                                disabled>
                             Submit assessment
                         </button>
-                    </footer>
                 </section>
             }
-        </div>
+            </div>
+        </form>
+        
     </div>
 </div>
 
