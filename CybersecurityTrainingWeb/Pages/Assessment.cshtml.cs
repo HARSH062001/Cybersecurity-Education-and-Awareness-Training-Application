@@ -102,17 +102,15 @@ public class AssessmentModel : PageModel
         {
             return Unauthorized();
         }
-        Console.WriteLine("Getting here");
 
         //get attempt from database and validate it
         var assessmentAttempt = await AttemptValidator.ValidateAndMarkAttempt(_dbContext, userId, AttemptId, Answers);
-        Console.WriteLine($"Assessment attempt validated: {assessmentAttempt is not null}");
 
         if (assessmentAttempt is null)
         {
             return BadRequest("Invalid assessment attempt or answers.");
         }
-        return RedirectToPage("/Results");
+        return RedirectToPage("/Results", new { moduleId = assessmentAttempt.Bank.ModuleId });
     }
     private static readonly string[] ModuleTitles =
     [

@@ -10,7 +10,7 @@ public static class BankPicker
 {
     // Returns either A, B, or C based on the banks that have been attempted. 
     // If no banks have been attempted, returns a random bank code
-    public static string PickBank (IReadOnlyList<string> banksAttempted)
+    public static string PickBank(IReadOnlyList<string> banksAttempted)
     {
         // Get the count of each bank code attempted
         var aCount = banksAttempted.Count(b => b == "A");
@@ -43,7 +43,7 @@ public static class BankPicker
         }
 
         // if only one, return that bank code
-        else if(leastAttemptedBanks.Count == 1)
+        else if (leastAttemptedBanks.Count == 1)
         {
             return leastAttemptedBanks[0];
         }

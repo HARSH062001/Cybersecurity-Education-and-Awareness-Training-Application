@@ -1,19 +1,63 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using Microsoft.AspNetCore.Authorization;
+using CybersecurityTrainingWeb.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using CybersecurityTrainingWeb.Services;
 namespace CybersecurityTrainingWeb.Pages;
 
+[Authorize]
 public class ResultsModel : PageModel
 {
-    public int ModuleId { get; private set; } = 1;
-    public string Bank { get; private set; } = "A";
-    public int Answered { get; private set; }
-    public string ModuleTitle => ModuleTitles[ModuleId - 1];
+    public int Answered { get; set; }
+    public string ModuleTitle { get; set; }
+    public int Score { get; set; }
+    public bool IsPassed { get; set; }
+    public bool HasAttempted { get; set; }
+    public int ModuleId { get; set; }
 
-    public void OnGet(int moduleId = 1, string bank = "A", int answered = 0)
+    public int TotalQuestions { get; set; } = 10;
+
+
+    private readonly ApplicationDbContext _dbContext;
+    private readonly UserManager<ApplicationUser> _userManager;
+
+    public ResultsModel(
+    ApplicationDbContext dbContext,
+    UserManager<ApplicationUser> userManager
+    )
     {
-        ModuleId = moduleId is >= 1 and <= 8 ? moduleId : 1;
-        Bank = bank.Length == 1 && bank[0] is >= 'A' and <= 'C' ? bank.ToUpperInvariant() : "A";
-        Answered = Math.Clamp(answered, 0, 10);
+        _dbContext = dbContext;
+        _userManager = userManager;
+    }
+
+    public async Task<IActionResult> OnGetAsync(
+        int moduleId)
+    {
+
+        var userId = _userManager.GetUserId(User);
+        if (userId is null)
+        {
+            return Unauthorized();
+        }
+
+        var attempt = await ResultUtils.GetLatestFinishedAttempt(_dbContext, userId, moduleId);
+
+        if (attempt is null)
+        {
+            return RedirectToPage("/Modules");
+        }
+
+        if (attempt.Score is int s)
+        {
+            Score = s;
+        }
+
+        IsPassed = await ResultUtils.HasUserPassed(_dbContext, moduleId, userId);
+        Answered = attempt.Answers.Count;
+        ModuleTitle = ModuleTitles[moduleId];
+        ModuleId = moduleId;
+        return Page();
     }
 
     private static readonly string[] ModuleTitles =

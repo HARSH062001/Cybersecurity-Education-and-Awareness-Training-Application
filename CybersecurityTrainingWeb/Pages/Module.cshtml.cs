@@ -1,16 +1,34 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using CybersecurityTrainingWeb.Services;
+using Microsoft.AspNetCore.Identity;
+using CybersecurityTrainingWeb.Data;
+
 namespace CybersecurityTrainingWeb.Pages;
+
 public class ModuleModel : PageModel
 {
     public int ModuleId { get; private set; }
     public string Title { get; private set; } = "";
     public string Purpose { get; private set; } = "";
+    public bool HasPassed { get; set; }
     public List<ContentBlock> Blocks { get; private set; } = [];
     public List<LearningSection> LearningSections { get; private set; } = [];
     public string[] Banks => ["A", "B", "C"];
-    public IActionResult OnGet(int id = 1)
+    private readonly UserManager<ApplicationUser> _userManager; //get user information
+    private readonly ApplicationDbContext _dbContext;
+
+
+    public ModuleModel(
+        ApplicationDbContext dbContext,
+        UserManager<ApplicationUser> userManager
+    )
+    {
+        _dbContext = dbContext;
+        _userManager = userManager;
+    }
+    public async Task<IActionResult> OnGetAsync(int id = 1)
     {
         if (id is < 1 or > 8) return RedirectToPage("/Modules");
 
@@ -23,6 +41,17 @@ public class ModuleModel : PageModel
         Blocks = record.Blocks;
         Purpose = Blocks.FirstOrDefault(x => x.Kind == "paragraph")?.Text ?? "Build practical cybersecurity knowledge and safe workplace habits.";
         LearningSections = BuildLearningSections(Blocks);
+
+        // Get user id
+        var userId = _userManager.GetUserId(User);
+        if (userId is null) // Just in case the user is not logged in (should not happen)
+        {
+            return Unauthorized();
+        }
+
+        // Check if user has passed the Assessment, if so redirect to results instead of Assessment page
+        HasPassed = await ResultUtils.HasUserPassed(_dbContext, ModuleId, userId);
+
         return Page();
     }
 

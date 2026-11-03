@@ -57,7 +57,7 @@
       .querySelector("[data-previous-question]")
       ?.toggleAttribute("disabled", current === 0);
     panel
-      .querySelector("[data-next-question]")
+      .querySelector("[data-next-question]")  
       ?.toggleAttribute("hidden", current === total - 1);
 
     const submitButton = panel.querySelector("[data-submit-assessment]");
