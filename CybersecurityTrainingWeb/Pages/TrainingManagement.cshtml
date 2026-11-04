@@ -1,0 +1,29 @@
+@page
+@model CybersecurityTrainingWeb.Pages.TrainingManagementModel
+@{ ViewData["Title"] = "Manage training"; }
+<h1>Manage training</h1>
+<p>Assign modules to build a learner pathway and configure assessment deadlines. All dates use UTC. A repeat interval of zero means a one-time assessment.</p>
+@if (Model.Notice is not null) { <p role="status" class="alert alert-success">@Model.Notice</p> }
+<div asp-validation-summary="All" class="text-danger"></div>
+@if (Model.Modules.Count == 0) { <p>No modules are assigned to you. Ask an administrator for access.</p> }
+else {
+<section class="panel p-4 mb-4">
+<h2>Enrol a learner</h2>
+<form method="post" asp-page-handler="Enroll">
+<label asp-for="ModuleId">Module</label><select asp-for="ModuleId" class="form-select">@foreach(var id in Model.Modules) { <option value="@id">Module @id</option> }</select>
+<label asp-for="LearnerEmail">Registered learner email</label><input asp-for="LearnerEmail" class="form-control" />
+<button class="btn btn-primary mt-3">Enrol learner</button>
+</form></section>
+<section class="panel p-4 mb-4"><h2>Assessment schedule</h2>
+<form method="post" asp-page-handler="Schedule">
+<label for="schedule-module">Module</label><select id="schedule-module" name="ModuleId" class="form-select">@foreach(var id in Model.Modules) { <option value="@id">Module @id</option> }</select>
+<label asp-for="DueAtUtc">First assessment due (UTC)</label><input asp-for="DueAtUtc" type="datetime-local" class="form-control" required />
+<label asp-for="RepeatEveryDays">Repeat every (days; 0 = once)</label><input asp-for="RepeatEveryDays" type="number" min="0" max="3650" class="form-control" />
+<button class="btn btn-primary mt-3">Save schedule</button></form>
+<h3 class="h5 mt-4">Saved schedules</h3>
+@foreach(var s in Model.Schedules) { <p>Module @s.ModuleId: first due @s.FirstDueAtUtc.ToString("dd MMM yyyy HH:mm") UTC; repeat every @s.RepeatEveryDays days.</p> }
+</section>
+<section class="panel p-4"><h2>Enrolled learners</h2>
+@foreach(var e in Model.Enrollments) { <p>Module @e.ModuleId — @e.User.Email</p> }
+</section>
+}

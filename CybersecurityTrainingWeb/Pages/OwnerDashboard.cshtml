@@ -1,0 +1,104 @@
+@page
+@model CybersecurityTrainingWeb.Pages.OwnerDashboardModel
+@{
+    ViewData["Title"] = "Module owner dashboard";
+}
+
+@* Show owners progress and results only for modules assigned to them. *@
+<section class="privacy-hero">
+    <p class="eyebrow">Module owner</p>
+    <h1>Your modules</h1>
+    <p class="lead">
+        Review learner activity and completed assessment results
+        for the modules assigned to you.
+    </p>
+</section>
+
+@if (Model.Modules.Count == 0)
+{
+    <section class="panel p-4">
+        <h2 class="h4">No modules assigned</h2>
+        <p class="mb-0">
+            Ask an administrator to assign a module to your account.
+        </p>
+    </section>
+}
+else
+{
+    <div class="d-grid gap-4">
+        @foreach (var module in Model.Modules)
+        {
+            <section class="panel p-4"
+                     aria-labelledby="module-@module.ModuleId-title">
+                <p class="eyebrow">Module @module.ModuleId</p>
+                <h2 class="h3" id="module-@module.ModuleId-title">
+                    @module.Title
+                </h2>
+
+                <div class="row g-3 my-2">
+                    <div class="col-sm-4">
+                        <strong>@module.LearnersWithActivity</strong>
+                        <div>Learners with recorded activity</div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong>@module.CompletedSections</strong>
+                        <div>Sections completed</div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong>@module.CompletedAssessments</strong>
+                        <div>Assessments completed</div>
+                    </div>
+                </div>
+
+                <h3 class="h5 mt-4">Recent assessment results</h3>
+
+                @if (module.RecentAttempts.Count == 0)
+                {
+                    <p class="mb-0">No completed assessments recorded yet.</p>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Learner</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Submitted (UTC)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var attempt in module.RecentAttempts)
+                                {
+                                    <tr>
+                                        <td>
+                                            @(string.IsNullOrWhiteSpace(attempt.LearnerName)
+                                                ? attempt.LearnerEmail
+                                                : attempt.LearnerName)
+                                        </td>
+                                        <td>
+                                            @if (attempt.Score.HasValue &&
+                                                 attempt.TotalQuestions.HasValue)
+                                            {
+                                                @($"{attempt.Score} / {attempt.TotalQuestions}")
+                                            }
+                                            else
+                                            {
+                                                <span>Score unavailable</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <time datetime="@attempt.ActivityAtUtc.ToString("O")">
+                                                @attempt.ActivityAtUtc.ToString("dd MMM yyyy, HH:mm")
+                                            </time>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </section>
+        }
+    </div>
+}

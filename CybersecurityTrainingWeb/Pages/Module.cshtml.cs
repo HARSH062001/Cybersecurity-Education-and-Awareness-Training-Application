@@ -1,8 +1,12 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 namespace CybersecurityTrainingWeb.Pages;
+// Module learning content is available only to authenticated learners.
+[Authorize]
 public class ModuleModel : PageModel
+
 {
     public int ModuleId { get; private set; }
     public string Title { get; private set; } = "";

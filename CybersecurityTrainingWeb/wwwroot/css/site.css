@@ -1216,3 +1216,54 @@ button.btn {
         flex: 1 1 auto;
     }
 }
+/* Keep navigation labels together and give the brand its natural width. */
+.signal-header__inner {
+    flex-wrap: nowrap;
+}
+
+.signal-brand {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+/* Prevent links from narrowing until their labels wrap word by word. */
+.signal-nav {
+    flex: 1 0 auto;
+    flex-wrap: nowrap;
+    gap: 2px;
+}
+
+.signal-nav a {
+    flex: 0 0 auto;
+    padding-inline: 7px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* At narrower desktop and tablet widths, let the navigation use a second row. */
+@media (max-width: 1200px) {
+    .signal-header__inner {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-block: 12px;
+    }
+
+    .signal-nav {
+        flex: 1 1 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+/* Keep the compact stacked header on phones. */
+@media (max-width: 640px) {
+    .signal-header__inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .signal-nav {
+        width: 100%;
+        flex: 0 1 auto;
+    }
+}
