@@ -278,6 +278,76 @@ namespace CybersecurityTrainingWeb.Migrations
                     b.ToTable("AssessmentQuestions");
                 });
 
+            modelBuilder.Entity("CybersecurityTrainingWeb.Data.ModuleEnrollment", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("EnrolledAtUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ModuleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId", "ModuleId")
+                        .IsUnique();
+
+                    b.ToTable("ModuleEnrollments");
+                });
+
+            modelBuilder.Entity("CybersecurityTrainingWeb.Data.ModuleOwnerAssignment", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ModuleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("OwnerUserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerUserId");
+
+                    b.HasIndex("ModuleId", "OwnerUserId")
+                        .IsUnique();
+
+                    b.ToTable("ModuleOwnerAssignments");
+                });
+
+            modelBuilder.Entity("CybersecurityTrainingWeb.Data.ModuleSchedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("FirstDueAtUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ModuleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RepeatEveryDays")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModuleId")
+                        .IsUnique();
+
+                    b.ToTable("ModuleSchedules");
+                });
+
             modelBuilder.Entity("CybersecurityTrainingWeb.Data.SectionProgress", b =>
                 {
                     b.Property<long>("Id")
@@ -497,6 +567,28 @@ namespace CybersecurityTrainingWeb.Migrations
                         .IsRequired();
 
                     b.Navigation("Bank");
+                });
+
+            modelBuilder.Entity("CybersecurityTrainingWeb.Data.ModuleEnrollment", b =>
+                {
+                    b.HasOne("CybersecurityTrainingWeb.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CybersecurityTrainingWeb.Data.ModuleOwnerAssignment", b =>
+                {
+                    b.HasOne("CybersecurityTrainingWeb.Data.ApplicationUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("CybersecurityTrainingWeb.Data.SectionProgress", b =>

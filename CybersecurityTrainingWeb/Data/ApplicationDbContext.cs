@@ -5,7 +5,8 @@ namespace CybersecurityTrainingWeb.Data;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    public ApplicationDbContext(
+        DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
@@ -28,9 +29,20 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<AssessmentAnswer> AssessmentAnswers =>
         Set<AssessmentAnswer>();
 
+    // Stores the modules assigned to each module owner.
+    public DbSet<ModuleOwnerAssignment> ModuleOwnerAssignments =>
+        Set<ModuleOwnerAssignment>();
+
+    // Stores the modules each learner has enrolled in.
+    public DbSet<ModuleEnrollment> ModuleEnrollments =>
+        Set<ModuleEnrollment>();
+
+    public DbSet<ModuleSchedule> ModuleSchedules => Set<ModuleSchedule>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        builder.Entity<ModuleSchedule>().HasIndex(s => s.ModuleId).IsUnique();
 
         builder.Entity<SectionProgress>(entity =>
         {
@@ -44,6 +56,36 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             entity.HasOne(progress => progress.User)
                 .WithMany()
                 .HasForeignKey(progress => progress.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Prevent duplicate owner assignments for a module and account.
+        builder.Entity<ModuleOwnerAssignment>(entity =>
+        {
+            entity.HasIndex(assignment => new
+            {
+                assignment.ModuleId,
+                assignment.OwnerUserId
+            }).IsUnique();
+
+            entity.HasOne(assignment => assignment.Owner)
+                .WithMany()
+                .HasForeignKey(assignment => assignment.OwnerUserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Each learner can enrol in a given module only once.
+        builder.Entity<ModuleEnrollment>(entity =>
+        {
+            entity.HasIndex(enrollment => new
+            {
+                enrollment.UserId,
+                enrollment.ModuleId
+            }).IsUnique();
+
+            entity.HasOne(enrollment => enrollment.User)
+                .WithMany()
+                .HasForeignKey(enrollment => enrollment.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
 
@@ -102,7 +144,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
                 .HasForeignKey(attempt => attempt.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // A bank used by an attempt must remain available for history.
+            // Keep the bank available so completed attempts remain reviewable.
             entity.HasOne(attempt => attempt.Bank)
                 .WithMany()
                 .HasForeignKey(attempt => attempt.AssessmentBankId)
@@ -122,6 +164,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
                 .HasForeignKey(answer => answer.AssessmentAttemptId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Preserve the question when an answer is part of attempt history.
             entity.HasOne(answer => answer.Question)
                 .WithMany()
                 .HasForeignKey(answer => answer.AssessmentQuestionId)

@@ -6,9 +6,12 @@
 
 @{
     var isSignedIn = User.Identity?.IsAuthenticated == true;
+    var isAdmin = isSignedIn && User.IsInRole("Admin");
+    var isModuleOwner = isSignedIn && User.IsInRole("ModuleOwner");
     var authState = isSignedIn ? "true" : "false";
     var badgeText = "CT";
 
+    // Show the initials from the signed-in user's profile when available.
     if (isSignedIn)
     {
         var account = await UserManager.GetUserAsync(User);
@@ -26,6 +29,7 @@
         }
     }
 
+    // Create a request token for signed-in pages that submit data.
     var csrfToken = isSignedIn
         ? Antiforgery.GetAndStoreTokens(Context).RequestToken
         : null;
@@ -76,7 +80,37 @@
 
                 @if (isSignedIn)
                 {
+                    @* Administrative navigation is limited to administrators. *@
+                    @if (isAdmin)
+                    {
+                        <a asp-area="" asp-page="/AdminProgress">
+                            Admin progress
+                        </a>
+                        <a asp-area="" asp-page="/AdminModuleOwners">
+                            Module owners
+                        </a>
+                    }
+
+                    @* Owners see their assigned-module reporting page. *@
+                    @if (isModuleOwner)
+                    {
+                        <a asp-area="" asp-page="/OwnerDashboard">
+                            Owner dashboard
+                        </a>
+                    }
+
+                    @if (isAdmin || isModuleOwner) { <a asp-page="/TrainingManagement">Manage training</a> }
+                    <a asp-page="/Notifications">Notifications</a>
+                    <a asp-area="" asp-page="/AssessmentHistory">
+                        My assessments
+                    </a>
                     <a asp-area="" asp-page="/Profile">My profile</a>
+
+                    @* Link to Identity's authenticator and two-factor settings. *@
+                    <a asp-area="Identity"
+                       asp-page="/Account/Manage/TwoFactorAuthentication">
+                        Account security
+                    </a>
 
                     <form asp-area="Identity"
                           asp-page="/Account/Logout"
@@ -90,8 +124,12 @@
                 }
                 else
                 {
-                    <a asp-area="Identity" asp-page="/Account/Login">Sign in</a>
-                    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+                    <a asp-area="Identity" asp-page="/Account/Login">
+                        Sign in
+                    </a>
+                    <a asp-area="Identity" asp-page="/Account/Register">
+                        Register
+                    </a>
                 }
             </nav>
         </div>

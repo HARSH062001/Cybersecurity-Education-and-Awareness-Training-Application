@@ -11,6 +11,7 @@
 @* The script uses these values to keep this practice attempt together. *@
 <div class="assessment-workspace"
      data-assessment
+     data-attempt-id="@Model.AttemptId"
      data-module-id="@Model.ModuleId"
      data-bank="@Model.Bank"
      data-total-questions="@Model.Questions.Count">
@@ -67,7 +68,7 @@
             <div class="learning-help">
                 <strong>Your responses</strong>
                 <p>Your answers are kept in this browser while you work.</p>
-                <p>Final marking and saved assessment records require the backend connection.</p>
+                <p>When you submit, your multiple-choice answers are marked and the result is saved to your account.</p>
             </div>
         </aside>
 
@@ -78,6 +79,7 @@
 
                 <section class="question-card"
                          data-question-panel="@index"
+                         data-question-number="@question.Number"
                          hidden="@(index != 0 ? "hidden" : null)">
                     <p class="eyebrow">Question @(index + 1)</p>
                     <h2 class="question-card__title">@question.Text</h2>

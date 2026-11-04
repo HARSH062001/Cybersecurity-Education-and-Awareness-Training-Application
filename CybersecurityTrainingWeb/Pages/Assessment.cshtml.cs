@@ -1,65 +1,102 @@
-using System.Text.Json;
+using System.Security.Cryptography;
 using CybersecurityTrainingWeb.Data;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace CybersecurityTrainingWeb.Pages;
 
+[Authorize]
 public class AssessmentModel : PageModel
 {
+    private readonly ApplicationDbContext _dbContext;
+    private readonly UserManager<ApplicationUser> _userManager;
+
+    public AssessmentModel(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+    {
+        _dbContext = dbContext;
+        _userManager = userManager;
+    }
+
+    public long AttemptId { get; private set; }
     public int ModuleId { get; private set; }
-    public string Bank { get; private set; } = "A";
+    public string Bank { get; private set; } = "";
     public string ModuleTitle { get; private set; } = "Cybersecurity Fundamentals";
     public List<QuestionDto> Questions { get; private set; } = [];
 
-    private readonly ApplicationDbContext _dbContext;
-
-    public AssessmentModel(ApplicationDbContext dbContext)
+    public async Task<IActionResult> OnGetAsync(int moduleId = 1, long? attemptId = null)
     {
-        _dbContext = dbContext;
-    }
+        var userId = _userManager.GetUserId(User);
+        if (userId is null) return Challenge();
 
-    public async Task<IActionResult> OnGetAsync(int moduleId = 1, string? bank = null)
-    {
-        //returns to module page if no bank is found
-        if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
-        if (bank is null || bank.Length != 1 || bank[0] is < 'A' or > 'C') bank = ((char)('A' + Random.Shared.Next(3))).ToString();
+        AssessmentAttempt? attempt;
+        if (attemptId is not null)
+        {
+            attempt = await _dbContext.AssessmentAttempts.AsNoTracking()
+                .SingleOrDefaultAsync(a => a.Id == attemptId && a.UserId == userId &&
+                                           a.Status == AssessmentAttemptStatus.InProgress);
+            if (attempt is null) return NotFound();
+        }
+        else
+        {
+            if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
 
-        //Takes an instance of a question bank from the database
-        var realBank = await _dbContext.AssessmentBanks
-            .Where(b => b.ModuleId == moduleId)
-            .Where(b => b.IsPublished)
-            .Where(b => b.Code == bank.ToUpperInvariant())
-            .OrderByDescending(b => b.Version)
-            .AsNoTracking()
+            attempt = await _dbContext.AssessmentAttempts.AsNoTracking()
+                .Where(a => a.UserId == userId && a.Status == AssessmentAttemptStatus.InProgress &&
+                            a.Bank.ModuleId == moduleId)
+                .OrderByDescending(a => a.StartedAtUtc)
+                .FirstOrDefaultAsync();
+
+            if (attempt is null)
+            {
+                var published = await _dbContext.AssessmentBanks.AsNoTracking()
+                    .Where(b => b.ModuleId == moduleId && b.IsPublished)
+                    .Select(b => new { b.Id, b.Code, b.Version })
+                    .ToListAsync();
+
+                var choices = published.GroupBy(b => b.Code)
+                    .Select(g => g.OrderByDescending(b => b.Version).First())
+                    .ToList();
+                if (choices.Count == 0) return RedirectToPage("/Modules");
+
+                var selected = choices[RandomNumberGenerator.GetInt32(choices.Count)];
+                attempt = new AssessmentAttempt
+                {
+                    UserId = userId,
+                    AssessmentBankId = selected.Id,
+                    Status = AssessmentAttemptStatus.InProgress
+                };
+                _dbContext.AssessmentAttempts.Add(attempt);
+                await _dbContext.SaveChangesAsync();
+            }
+
+            return RedirectToPage("/Assessment", new { attemptId = attempt.Id });
+        }
+
+        var realBank = await _dbContext.AssessmentBanks.AsNoTracking()
             .Include(b => b.Questions)
             .ThenInclude(q => q.Options)
-            .FirstOrDefaultAsync();
+            .SingleOrDefaultAsync(b => b.Id == attempt.AssessmentBankId);
+        if (realBank is null) return NotFound();
 
-        //returns to module page if no bank is found
-        if (realBank is null) return RedirectToPage("/Modules");
-
-        ModuleId = moduleId;
-        Bank = bank.ToUpperInvariant();
-        ModuleTitle = ModuleTitles[moduleId - 1];
-
-        Questions = realBank.Questions
-            .OrderBy(q => q.Number)
+        Response.Headers.CacheControl = "no-store";
+        AttemptId = attempt.Id;
+        ModuleId = realBank.ModuleId;
+        Bank = realBank.Code;
+        ModuleTitle = ModuleTitles[ModuleId - 1];
+        Questions = realBank.Questions.OrderBy(q => q.Number)
             .Select(q => new QuestionDto
             {
-                Id = $"m{moduleId}{bank.ToLowerInvariant()}q{q.Number}",
+                Id = $"m{ModuleId}{Bank.ToLowerInvariant()}q{q.Number}",
                 Number = q.Number,
                 Text = q.Text,
                 Type = q.Type,
-                Options = q.Options.Select(o => new OptionDto
-                {
-                    Code = o.Code,
-                    Text = o.Text
-                }).OrderBy(o => o.Code)
-                .ToList()
-            })
-            .ToList();
+                Options = q.Options.OrderBy(o => o.Code)
+                    .Select(o => new OptionDto { Code = o.Code, Text = o.Text })
+                    .ToList()
+            }).ToList();
         return Page();
     }
 
@@ -69,7 +106,18 @@ public class AssessmentModel : PageModel
         "Network and Internet Security", "Device and Physical Security", "AI Literacy and AI Security", "Incident Reporting and Cyber Hygiene"
     ];
 
-    public sealed class BankDto { public int ModuleId { get; set; } public string Bank { get; set; } = ""; public List<QuestionDto> Questions { get; set; } = []; }
-    public sealed class QuestionDto { public string Id { get; set; } = ""; public int Number { get; set; } public string Text { get; set; } = ""; public string Type { get; set; } = "multipleChoice"; public List<OptionDto> Options { get; set; } = []; }
-    public sealed class OptionDto { public string Code { get; set; } = ""; public string Text { get; set; } = ""; }
+    public sealed class QuestionDto
+    {
+        public string Id { get; set; } = "";
+        public int Number { get; set; }
+        public string Text { get; set; } = "";
+        public string Type { get; set; } = "multipleChoice";
+        public List<OptionDto> Options { get; set; } = [];
+    }
+
+    public sealed class OptionDto
+    {
+        public string Code { get; set; } = "";
+        public string Text { get; set; } = "";
+    }
 }

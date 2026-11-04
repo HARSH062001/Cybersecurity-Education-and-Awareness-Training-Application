@@ -1,4 +1,3 @@
-using System;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,26 +5,26 @@ namespace CybersecurityTrainingWeb.Data;
 
 public static class QuestionBankSeeder
 {
-    public static void Seed(DbContext context)
-    {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "question_banks.json");
-        var banks = ReadSeedFile(path);
+    public static void Seed(DbContext context, string path)
+{
+    var banks = ReadSeedFile(path);
 
-        //Check if the bank exists in the db and if the versions match
-        //If yes, then skip adding the database
-        var existingKeys = context.Set<AssessmentBank>()
-            .Select(b => new {b.ModuleId, b.Code, b.Version })
+            var existingKeys = context.Set<AssessmentBank>()
+            .Select(b => new { b.ModuleId, b.Code, b.Version })
             .AsEnumerable()
             .Select(b => (b.ModuleId, b.Code, b.Version))
             .ToHashSet();
 
         var added = 0;
+
         foreach (var bank in banks)
         {
-            if (existingKeys.Contains((bank.ModuleId, bank.Bank, bank.Version)))
+            if (existingKeys.Contains(
+                (bank.ModuleId, bank.Bank, bank.Version)))
             {
                 continue;
             }
+
             var entity = new AssessmentBank
             {
                 ModuleId = bank.ModuleId,
@@ -35,7 +34,6 @@ public static class QuestionBankSeeder
                 Questions = bank.Questions.Select(q => new AssessmentQuestion
                 {
                     Number = q.Number,
-                    AssessmentBankId = bank.ModuleId,
                     Text = q.Text,
                     Type = q.Type,
                     CorrectOptionCode = q.CorrectAnswer,
@@ -47,14 +45,18 @@ public static class QuestionBankSeeder
                     }).ToList()
                 }).ToList()
             };
+
             context.Set<AssessmentBank>().Add(entity);
-            
             added++;
         }
-        context.SaveChanges();
+
+        if (added > 0)
+        {
+            context.SaveChanges();
+        }
+
         Console.WriteLine($"Added {added} banks");
     }
-
 
     public sealed class OptionJsonDto
     {
@@ -84,7 +86,40 @@ public static class QuestionBankSeeder
     public static List<BankJsonDto> ReadSeedFile(string path)
     {
         var text = File.ReadAllText(path);
-        var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true };
-        return JsonSerializer.Deserialize<List<BankJsonDto>>(text, options) ?? [];
+
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        var banks = JsonSerializer.Deserialize<List<BankJsonDto>>(
+            text,
+            options) ?? [];
+
+        foreach (var bank in banks)
+        {
+            foreach (var question in bank.Questions
+                         .Where(q => q.Type == "multipleChoice"))
+            {
+                var hasCorrectOption = question.Options.Any(
+                    option => option.Code == question.CorrectAnswer);
+
+                if (!hasCorrectOption)
+                {
+                    throw new InvalidDataException(
+                        $"Module {bank.ModuleId}, bank {bank.Bank}, " +
+                        $"question {question.Number} has no matching correct option.");
+                }
+
+                if (string.IsNullOrWhiteSpace(question.Explanation))
+                {
+                    throw new InvalidDataException(
+                        $"Module {bank.ModuleId}, bank {bank.Bank}, " +
+                        $"question {question.Number} has no explanation.");
+                }
+            }
+        }
+
+        return banks;
     }
 }

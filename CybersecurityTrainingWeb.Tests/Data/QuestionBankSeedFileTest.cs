@@ -1,48 +1,62 @@
 using CybersecurityTrainingWeb.Data;
 
-namespace CybersecurityTrainingWeb.Tests.Data
+namespace CybersecurityTrainingWeb.Tests.Data;
+
+public class ReadSeedFileTest
 {
-    // Tests whether the ReadSileFile method in QuestionBankSeeder.cs properly reads the banks, questions, and options
-    // TODO: Make tests for checking whether the JSON file gets properly seeded
-    // to the database
-    public class ReadSeedFileTest
+    private static List<QuestionBankSeeder.BankJsonDto> ReadBanks()
+    {
+        var path = Path.Combine(
+            AppContext.BaseDirectory,
+            "Data",
+            "question_banks.json");
+
+        return QuestionBankSeeder.ReadSeedFile(path);
+    }
+
+    [Fact]
+    public void ReadSeedFile_HasTwentyFourBanks()
+    {
+        Assert.Equal(24, ReadBanks().Count);
+    }
+
+    [Fact]
+    public void ReadSeedFile_AllBanksHaveTenQuestions()
+    {
+        Assert.All(
+            ReadBanks(),
+            bank => Assert.Equal(10, bank.Questions.Count));
+    }
+
+    [Fact]
+    public void ReadSeedFile_AllMultipleChoiceQuestionsHaveFourOptions()
+    {
+        var questions = ReadBanks()
+            .SelectMany(bank => bank.Questions)
+            .Where(question => question.Type == "multipleChoice");
+
+        Assert.All(
+            questions,
+            question => Assert.Equal(4, question.Options.Count));
+    }
+
+    [Fact]
+    public void ReadSeedFile_EveryMultipleChoiceQuestionHasAnswerAndExplanation()
+    {
+        foreach (var bank in ReadBanks())
         {
-            // Tests whether the ReadSeedFile method properly reads 24 banks
-            [Fact]
-            public void ReadSeedFile_HasTwentyFourBanks()
+            foreach (var question in bank.Questions
+                         .Where(q => q.Type == "multipleChoice"))
             {
-                var path = Path.Combine(AppContext.BaseDirectory, "Data", "question_banks.json");
-                var banks = QuestionBankSeeder.ReadSeedFile(path);
-                Assert.Equal(24, banks.Count);
-            }
+                Assert.Contains(
+                    question.Options,
+                    option => option.Code == question.CorrectAnswer);
 
-            // Tests whether all banks have 10 questions
-            [Fact]
-            public void ReadSeedFile_AllBanksHaveTenQuestions()
-            {
-                var path = Path.Combine(AppContext.BaseDirectory, "Data", "question_banks.json");
-                var banks = QuestionBankSeeder.ReadSeedFile(path);
-                Assert.All(banks, bank => 
-                {
-                    Assert.Equal(10, bank.Questions.Count);
-                });
-            }
-
-            // Tests whether all multiple-choice questions have 4 options
-            // Currently, no scenario questions exist in the banks
-            [Fact]
-            public void ReadSeedFile_AllQuestionHaveFourOptions()
-            {
-                var path = Path.Combine(AppContext.BaseDirectory, "Data", "question_banks.json");
-                var banks = QuestionBankSeeder.ReadSeedFile(path);
-                var questions = banks
-                    .SelectMany(bank => bank.Questions)
-                    .Where(question => question.Type == "multipleChoice");
-
-                Assert.All(questions, question =>
-                {
-                    Assert.Equal(4, question.Options.Count);
-                });
+                Assert.False(
+                    string.IsNullOrWhiteSpace(question.Explanation),
+                    $"Missing explanation: module {bank.ModuleId}, " +
+                    $"bank {bank.Bank}, question {question.Number}");
             }
         }
+    }
 }

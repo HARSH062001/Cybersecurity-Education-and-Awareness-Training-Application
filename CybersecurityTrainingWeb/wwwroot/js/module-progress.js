@@ -24,7 +24,8 @@
     const progressByModule = new Map();
 
     function showMessage(message, kind = "warning") {
-        const container = workspace || document.querySelector("#main-content");
+        const container = workspace?.querySelector(".learning-sidebar")
+    || document.querySelector("#main-content");
         if (!container) return;
 
         let notice = container.querySelector("[data-progress-notice]");

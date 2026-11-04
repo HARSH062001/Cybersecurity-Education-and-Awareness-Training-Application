@@ -1,0 +1,12 @@
+@page
+@model CybersecurityTrainingWeb.Pages.NotificationsModel
+@{ ViewData["Title"] = "Training notifications"; }
+<h1>Training notifications</h1>
+<p>Your module assignments and current assessment reminders. Dates are shown in UTC.</p>
+@if (Model.Notices.Count == 0) { <p>No training assignments yet. Visit the learning route to enrol.</p> }
+@foreach(var notice in Model.Notices) {
+<section class="panel p-4 mb-3"><h2 class="h4">Module @notice.ModuleId</h2><p>@notice.Message</p>
+@if (notice.DueAtUtc is DateTime due) { <p>Due: @due.ToString("dd MMM yyyy HH:mm") UTC</p> }
+<a asp-page="/Module" asp-route-id="@notice.ModuleId">Study module</a>
+<a asp-page="/Assessment" asp-route-moduleId="@notice.ModuleId">Open assessment</a></section>
+}

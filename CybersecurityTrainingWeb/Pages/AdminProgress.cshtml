@@ -1,0 +1,87 @@
+@page
+@model CybersecurityTrainingWeb.Pages.AdminProgressModel
+@{
+    ViewData["Title"] = "Learner progress";
+}
+
+@* Admin view of learner completion and assessment outcomes. *@
+<section class="privacy-hero">
+    <p class="eyebrow">Administration</p>
+    <h1>Learner progress</h1>
+    <p class="lead">
+        Review saved learning-section completions and completed assessment scores.
+    </p>
+</section>
+
+@if (Model.Learners.Count == 0)
+{
+    <section class="panel p-4">
+        <h2>No learner accounts found</h2>
+        <p>Registered learner accounts will appear here.</p>
+    </section>
+}
+else
+{
+    <div class="d-grid gap-4">
+        @foreach (var learner in Model.Learners)
+        {
+            <section class="panel p-4" aria-label="Progress for @learner.Name">
+                <header class="mb-3">
+                    <h2 class="h4 mb-1">@learner.Name</h2>
+                    <p class="mb-2">@learner.Email</p>
+                    <p class="mb-0">
+                        <strong>Completed learning sections:</strong>
+                        @learner.CompletedSections
+                    </p>
+                </header>
+
+                @if (learner.CompletedAttempts.Count == 0)
+                {
+                    <p class="mb-0">No completed assessments yet.</p>
+                }
+                else
+                {
+                    @* Show saved scores with their module and submission time. *@
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle mb-0">
+                            <caption class="caption-top">
+                                Completed assessment results
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Module</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Completed (UTC)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var attempt in learner.CompletedAttempts)
+                                {
+                                    <tr>
+                                        <td>Module @attempt.ModuleId</td>
+                                        <td>
+                                            @if (attempt.Score.HasValue &&
+                                                 attempt.TotalQuestions.HasValue)
+                                            {
+                                                @($"{attempt.Score} / {attempt.TotalQuestions}")
+                                            }
+                                            else
+                                            {
+                                                <span>Not available</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <time datetime="@attempt.StartedAtUtc.ToString("O")">
+                                                @attempt.StartedAtUtc.ToString("dd MMM yyyy, HH:mm")
+                                            </time>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </section>
+        }
+    </div>
+}

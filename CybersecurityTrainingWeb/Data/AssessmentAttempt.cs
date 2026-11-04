@@ -1,7 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
 namespace CybersecurityTrainingWeb.Data;
-
 public enum AssessmentAttemptStatus
 {
     InProgress,

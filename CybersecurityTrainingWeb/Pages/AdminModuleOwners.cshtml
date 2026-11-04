@@ -1,0 +1,120 @@
+@page
+@model CybersecurityTrainingWeb.Pages.AdminModuleOwnersModel
+@{
+    ViewData["Title"] = "Module owners";
+}
+
+@* Admin interface for assigning registered users to learning modules. *@
+<section class="privacy-hero">
+    <p class="eyebrow">Administration</p>
+    <h1>Module owners</h1>
+    <p class="lead">
+        Assign registered users to modules they will manage.
+        Assigned accounts receive the ModuleOwner role.
+    </p>
+</section>
+
+@if (!string.IsNullOrWhiteSpace(Model.StatusMessage))
+{
+    <div class="alert alert-success" role="status">
+        @Model.StatusMessage
+    </div>
+}
+
+<div asp-validation-summary="ModelOnly"
+     class="text-danger"
+     role="alert"></div>
+
+<section class="panel p-4 mb-4">
+    <h2 class="h4">Assign an owner</h2>
+
+    <form method="post" asp-page-handler="Assign">
+        <div class="mb-3">
+            <label asp-for="ModuleId" class="form-label">Module</label>
+            <select asp-for="ModuleId" class="form-select">
+                <option value="">Choose a module</option>
+                @foreach (var module in AdminModuleOwnersModel.Modules)
+                {
+                    <option value="@module.Id">@module.Title</option>
+                }
+            </select>
+            <span asp-validation-for="ModuleId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="OwnerUserId" class="form-label">
+                Registered account
+            </label>
+            <select asp-for="OwnerUserId" class="form-select">
+                <option value="">Choose an account</option>
+                @foreach (var user in Model.Users)
+                {
+                    var displayName = string.IsNullOrWhiteSpace(user.FullName)
+                        ? user.Email
+                        : $"{user.FullName} ({user.Email})";
+
+                    <option value="@user.Id">@displayName</option>
+                }
+            </select>
+            <span asp-validation-for="OwnerUserId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Assign module owner
+        </button>
+    </form>
+</section>
+
+<section class="panel p-4">
+    <h2 class="h4">Current assignments</h2>
+
+    @if (Model.Assignments.Count == 0)
+    {
+        <p class="mb-0">No module owners have been assigned yet.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Module</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Account email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var assignment in Model.Assignments)
+                    {
+                        var module = AdminModuleOwnersModel.Modules
+                            .FirstOrDefault(item =>
+                                item.Id == assignment.ModuleId);
+
+                        <tr>
+                            <td>
+                                @(module?.Title ?? $"Module {assignment.ModuleId}")
+                            </td>
+                            <td>
+                                @(string.IsNullOrWhiteSpace(assignment.FullName)
+                                    ? "Name not provided"
+                                    : assignment.FullName)
+                            </td>
+                            <td>@assignment.Email</td>
+                            <td>
+                                <form method="post"
+                                      asp-page-handler="Remove"
+                                      asp-route-assignmentId="@assignment.Id">
+                                    <button type="submit"
+                                            class="btn btn-outline-danger btn-sm">
+                                        Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</section>
