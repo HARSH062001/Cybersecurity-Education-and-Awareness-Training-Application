@@ -1,4 +1,4 @@
-namespace CybersecurityTrainingWeb.Services;
+namespace CybersecurityTrainingWeb.Utils;
 
 using CybersecurityTrainingWeb.Data;
 using Microsoft.EntityFrameworkCore;

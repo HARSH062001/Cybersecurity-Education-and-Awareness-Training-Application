@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using CybersecurityTrainingWeb.Services;
+using CybersecurityTrainingWeb.Utils;
 namespace CybersecurityTrainingWeb.Pages;
 
 [Authorize]

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using CybersecurityTrainingWeb.Services;
+using CybersecurityTrainingWeb.Utils;
 
 namespace CybersecurityTrainingWeb.Pages;
 
@@ -50,7 +50,7 @@ public class AssessmentModel : PageModel
 
         // Check whether user has any existing attempts,
         // If not, create a new attempt and assign bank based on attempt history
-        var assessmentAttempt = AttemptFinder.GetOrCreateAttempt(_dbContext, userId, moduleId);
+        var assessmentAttempt = AttemptUtils.GetOrCreateAttempt(_dbContext, userId, moduleId);
         var bankId = assessmentAttempt.AssessmentBankId;
         AttemptId = assessmentAttempt.Id;
 
@@ -104,7 +104,7 @@ public class AssessmentModel : PageModel
         }
 
         //get attempt from database and validate it
-        var assessmentAttempt = await AttemptValidator.ValidateAndMarkAttempt(_dbContext, userId, AttemptId, Answers);
+        var assessmentAttempt = await AttemptUtils.ValidateAndMarkAttempt(_dbContext, userId, AttemptId, Answers);
 
         if (assessmentAttempt is null)
         {

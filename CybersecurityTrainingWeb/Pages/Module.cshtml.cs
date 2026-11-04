@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using CybersecurityTrainingWeb.Services;
+using CybersecurityTrainingWeb.Utils;
 using Microsoft.AspNetCore.Identity;
 using CybersecurityTrainingWeb.Data;
 
