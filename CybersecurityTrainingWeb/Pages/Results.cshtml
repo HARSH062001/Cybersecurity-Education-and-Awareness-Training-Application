@@ -16,24 +16,55 @@
 </section>
 
 <div class="results-workspace">
+    <section class="results-card">
     @if (Model.IsPassed)
     {
-        <section class="results-card">
+        
         <h2>Congratulations! You have passed this assessment.</h2>
         <p>
             Go back and revisit the module using the "Return to module" or you can go back to the Modules page to work on another module.
         </p>
-    </section>
     }
     else
     {
-        <section class="results-card">
-        <h2>Unfortunately, you have failed.</h2>
-        <p>
-            Go back and revisit the module using the "Return to module" button or you may try the assessment again.
-        </p>
-    </section>
+            <h2>Unfortunately, you have failed.</h2>
+            <p>
+                Go back and revisit the module using the "Return to module" button or you may try the assessment again.
+            </p>   
     }
+    <div class="assessment-questions">
+            @for (var index = 0; index < Model.Questions.Count; index++)
+            {
+                var question = Model.Questions[index];
+
+                <section class="question-card"
+                         data-question-panel="@index">
+                    <p class="eyebrow">Question @(index + 1)</p>
+                    <h2 class="question-card__title">@question.Text</h2>
+
+                    @if (question.Type == "multipleChoice")
+                    {
+                        <fieldset>
+                            @foreach (var option in question.Options)
+                            {
+                                <label class="answer @(!option.DidUserAnswer ? "answer-option" : option.IsCorrectAnswer ? "answer-correct" : "answer-wrong")">
+                                    <input type="radio"
+                                           name="Answers[@question.DatabaseId]"
+                                           value="@option.Code"
+                                           data-answer-input="@question.Id"
+                                           disabled
+                                           checked="@option.DidUserAnswer"
+                                            />
+                                    <span class="answer-option__code">@option.Code</span>
+                                    <span>@option.Text</span>
+                                </label>
+                            }
+                        </fieldset>
+                    }
+                </section>
+            }
+            </div>
+        </section>
     
 
     <aside class="results-card">

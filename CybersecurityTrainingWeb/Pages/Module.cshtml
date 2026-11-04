@@ -229,6 +229,14 @@
                 asp-route-moduleId="@Model.ModuleId">
                     Start knowledge assessment
                 </a>
+                @if (Model.HasAttempted)
+                {
+                    <a class="btn btn-primary"
+                asp-page="/Results"
+                asp-route-moduleId="@Model.ModuleId">
+                    View previous attempt
+                </a>
+                }
             }
             
         </section>

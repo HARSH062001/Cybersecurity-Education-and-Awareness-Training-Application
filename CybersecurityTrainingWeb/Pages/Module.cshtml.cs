@@ -13,6 +13,7 @@ public class ModuleModel : PageModel
     public string Title { get; private set; } = "";
     public string Purpose { get; private set; } = "";
     public bool HasPassed { get; set; }
+    public bool HasAttempted { get; set; }
     public List<ContentBlock> Blocks { get; private set; } = [];
     public List<LearningSection> LearningSections { get; private set; } = [];
     public string[] Banks => ["A", "B", "C"];
@@ -49,6 +50,8 @@ public class ModuleModel : PageModel
             return Unauthorized();
         }
 
+        // Check if user has attempted an assessment. If so, show link to latest results
+        HasAttempted = await ResultUtils.HasFinishedAttempt(_dbContext, userId, ModuleId);
         // Check if user has passed the Assessment, if so redirect to results instead of Assessment page
         HasPassed = await ResultUtils.HasUserPassed(_dbContext, ModuleId, userId);
 

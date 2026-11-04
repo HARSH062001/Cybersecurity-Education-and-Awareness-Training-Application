@@ -22,6 +22,7 @@ public static class ResultUtils
             .Where(attempt => attempt.Bank.ModuleId == moduleId)
             .Include(attempt => attempt.Bank)
             .ThenInclude(bank => bank.Questions)
+            .ThenInclude(question => question.Options)
             .Include(attempt => attempt.Answers)
             .OrderBy(attempt => attempt.SubmittedAtUtc)
             .LastOrDefaultAsync(attempt => attempt.Status == AssessmentAttemptStatus.Completed);
@@ -43,4 +44,15 @@ public static class ResultUtils
         attempt.Bank.ModuleId == moduleId
         );
     }
+
+    // Returns whether the user has attempted and finished a result (without reading bank, questions, options and answers)
+    public static Task<bool> HasFinishedAttempt(
+    ApplicationDbContext dbContext, string userId, int moduleId)
+    {
+        return dbContext.AssessmentAttempts.AnyAsync(attempt =>
+        attempt.UserId == userId &&
+        attempt.Bank.ModuleId == moduleId &&
+        attempt.Status == AssessmentAttemptStatus.Completed);
+    }
+
 }
