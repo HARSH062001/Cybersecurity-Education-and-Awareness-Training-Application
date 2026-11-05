@@ -96,15 +96,19 @@ public static class AssessmentSubmissionEndpoints
             if (selectedCode == "")
                 selectedCode = null;
 
-            if (selectedCode is not null &&
-                !question.Options.Any(o => o.Code == selectedCode))
+            if (selectedCode is null)
+            {
+                return Results.BadRequest(
+                    new { error = "Answer every question before submitting." });
+            }
+
+            if (!question.Options.Any(o => o.Code == selectedCode))
             {
                 return Results.BadRequest(
                     new { error = "An answer option is invalid." });
             }
 
-            var isCorrect = selectedCode is not null &&
-                selectedCode == question.CorrectOptionCode;
+            var isCorrect = selectedCode == question.CorrectOptionCode;
 
             if (isCorrect)
                 score++;

@@ -1,4 +1,5 @@
 using CybersecurityTrainingWeb.Data;
+using CybersecurityTrainingWeb.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,13 +13,16 @@ public class ResultsModel : PageModel
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IConfiguration _configuration;
 
     public ResultsModel(
         ApplicationDbContext dbContext,
-        UserManager<ApplicationUser> userManager)
+        UserManager<ApplicationUser> userManager,
+        IConfiguration configuration)
     {
         _dbContext = dbContext;
         _userManager = userManager;
+        _configuration = configuration;
     }
 
     public long AttemptId { get; private set; }
@@ -27,6 +31,8 @@ public class ResultsModel : PageModel
     public int Score { get; private set; }
     public int TotalQuestions { get; private set; }
     public int Answered { get; private set; }
+    public bool IsPassed { get; private set; }
+    public int PassingPercentage => ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
 
     public List<QuestionResult> Questions { get; private set; } = [];
 
@@ -84,19 +90,14 @@ public class ResultsModel : PageModel
                 var selectedOption = question.Options.FirstOrDefault(
                     option => option.Code == answer?.SelectedOptionCode);
 
-                var correctOption = question.Options.FirstOrDefault(
-                    option => option.Code == question.CorrectOptionCode);
-
                 return new QuestionResult
                 {
                     Number = question.Number,
                     QuestionText = question.Text,
                     SelectedOptionCode = selectedOption?.Code,
                     SelectedOptionText = selectedOption?.Text,
-                    CorrectOptionCode = correctOption?.Code,
-                    CorrectOptionText = correctOption?.Text,
                     IsCorrect = answer?.IsCorrect == true,
-                    Explanation = question.Explanation
+                    Explanation = answer?.IsCorrect == true ? question.Explanation : null
                 };
             })
             .ToList();
@@ -108,6 +109,8 @@ public class ResultsModel : PageModel
         ModuleTitle = moduleTitles[ModuleId - 1];
         Score = attempt.Score.Value;
         TotalQuestions = attempt.TotalQuestions.Value;
+        IsPassed = ResultUtils.AssessmentRules.IsPassed(
+            Score, TotalQuestions, PassingPercentage);
         Answered = attempt.Answers.Count(answer =>
             !string.IsNullOrWhiteSpace(answer.SelectedOptionCode));
 
@@ -120,8 +123,6 @@ public class ResultsModel : PageModel
         public string QuestionText { get; init; } = "";
         public string? SelectedOptionCode { get; init; }
         public string? SelectedOptionText { get; init; }
-        public string? CorrectOptionCode { get; init; }
-        public string? CorrectOptionText { get; init; }
         public bool IsCorrect { get; init; }
         public string? Explanation { get; init; }
     }
