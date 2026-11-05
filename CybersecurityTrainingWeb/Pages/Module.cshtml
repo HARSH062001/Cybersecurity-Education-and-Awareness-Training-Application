@@ -219,11 +219,13 @@
             <h2>Module sections complete</h2>
             @if (Model.HasPassed)
             {
-                <p>You have completed this section.</p>
+                <p>You have passed this module assessment. Your best result is
+                    <strong>@Model.BestScore of @Model.BestTotalQuestions (@Model.BestPercentage%)</strong>.
+                    Further attempts are locked.</p>
                 <a class="btn btn-primary"
                 asp-page="/Results"
-                asp-route-attemptId="@Model.LatestAttemptId">
-                    View assessment results
+                asp-route-attemptId="@Model.BestAttemptId">
+                    Review best assessment result
                 </a>
             }
             else
@@ -238,8 +240,8 @@
                 {
                     <a class="btn btn-primary"
                 asp-page="/Results"
-                asp-route-attemptId="@Model.LatestAttemptId">
-                    View previous attempt
+                asp-route-attemptId="@Model.BestAttemptId">
+                    Review best attempt (@Model.BestPercentage%)
                 </a>
                 }
             }

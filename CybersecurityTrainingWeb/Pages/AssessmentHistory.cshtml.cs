@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using CybersecurityTrainingWeb.Utils;
 
 namespace CybersecurityTrainingWeb.Pages;
 
@@ -12,16 +13,20 @@ public class AssessmentHistoryModel : PageModel
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IConfiguration _configuration;
 
     public AssessmentHistoryModel(
         ApplicationDbContext dbContext,
-        UserManager<ApplicationUser> userManager)
+        UserManager<ApplicationUser> userManager,
+        IConfiguration configuration)
     {
         _dbContext = dbContext;
         _userManager = userManager;
+        _configuration = configuration;
     }
 
     public List<AttemptSummary> Attempts { get; private set; } = [];
+    public HashSet<int> PassedModuleIds { get; private set; } = [];
 
     public async Task<IActionResult> OnGetAsync()
     {
@@ -31,6 +36,7 @@ public class AssessmentHistoryModel : PageModel
         var attempts = await _dbContext.AssessmentAttempts
             .AsNoTracking()
             .Include(attempt => attempt.Bank)
+            .Include(attempt => attempt.Answers)
             .Where(attempt => attempt.UserId == userId)
             .OrderByDescending(attempt => attempt.StartedAtUtc)
             .ToListAsync();
@@ -58,8 +64,18 @@ public class AssessmentHistoryModel : PageModel
             StartedAtUtc = attempt.StartedAtUtc,
             Status = attempt.Status,
             Score = attempt.Score,
-            TotalQuestions = attempt.TotalQuestions
+            TotalQuestions = attempt.TotalQuestions,
+            SavedAnswerCount = attempt.Answers.Count(answer =>
+                !string.IsNullOrWhiteSpace(answer.SelectedOptionCode))
         }).ToList();
+
+        var passingPercentage = ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
+        PassedModuleIds = attempts
+            .Where(attempt => attempt.Status == AssessmentAttemptStatus.Completed &&
+                              ResultUtils.AssessmentRules.IsPassed(
+                                  attempt.Score, attempt.TotalQuestions, passingPercentage))
+            .Select(attempt => attempt.Bank.ModuleId)
+            .ToHashSet();
 
         Response.Headers.CacheControl = "no-store";
         return Page();
@@ -74,5 +90,6 @@ public class AssessmentHistoryModel : PageModel
         public AssessmentAttemptStatus Status { get; init; }
         public int? Score { get; init; }
         public int? TotalQuestions { get; init; }
+        public int SavedAnswerCount { get; init; }
     }
 }

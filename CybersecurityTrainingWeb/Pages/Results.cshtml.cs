@@ -32,6 +32,11 @@ public class ResultsModel : PageModel
     public int TotalQuestions { get; private set; }
     public int Answered { get; private set; }
     public bool IsPassed { get; private set; }
+    public bool ModulePassed { get; private set; }
+    public int? BestScore { get; private set; }
+    public int? BestTotalQuestions { get; private set; }
+    public int? BestPercentage { get; private set; }
+    public long? BestAttemptId { get; private set; }
     public int PassingPercentage => ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
 
     public List<QuestionResult> Questions { get; private set; } = [];
@@ -97,7 +102,17 @@ public class ResultsModel : PageModel
                     SelectedOptionCode = selectedOption?.Code,
                     SelectedOptionText = selectedOption?.Text,
                     IsCorrect = answer?.IsCorrect == true,
-                    Explanation = answer?.IsCorrect == true ? question.Explanation : null
+                    Explanation = question.Explanation,
+                    Options = question.Options
+                        .OrderBy(option => option.Code)
+                        .Select(option => new OptionResult
+                        {
+                            Code = option.Code,
+                            Text = option.Text,
+                            IsSelected = option.Code == selectedOption?.Code,
+                            IsCorrect = option.Code == question.CorrectOptionCode
+                        })
+                        .ToList()
                 };
             })
             .ToList();
@@ -111,6 +126,32 @@ public class ResultsModel : PageModel
         TotalQuestions = attempt.TotalQuestions.Value;
         IsPassed = ResultUtils.AssessmentRules.IsPassed(
             Score, TotalQuestions, PassingPercentage);
+        var bestAttempt = await _dbContext.AssessmentAttempts
+            .AsNoTracking()
+            .Where(candidate => candidate.UserId == userId &&
+                                candidate.Bank.ModuleId == ModuleId &&
+                                candidate.Status == AssessmentAttemptStatus.Completed &&
+                                candidate.Score != null &&
+                                candidate.TotalQuestions != null &&
+                                candidate.TotalQuestions > 0)
+            .OrderByDescending(candidate => candidate.Score * 100.0 / candidate.TotalQuestions)
+            .ThenByDescending(candidate => candidate.SubmittedAtUtc)
+            .Select(candidate => new
+            {
+                candidate.Id,
+                Score = candidate.Score!.Value,
+                TotalQuestions = candidate.TotalQuestions!.Value
+            })
+            .FirstOrDefaultAsync();
+        if (bestAttempt is not null)
+        {
+            BestAttemptId = bestAttempt.Id;
+            BestScore = bestAttempt.Score;
+            BestTotalQuestions = bestAttempt.TotalQuestions;
+            BestPercentage = (int)Math.Round(100.0 * bestAttempt.Score / bestAttempt.TotalQuestions);
+            ModulePassed = ResultUtils.AssessmentRules.IsPassed(
+                bestAttempt.Score, bestAttempt.TotalQuestions, PassingPercentage);
+        }
         Answered = attempt.Answers.Count(answer =>
             !string.IsNullOrWhiteSpace(answer.SelectedOptionCode));
 
@@ -125,5 +166,14 @@ public class ResultsModel : PageModel
         public string? SelectedOptionText { get; init; }
         public bool IsCorrect { get; init; }
         public string? Explanation { get; init; }
+        public List<OptionResult> Options { get; init; } = [];
+    }
+
+    public sealed class OptionResult
+    {
+        public string Code { get; init; } = "";
+        public string Text { get; init; } = "";
+        public bool IsSelected { get; init; }
+        public bool IsCorrect { get; init; }
     }
 }

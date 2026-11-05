@@ -18,7 +18,10 @@ public class ModuleModel : PageModel
     public bool HasPassed { get; set; }
     public bool HasAttempted { get; set; }
     public bool HasCompletedAllSections { get; private set; }
-    public long? LatestAttemptId { get; private set; }
+    public long? BestAttemptId { get; private set; }
+    public int? BestScore { get; private set; }
+    public int? BestTotalQuestions { get; private set; }
+    public int? BestPercentage { get; private set; }
     public List<ContentBlock> Blocks { get; private set; } = [];
     public List<LearningSection> LearningSections { get; private set; } = [];
     public string[] Banks => ["A", "B", "C"];
@@ -66,17 +69,32 @@ public class ModuleModel : PageModel
         HasCompletedAllSections = LearningSections.Count > 0 &&
             LearningSections.All(section => completedSections.Contains(section.Key));
 
-        LatestAttemptId = await _dbContext.AssessmentAttempts.AsNoTracking()
+        var bestAttempt = await _dbContext.AssessmentAttempts.AsNoTracking()
             .Where(attempt => attempt.UserId == userId &&
                               attempt.Bank.ModuleId == ModuleId &&
-                              attempt.Status == AssessmentAttemptStatus.Completed)
-            .OrderByDescending(attempt => attempt.SubmittedAtUtc)
-            .Select(attempt => (long?)attempt.Id)
+                              attempt.Status == AssessmentAttemptStatus.Completed &&
+                              attempt.Score != null &&
+                              attempt.TotalQuestions != null &&
+                              attempt.TotalQuestions > 0)
+            .OrderByDescending(attempt => attempt.Score * 100.0 / attempt.TotalQuestions)
+            .ThenByDescending(attempt => attempt.SubmittedAtUtc)
+            .Select(attempt => new
+            {
+                attempt.Id,
+                Score = attempt.Score!.Value,
+                TotalQuestions = attempt.TotalQuestions!.Value
+            })
             .FirstOrDefaultAsync();
-        HasAttempted = LatestAttemptId is not null;
+        HasAttempted = bestAttempt is not null;
+        BestAttemptId = bestAttempt?.Id;
+        BestScore = bestAttempt?.Score;
+        BestTotalQuestions = bestAttempt?.TotalQuestions;
+        BestPercentage = bestAttempt is null
+            ? null
+            : (int)Math.Round(100.0 * bestAttempt.Score / bestAttempt.TotalQuestions);
         var passingPercentage = ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
-        HasPassed = await ResultUtils.HasUserPassed(
-            _dbContext, ModuleId, userId, passingPercentage);
+        HasPassed = bestAttempt is not null && ResultUtils.AssessmentRules.IsPassed(
+            bestAttempt.Score, bestAttempt.TotalQuestions, passingPercentage);
 
         return Page();
     }
