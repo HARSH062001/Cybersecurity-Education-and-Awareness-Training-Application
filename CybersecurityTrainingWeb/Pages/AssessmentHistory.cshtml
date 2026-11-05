@@ -54,12 +54,19 @@ else
                     }
                     else if (attempt.Status == AssessmentAttemptStatus.InProgress)
                     {
-                        <p><strong>Status:</strong> In progress</p>
-                        <a class="btn btn-primary"
-                           asp-page="/Assessment"
-                           asp-route-attemptId="@attempt.Id">
-                            Continue assessment
-                        </a>
+                        <p><strong>Status:</strong> In progress · @attempt.SavedAnswerCount of 10 answers saved</p>
+                        @if (Model.PassedModuleIds.Contains(attempt.ModuleId))
+                        {
+                            <p class="status-badge">Passed · further attempts are locked</p>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary"
+                               asp-page="/Assessment"
+                               asp-route-attemptId="@attempt.Id">
+                                Continue assessment
+                            </a>
+                        }
                     }
                     else
                     {

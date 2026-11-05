@@ -7,6 +7,8 @@
     const navigation = [...assessment.querySelectorAll("[data-question-nav]")];
     const total = panels.length;
     const storageKey = `cybertraining.assessment.attempt.${attemptId}.v1`;
+    const saveStatus = assessment.querySelector("[data-answer-save-status]");
+    const pendingSaves = new Map();
 
     let current = 0;
     let responses = {};
@@ -22,6 +24,99 @@
             const key = panel.querySelector("[data-answer-input]")?.dataset.answerInput;
             return key && String(responses[key] || "").trim();
         }).length;
+
+    const panelForKey = key => panels.find(panel =>
+        panel.querySelector("[data-answer-input]")?.dataset.answerInput === key);
+
+    const persistAnswer = (key, selectedOptionCode) => {
+        const panel = panelForKey(key);
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
+        if (!panel || !csrfToken || !selectedOptionCode) {
+            if (saveStatus) saveStatus.textContent = "Your answer is saved in this browser session.";
+            return Promise.resolve(false);
+        }
+
+        const previousSave = pendingSaves.get(key) || Promise.resolve();
+        const nextSave = previousSave.catch(() => {}).then(async () => {
+            const response = await fetch(
+                `/api/assessments/attempts/${encodeURIComponent(attemptId)}/answers`,
+                {
+                    method: "POST",
+                    credentials: "same-origin",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": csrfToken
+                    },
+                    body: JSON.stringify({
+                        questionNumber: Number(panel.dataset.questionNumber),
+                        selectedOptionCode
+                    })
+                }
+            );
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({}));
+                throw new Error(error.error || "Answer save failed.");
+            }
+        });
+
+        pendingSaves.set(key, nextSave);
+        if (saveStatus) saveStatus.textContent = "Saving your answer…";
+
+        return nextSave.then(() => {
+            if (responses[key] === selectedOptionCode && saveStatus) {
+                saveStatus.textContent = "Your answers are saved to your account.";
+            }
+            return true;
+        }).catch(() => {
+            if (responses[key] === selectedOptionCode && saveStatus) {
+                saveStatus.textContent = "Could not sync this answer. It remains in this browser session.";
+            }
+            return false;
+        }).finally(() => {
+            if (pendingSaves.get(key) === nextSave) pendingSaves.delete(key);
+        });
+    };
+
+    const restoreSavedAnswers = async () => {
+        try {
+            const response = await fetch(
+                `/api/assessments/attempts/${encodeURIComponent(attemptId)}/answers`,
+                { credentials: "same-origin", cache: "no-store" }
+            );
+            if (!response.ok) throw new Error("Could not load saved answers.");
+
+            const saved = await response.json();
+            const serverResponses = {};
+            (saved.answers || []).forEach(answer => {
+                const panel = panels.find(item =>
+                    Number(item.dataset.questionNumber) === answer.questionNumber);
+                const key = panel?.querySelector("[data-answer-input]")?.dataset.answerInput;
+                if (key && answer.selectedOptionCode) {
+                    serverResponses[key] = answer.selectedOptionCode;
+                }
+            });
+
+            responses = { ...serverResponses, ...responses };
+            assessment.querySelectorAll("[data-answer-input]").forEach(input => {
+                input.checked = input.type === "radio" && responses[input.dataset.answerInput] === input.value;
+            });
+            sessionStorage.setItem(storageKey, JSON.stringify(responses));
+            update();
+
+            for (const [key, answer] of Object.entries(responses)) {
+                if (answer && serverResponses[key] !== answer) {
+                    void persistAnswer(key, answer);
+                }
+            }
+            if (!Object.keys(responses).length && saveStatus) {
+                saveStatus.textContent = "No saved answers yet.";
+            }
+        } catch {
+            if (saveStatus) {
+                saveStatus.textContent = "Saved answers could not be loaded. This browser session is still available.";
+            }
+        }
+    };
 
     const update = () => {
         panels.forEach((panel, index) => {
@@ -81,10 +176,10 @@
 
             sessionStorage.setItem(storageKey, JSON.stringify(responses));
             update();
+            void persistAnswer(key, responses[key]);
         };
 
-        input.addEventListener("input", saveResponse);
-        input.addEventListener("change", saveResponse);
+        input.addEventListener(input.type === "radio" ? "change" : "input", saveResponse);
     });
 
     navigation.forEach((button, index) => {
@@ -153,6 +248,11 @@
             button.textContent = "Submitting...";
 
             try {
+                if (pendingSaves.size) {
+                    if (saveStatus) saveStatus.textContent = "Saving your answers before submission…";
+                    await Promise.all([...pendingSaves.values()].map(save => save.catch(() => {})));
+                }
+
                 const response = await fetch(
                     `/api/assessments/attempts/${encodeURIComponent(attemptId)}/submit`,
                     {
@@ -192,4 +292,5 @@
     });
 
     update();
+    void restoreSavedAnswers();
 })();

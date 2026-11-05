@@ -7,17 +7,35 @@ public static class ResultUtils
 {
     public static class AssessmentRules
     {
-        public const int DefaultPassingPercentage = 70;
+        public const int DefaultPassingPercentage = 90;
+        public static readonly string[] RequiredSectionKeys =
+            ["purpose", "outcomes", "terms", "concepts", "workplace", "behaviours", "review"];
 
         public static int GetPassingPercentage(IConfiguration configuration) =>
             Math.Clamp(configuration.GetValue<int?>("Assessment:PassingPercentage")
-                       ?? DefaultPassingPercentage, 0, 100);
+                       ?? DefaultPassingPercentage, 1, 100);
 
         public static bool IsPassed(int? score, int? total, int passingPercentage) =>
             score is not null && total is > 0 &&
             score.Value * 100.0 / total.Value >= passingPercentage;
+
+        public static async Task<bool> HasCompletedAllSectionsAsync(
+            ApplicationDbContext dbContext,
+            string userId,
+            int moduleId)
+        {
+            var completedCount = await dbContext.SectionProgressEntries.AsNoTracking()
+                .Where(progress => progress.UserId == userId &&
+                                   progress.ModuleId == moduleId &&
+                                   RequiredSectionKeys.Contains(progress.SectionKey))
+                .Select(progress => progress.SectionKey)
+                .Distinct()
+                .CountAsync();
+
+            return completedCount == RequiredSectionKeys.Length;
+        }
     }
-    // Gets the attempt of the user including the bank, the questions, and answers
+    // Gets the most recent completed attempt with its questions and saved answers.
     public static Task<AssessmentAttempt?> GetLatestFinishedAttempt(
         ApplicationDbContext dbContext,
         string userId,
@@ -32,8 +50,9 @@ public static class ResultUtils
             .ThenInclude(bank => bank.Questions)
             .ThenInclude(question => question.Options)
             .Include(attempt => attempt.Answers)
-            .OrderBy(attempt => attempt.SubmittedAtUtc)
-            .LastOrDefaultAsync(attempt => attempt.Status == AssessmentAttemptStatus.Completed);
+            .Where(attempt => attempt.Status == AssessmentAttemptStatus.Completed)
+            .OrderByDescending(attempt => attempt.SubmittedAtUtc)
+            .FirstOrDefaultAsync();
 
         return finishedAttempt;
     }

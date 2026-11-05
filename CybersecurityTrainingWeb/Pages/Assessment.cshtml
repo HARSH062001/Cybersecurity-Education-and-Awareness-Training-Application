@@ -67,7 +67,8 @@
 
             <div class="learning-help">
                 <strong>Your responses</strong>
-                <p>Your answers are kept in this browser while you work.</p>
+                <p>Your selected answers save to your account as you work.</p>
+                <p data-answer-save-status aria-live="polite">Loading saved answers…</p>
             </div>
         </aside>
         <form data-assessment-form>
@@ -78,6 +79,7 @@
 
                 <section class="question-card"
                          data-question-panel="@index"
+                         data-question-number="@question.Number"
                          hidden="@(index != 0 ? "hidden" : null)">
                     <p class="eyebrow">Question @(index + 1)</p>
                     <h2 class="question-card__title">@question.Text</h2>
@@ -111,15 +113,14 @@
                                 data-next-question>
                             Next question
                         </button>
-
-                    </footer>
-                    <button class="btn btn-primary"
+                        <button class="btn btn-primary"
                                 type="button"
                                 data-submit-assessment
                                 hidden
                                 disabled>
                             Submit assessment
                         </button>
+                    </footer>
                 </section>
             }
             </div>

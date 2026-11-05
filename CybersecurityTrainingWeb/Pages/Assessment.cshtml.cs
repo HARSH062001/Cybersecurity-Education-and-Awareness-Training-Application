@@ -33,9 +33,6 @@ public class AssessmentModel : PageModel
     public int PassingPercentage => ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
     public List<QuestionDto> Questions { get; private set; } = [];
 
-    private static readonly string[] RequiredSections =
-        ["purpose", "outcomes", "terms", "concepts", "workplace", "behaviours", "review"];
-
     public async Task<IActionResult> OnGetAsync(int moduleId = 1, long? attemptId = null)
     {
         var userId = _userManager.GetUserId(User);
@@ -53,13 +50,8 @@ public class AssessmentModel : PageModel
 
         if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
 
-        var completedSections = await _dbContext.SectionProgressEntries.AsNoTracking()
-            .Where(p => p.UserId == userId && p.ModuleId == moduleId &&
-                        RequiredSections.Contains(p.SectionKey))
-            .Select(p => p.SectionKey)
-            .Distinct()
-            .CountAsync();
-        if (completedSections != RequiredSections.Length)
+        if (!await ResultUtils.AssessmentRules.HasCompletedAllSectionsAsync(
+                _dbContext, userId, moduleId))
         {
             TempData["AssessmentNotice"] = "Complete all seven learning sections before starting the assessment.";
             return RedirectToPage("/Module", new { id = moduleId });
