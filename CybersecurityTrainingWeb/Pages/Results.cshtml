@@ -9,71 +9,51 @@
 
 <section class="results-hero">
     <p class="eyebrow">Assessment result</p>
-    <h1>Review your answers</h1>
+    <h1>@(Model.IsPassed ? "Assessment passed" : "Keep learning and try again")</h1>
     <p>Module @Model.ModuleId · @Model.ModuleTitle</p>
-
     <div class="results-hero__stat">
         <strong>@Model.Score / @Model.TotalQuestions</strong>
         <span>correct answers · @percentage%</span>
     </div>
+    <p class="mt-3">
+        Passing mark: @Model.PassingPercentage%. @(Model.IsPassed
+            ? "You have passed this module and cannot retake its assessment."
+            : "Review the module, then try another assessment attempt.")
+    </p>
 </section>
 
 <div class="results-workspace">
     <section class="results-card">
-        <p class="eyebrow">Question review</p>
+        <p class="eyebrow">Question feedback</p>
         <h2>Learn from each answer</h2>
-        <p>
-            Your answers and result are saved to your account.
-            Review every question below to see the correct response.
-        </p>
+        <p>Your result and selected answers are saved to your account.</p>
 
         @foreach (var question in Model.Questions)
         {
             var status = question.IsCorrect
                 ? "Correct"
-                : question.SelectedOptionCode is null
-                    ? "Not answered"
-                    : "Incorrect";
-
-            <article class="border rounded p-3 mb-3">
-                <p class="eyebrow mb-2">Question @question.Number · @status</p>
-                <h3 class="h5">@question.QuestionText</h3>
-
-                <p class="mb-2">
+                : question.SelectedOptionCode is null ? "Not answered" : "Review";
+            <article class="question-card mb-3">
+                <p class="eyebrow">Question @question.Number · @status</p>
+                <h3 class="question-card__title">@question.QuestionText</h3>
+                <p>
                     <strong>Your answer:</strong>
                     @if (question.SelectedOptionCode is null)
                     {
-                        <span>No answer submitted</span>
+                        <span>No answer submitted.</span>
                     }
                     else
                     {
-                        <span>
-                            @question.SelectedOptionCode.
-                            @question.SelectedOptionText
-                        </span>
+                        <span>@question.SelectedOptionCode. @question.SelectedOptionText</span>
                     }
                 </p>
-
-                <p class="mb-2">
-                    <strong>Correct answer:</strong>
-                    @if (question.CorrectOptionCode is null)
-                    {
-                        <span>Answer unavailable</span>
-                    }
-                    else
-                    {
-                        <span>
-                            @question.CorrectOptionCode.
-                            @question.CorrectOptionText
-                        </span>
-                    }
-                </p>
-
-                @if (!string.IsNullOrWhiteSpace(question.Explanation))
+                @if (question.IsCorrect && !string.IsNullOrWhiteSpace(question.Explanation))
                 {
-                    <p class="mb-0">
-                        <strong>Why:</strong> @question.Explanation
-                    </p>
+                    <p class="mb-0"><strong>Why this is correct:</strong> @question.Explanation</p>
+                }
+                else if (!question.IsCorrect)
+                {
+                    <p class="mb-0">Review the related learning section and consider the safest action before your next attempt.</p>
                 }
             </article>
         }
@@ -81,7 +61,6 @@
 
     <aside class="results-card">
         <h2>Assessment summary</h2>
-
         <dl class="results-summary">
             <div class="results-summary__row">
                 <dt>Module</dt>
@@ -95,19 +74,19 @@
                 <dt>Score</dt>
                 <dd>@Model.Score of @Model.TotalQuestions (@percentage%)</dd>
             </div>
+            <div class="results-summary__row">
+                <dt>Result</dt>
+                <dd>@(Model.IsPassed ? "Passed" : "Not passed")</dd>
+            </div>
         </dl>
-
-        <a class="btn btn-primary w-100"
-           asp-page="/Module"
-           asp-route-id="@Model.ModuleId">
+        <a class="btn btn-primary w-100" asp-page="/Module" asp-route-id="@Model.ModuleId">
             Return to module
         </a>
-
-        <p class="mt-3">
-            <a asp-page="/Assessment"
-               asp-route-moduleId="@Model.ModuleId">
-                Start another assessment
-            </a>
-        </p>
+        @if (!Model.IsPassed)
+        {
+            <p class="mt-3">
+                <a asp-page="/Assessment" asp-route-moduleId="@Model.ModuleId">Try another assessment</a>
+            </p>
+        }
     </aside>
 </div>

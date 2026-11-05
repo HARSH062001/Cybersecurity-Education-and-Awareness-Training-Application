@@ -1,20 +1,43 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using CybersecurityTrainingWeb.Utils;
+using Microsoft.AspNetCore.Identity;
+using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+
 namespace CybersecurityTrainingWeb.Pages;
-// Module learning content is available only to authenticated learners.
+
 [Authorize]
 public class ModuleModel : PageModel
-
 {
     public int ModuleId { get; private set; }
     public string Title { get; private set; } = "";
     public string Purpose { get; private set; } = "";
+    public bool HasPassed { get; set; }
+    public bool HasAttempted { get; set; }
+    public bool HasCompletedAllSections { get; private set; }
+    public long? LatestAttemptId { get; private set; }
     public List<ContentBlock> Blocks { get; private set; } = [];
     public List<LearningSection> LearningSections { get; private set; } = [];
     public string[] Banks => ["A", "B", "C"];
-    public IActionResult OnGet(int id = 1)
+    private readonly UserManager<ApplicationUser> _userManager; //get user information
+    private readonly ApplicationDbContext _dbContext;
+    private readonly IConfiguration _configuration;
+
+
+    public ModuleModel(
+        ApplicationDbContext dbContext,
+        UserManager<ApplicationUser> userManager,
+        IConfiguration configuration
+    )
+    {
+        _dbContext = dbContext;
+        _userManager = userManager;
+        _configuration = configuration;
+    }
+    public async Task<IActionResult> OnGetAsync(int id = 1)
     {
         if (id is < 1 or > 8) return RedirectToPage("/Modules");
 
@@ -27,6 +50,34 @@ public class ModuleModel : PageModel
         Blocks = record.Blocks;
         Purpose = Blocks.FirstOrDefault(x => x.Kind == "paragraph")?.Text ?? "Build practical cybersecurity knowledge and safe workplace habits.";
         LearningSections = BuildLearningSections(Blocks);
+
+        // Get user id
+        var userId = _userManager.GetUserId(User);
+        if (userId is null) // Just in case the user is not logged in (should not happen)
+        {
+            return Unauthorized();
+        }
+
+        var completedSections = await _dbContext.SectionProgressEntries.AsNoTracking()
+            .Where(progress => progress.UserId == userId && progress.ModuleId == ModuleId)
+            .Select(progress => progress.SectionKey)
+            .Distinct()
+            .ToListAsync();
+        HasCompletedAllSections = LearningSections.Count > 0 &&
+            LearningSections.All(section => completedSections.Contains(section.Key));
+
+        LatestAttemptId = await _dbContext.AssessmentAttempts.AsNoTracking()
+            .Where(attempt => attempt.UserId == userId &&
+                              attempt.Bank.ModuleId == ModuleId &&
+                              attempt.Status == AssessmentAttemptStatus.Completed)
+            .OrderByDescending(attempt => attempt.SubmittedAtUtc)
+            .Select(attempt => (long?)attempt.Id)
+            .FirstOrDefaultAsync();
+        HasAttempted = LatestAttemptId is not null;
+        var passingPercentage = ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
+        HasPassed = await ResultUtils.HasUserPassed(
+            _dbContext, ModuleId, userId, passingPercentage);
+
         return Page();
     }
 

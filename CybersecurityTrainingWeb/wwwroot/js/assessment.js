@@ -55,8 +55,12 @@
             ?.toggleAttribute("disabled", current === 0);
         panel.querySelector("[data-next-question]")
             ?.toggleAttribute("hidden", current === total - 1);
-        panel.querySelector("[data-submit-assessment]")
-            ?.toggleAttribute("hidden", current !== total - 1);
+        const submitButton = panel.querySelector("[data-submit-assessment]");
+        if (submitButton) {
+            const allAnswered = answeredCount() === total;
+            submitButton.toggleAttribute("hidden", current !== total - 1);
+            submitButton.disabled = !allAnswered;
+        }
     };
 
     assessment.querySelectorAll("[data-answer-input]").forEach(input => {
@@ -115,6 +119,11 @@
     assessment.querySelectorAll("[data-submit-assessment]").forEach(button => {
         button.addEventListener("click", async () => {
             const answered = answeredCount();
+
+            if (answered !== total) {
+                window.alert(`Answer all ${total} questions before submitting.`);
+                return;
+            }
 
             if (!window.confirm(
                 `Submit ${answered} of ${total} answers for marking?`

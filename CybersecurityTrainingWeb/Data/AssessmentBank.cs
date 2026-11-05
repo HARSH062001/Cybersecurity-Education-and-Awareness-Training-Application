@@ -38,7 +38,7 @@ public sealed class AssessmentQuestion
     // Keep marking information on the server; never include it
     // in the learner-facing question response.
     [StringLength(8)]
-    public string? CorrectOptionCode { get; set; }
+    public string CorrectOptionCode { get; set; } = "";
 
     [StringLength(4000)]
     public string? Explanation { get; set; }

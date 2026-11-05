@@ -11,6 +11,11 @@
     <span>Back to modules</span>
 </a>
 
+@if (TempData["AssessmentNotice"] is string assessmentNotice)
+{
+    <p class="alert alert-info" role="status">@assessmentNotice</p>
+}
+
 <header class="learning-header">
     <div class="learning-header__inner">
         <div class="learning-header__icon" aria-hidden="true">
@@ -204,29 +209,40 @@
                                     <span aria-hidden="true">→</span>
                                 </a>
                             }
-                            else
-                            {
-                                <a class="section-nav__link section-nav__link--next"
-                                   asp-page="/Assessment"
-                                   asp-route-moduleId="@Model.ModuleId">
-                                    Start assessment
-                                    <span aria-hidden="true">→</span>
-                                </a>
-                            }
                         </nav>
                     </footer>
                 </section>
             }
         }
 
-        <section class="completion-note" data-completion-banner hidden>
+        <section class="completion-note" data-completion-banner hidden="@(!Model.HasCompletedAllSections ? "hidden" : null)">
             <h2>Module sections complete</h2>
-            <p>You have confirmed every learning section. You can now try the knowledge assessment.</p>
-            <a class="btn btn-primary"
-               asp-page="/Assessment"
-               asp-route-moduleId="@Model.ModuleId">
-                Start knowledge assessment
-            </a>
+            @if (Model.HasPassed)
+            {
+                <p>You have completed this section.</p>
+                <a class="btn btn-primary"
+                asp-page="/Results"
+                asp-route-attemptId="@Model.LatestAttemptId">
+                    View assessment results
+                </a>
+            }
+            else
+            {
+                <p>You have confirmed every learning section. You can now try the knowledge assessment.</p>
+                <a class="btn btn-primary"
+                asp-page="/Assessment"
+                asp-route-moduleId="@Model.ModuleId">
+                    Start knowledge assessment
+                </a>
+                @if (Model.HasAttempted)
+                {
+                    <a class="btn btn-primary"
+                asp-page="/Results"
+                asp-route-attemptId="@Model.LatestAttemptId">
+                    View previous attempt
+                </a>
+                }
+            }
         </section>
     </div>
 </div>

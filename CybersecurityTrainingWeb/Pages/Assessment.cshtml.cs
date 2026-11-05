@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using CybersecurityTrainingWeb.Utils;
 
 namespace CybersecurityTrainingWeb.Pages;
 
@@ -13,23 +14,65 @@ public class AssessmentModel : PageModel
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IConfiguration _configuration;
 
-    public AssessmentModel(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+    public AssessmentModel(
+        ApplicationDbContext dbContext,
+        UserManager<ApplicationUser> userManager,
+        IConfiguration configuration)
     {
         _dbContext = dbContext;
         _userManager = userManager;
+        _configuration = configuration;
     }
 
     public long AttemptId { get; private set; }
     public int ModuleId { get; private set; }
     public string Bank { get; private set; } = "";
     public string ModuleTitle { get; private set; } = "Cybersecurity Fundamentals";
+    public int PassingPercentage => ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
     public List<QuestionDto> Questions { get; private set; } = [];
+
+    private static readonly string[] RequiredSections =
+        ["purpose", "outcomes", "terms", "concepts", "workplace", "behaviours", "review"];
 
     public async Task<IActionResult> OnGetAsync(int moduleId = 1, long? attemptId = null)
     {
         var userId = _userManager.GetUserId(User);
         if (userId is null) return Challenge();
+
+        if (attemptId is not null)
+        {
+            moduleId = await _dbContext.AssessmentAttempts.AsNoTracking()
+                .Where(a => a.Id == attemptId && a.UserId == userId &&
+                            a.Status == AssessmentAttemptStatus.InProgress)
+                .Select(a => a.Bank.ModuleId)
+                .SingleOrDefaultAsync();
+            if (moduleId == 0) return NotFound();
+        }
+
+        if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
+
+        var completedSections = await _dbContext.SectionProgressEntries.AsNoTracking()
+            .Where(p => p.UserId == userId && p.ModuleId == moduleId &&
+                        RequiredSections.Contains(p.SectionKey))
+            .Select(p => p.SectionKey)
+            .Distinct()
+            .CountAsync();
+        if (completedSections != RequiredSections.Length)
+        {
+            TempData["AssessmentNotice"] = "Complete all seven learning sections before starting the assessment.";
+            return RedirectToPage("/Module", new { id = moduleId });
+        }
+
+        var passingPercentage = PassingPercentage;
+        var alreadyPassed = await ResultUtils.HasUserPassed(
+            _dbContext, moduleId, userId, passingPercentage);
+        if (alreadyPassed)
+        {
+            TempData["AssessmentNotice"] = "You have already passed this module assessment.";
+            return RedirectToPage("/Module", new { id = moduleId });
+        }
 
         AssessmentAttempt? attempt;
         if (attemptId is not null)
@@ -41,8 +84,6 @@ public class AssessmentModel : PageModel
         }
         else
         {
-            if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
-
             attempt = await _dbContext.AssessmentAttempts.AsNoTracking()
                 .Where(a => a.UserId == userId && a.Status == AssessmentAttemptStatus.InProgress &&
                             a.Bank.ModuleId == moduleId)
@@ -61,7 +102,14 @@ public class AssessmentModel : PageModel
                     .ToList();
                 if (choices.Count == 0) return RedirectToPage("/Modules");
 
-                var selected = choices[RandomNumberGenerator.GetInt32(choices.Count)];
+                var bankHistory = await _dbContext.AssessmentAttempts.AsNoTracking()
+                    .Where(a => a.UserId == userId && a.Bank.ModuleId == moduleId)
+                    .OrderBy(a => a.StartedAtUtc)
+                    .Select(a => a.Bank.Code)
+                    .ToListAsync();
+                var preferredCode = AttemptUtils.PickBank(bankHistory);
+                var selected = choices.FirstOrDefault(b => b.Code == preferredCode)
+                    ?? choices[RandomNumberGenerator.GetInt32(choices.Count)];
                 attempt = new AssessmentAttempt
                 {
                     UserId = userId,
