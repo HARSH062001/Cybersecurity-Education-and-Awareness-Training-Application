@@ -91,16 +91,19 @@ select {
   width: min(1900px, calc(100% - 48px));
   min-height: 76px;
   margin-inline: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+  gap: 8px 24px;
+  padding-block: 14px 10px;
 }
 
 .signal-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
+  justify-self: start;
   color: #f7f7f1;
   text-decoration: none;
 }
@@ -120,10 +123,12 @@ select {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
+  flex: 0 0 auto;
 }
 
 .signal-brand__text {
   display: grid;
+  min-width: 0;
   line-height: 1.2;
 }
 
@@ -141,19 +146,60 @@ select {
 }
 
 .signal-nav {
+  grid-column: 1 / -1;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
 }
 
-.signal-menu {
-  flex: 1 1 auto;
-  min-width: 0;
+.signal-quick-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.signal-menu > summary {
+.signal-quick-nav a,
+.signal-menu__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid #729288;
+  border-radius: 4px;
+  background: transparent;
+  color: #f7f7f1;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.signal-quick-nav a:hover,
+.signal-menu__toggle:hover,
+.signal-menu__toggle[aria-expanded="true"] {
+  background: #1c3538;
+  color: #fff;
+}
+
+.signal-quick-nav svg,
+.signal-menu__icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.signal-menu__toggle {
   display: none;
+  cursor: pointer;
 }
 
 .signal-nav a {
@@ -186,6 +232,94 @@ select {
   align-items: center;
   min-width: 0;
   margin: 0 !important;
+}
+
+.signal-nav .signal-nav__small-screen {
+  display: none;
+}
+
+/* Keep desktop links visible without relying on a closed native details element. */
+@media (max-width: 1199px) {
+  .signal-header__inner {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 10px 14px;
+    padding-block: 12px;
+  }
+
+  .signal-header--enhanced .signal-menu__toggle {
+    display: inline-flex;
+  }
+
+  .signal-header--enhanced .signal-nav:not(.is-open) {
+    display: none;
+  }
+
+  .signal-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+    gap: 4px;
+    padding-top: 10px;
+    border-top: 1px solid #35444c;
+  }
+
+  .signal-nav a,
+  .signal-nav form button {
+    width: 100%;
+    min-height: 44px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .signal-quick-nav a span {
+    display: none;
+  }
+
+  .signal-quick-nav {
+    gap: 4px;
+  }
+
+  .signal-quick-nav a {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 639px) {
+  .signal-header__inner {
+    gap: 10px 8px;
+  }
+
+  .signal-brand {
+    gap: 8px;
+  }
+
+  .signal-brand__name {
+    font-size: 13px;
+  }
+
+  .signal-brand__mark {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+  }
+
+  .signal-brand__subtitle,
+  .signal-quick-nav .signal-quick-nav__dashboard,
+  .signal-menu__toggle span {
+    display: none;
+  }
+
+  .signal-menu__toggle {
+    padding: 8px;
+  }
+
+  .signal-nav .signal-nav__small-screen {
+    display: inline-flex;
+  }
+
+  .signal-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Headings, buttons and reusable panels */
@@ -1094,26 +1228,6 @@ button.btn {
     padding-block: 26px 44px;
   }
 
-  .signal-header__inner {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-    padding-block: 14px;
-  }
-
-  .signal-nav {
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 2px;
-  }
-
-  .signal-nav a {
-    min-height: 36px;
-    padding-inline: 8px;
-    font-size: 13px;
-  }
-
   .home-hero {
     gap: 24px;
     padding-block: 28px 42px;
@@ -1315,118 +1429,5 @@ button.btn {
 
     .section-nav__link {
         flex: 1 1 auto;
-    }
-}
-/* Collapse the long role-aware navigation before its links reach the screen edge. */
-@media (max-width: 1900px) {
-    .signal-header__inner {
-        flex-wrap: wrap;
-        gap: 10px 20px;
-        padding-block: 12px;
-    }
-
-    .signal-brand {
-        flex: 1 1 auto;
-        min-width: 0;
-        white-space: normal;
-    }
-
-    .signal-brand > span:last-child {
-        display: grid;
-        min-width: 0;
-        line-height: 1.2;
-    }
-
-    .signal-brand small {
-        color: #b7c7c2;
-        font-size: 10px;
-    }
-
-    .signal-menu {
-        flex: 0 0 100%;
-    }
-
-    .signal-menu > summary {
-        width: fit-content;
-        min-height: 44px;
-        margin-left: auto;
-        padding: 9px 14px;
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        border: 1px solid #729288;
-        border-radius: 4px;
-        color: #f7f7f1;
-        cursor: pointer;
-        font-weight: 650;
-        list-style: none;
-    }
-
-    .signal-menu > summary::-webkit-details-marker {
-        display: none;
-    }
-
-    .signal-menu > summary:hover,
-    .signal-menu[open] > summary {
-        background: #1c3538;
-        color: #fff;
-    }
-
-    .signal-menu__icon {
-        font-size: 18px;
-        line-height: 1;
-    }
-
-    .signal-menu:not([open]) > .signal-nav {
-        display: none;
-    }
-
-    .signal-menu[open] > .signal-nav {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
-        justify-content: stretch;
-        gap: 4px;
-        padding-top: 8px;
-    }
-
-    .signal-nav a {
-        min-width: 0;
-        min-height: 44px;
-        padding: 8px 10px;
-        white-space: normal;
-        overflow-wrap: anywhere;
-    }
-
-    .signal-nav form button {
-        width: 100%;
-        min-height: 44px;
-        white-space: nowrap;
-    }
-}
-
-@media (max-width: 640px) {
-    .signal-header__inner {
-        width: min(100% - 28px, 1900px);
-        align-items: stretch;
-        flex-direction: column;
-        gap: 10px;
-        padding-block: 12px;
-    }
-
-    .signal-brand {
-        align-self: flex-start;
-    }
-
-    .signal-menu {
-        flex-basis: auto;
-        width: 100%;
-    }
-
-    .signal-menu > summary {
-        margin-left: 0;
-    }
-
-    .signal-menu[open] > .signal-nav {
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 135px), 1fr));
     }
 }

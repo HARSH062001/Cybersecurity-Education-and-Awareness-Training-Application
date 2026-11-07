@@ -4,3 +4,6 @@
 *.db-shm
 *.db-wal
 .vs/
+**/.vscode/
+/tmp/
+/output/

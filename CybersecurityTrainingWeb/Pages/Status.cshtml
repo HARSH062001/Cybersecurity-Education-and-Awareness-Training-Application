@@ -1,0 +1,20 @@
+@page "/Status/{statusCode:int}"
+@model CybersecurityTrainingWeb.Pages.StatusModel
+@{
+    ViewData["Title"] = Model.Heading;
+}
+
+<section class="privacy-hero">
+    <p class="eyebrow">@Model.HttpStatusCode · Page unavailable</p>
+    <h1>@Model.Heading</h1>
+    <p class="lead">@Model.Message</p>
+</section>
+
+<section class="panel p-4">
+    <h2>Continue your learning</h2>
+    <p>Return to the modules to open an available assessment, or visit the home page.</p>
+    <div class="d-flex flex-wrap gap-3">
+        <a class="btn btn-primary" asp-area="" asp-page="/Modules">Back to modules</a>
+        <a class="btn btn-outline-primary" asp-area="" asp-page="/Index">Return to home</a>
+    </div>
+</section>

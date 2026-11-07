@@ -126,6 +126,17 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Give browser page requests a recovery page while preserving the HTTP status.
+// API clients continue receiving their original responses, without HTML wrappers.
+app.UseWhen(context =>
+    (HttpMethods.IsGet(context.Request.Method) || HttpMethods.IsHead(context.Request.Method)) &&
+    !context.Request.Path.StartsWithSegments("/api") &&
+    (context.Request.Headers.Accept.Count == 0 ||
+     context.Request.GetTypedHeaders().Accept?.Any(value =>
+         string.Equals(value.MediaType.Value, "text/html", StringComparison.OrdinalIgnoreCase)) == true),
+    pages => pages.UseStatusCodePagesWithReExecute("/Status/{0}"));
+
 app.UseRouting();
 
 // Authentication identifies the user; authorization checks access.

@@ -71,7 +71,7 @@ public class TrainingManagementTests
         db.ModuleEnrollments.AddRange(new ModuleEnrollment { UserId = "test-learner-a", ModuleId = 1 }, new ModuleEnrollment { UserId = "test-learner-b", ModuleId = 2 });
         db.ModuleSchedules.Add(new ModuleSchedule { ModuleId = 1, FirstDueAtUtc = DateTime.UtcNow.AddDays(-1), RepeatEveryDays = 7 });
         await db.SaveChangesAsync();
-        var page = new NotificationsModel(db) { PageContext = Context("test-learner-a") };
+        var page = new NotificationsModel(db, scope.ServiceProvider.GetRequiredService<Microsoft.Extensions.Configuration.IConfiguration>()) { PageContext = Context("test-learner-a") };
         await page.OnGetAsync();
         var notice = Assert.Single(page.Notices);
         Assert.Equal(1, notice.ModuleId);

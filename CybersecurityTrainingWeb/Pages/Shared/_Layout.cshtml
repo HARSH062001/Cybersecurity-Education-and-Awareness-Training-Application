@@ -63,26 +63,46 @@
                asp-page="/Index"
                aria-label="Cybersecurity Training home">
                 <span class="signal-brand__mark" aria-hidden="true">@badgeText</span>
-                <span>
-                    <strong>Cybersecurity Training</strong>
-                    <small>Workplace cyber awareness</small>
+                <span class="signal-brand__text">
+                    <strong class="signal-brand__name">Cybersecurity Training</strong>
+                    <small class="signal-brand__subtitle">Workplace cyber awareness</small>
                 </span>
             </a>
 
-            <details class="signal-menu">
-                <summary class="signal-menu__toggle" aria-controls="main-navigation">
-                    <span class="signal-menu__icon" aria-hidden="true">☰</span>
-                    <span>Menu</span>
-                </summary>
+            <nav class="signal-quick-nav" aria-label="Quick navigation">
+                <a class="signal-quick-nav__dashboard" asp-area="" asp-page="/Dashboard" aria-label="Dashboard" title="Dashboard">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" /></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a asp-area="" asp-page="/Modules" aria-label="Learning modules" title="Learning modules">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h7l2 2 2-2h7v16h-7l-2 2-2-2H3zM12 6v16" /></svg>
+                    <span>Modules</span>
+                </a>
+                @if (isSignedIn)
+                {
+                    <a asp-area="" asp-page="/Notifications" aria-label="Notifications" title="Notifications">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>
+                        <span>Notifications</span>
+                    </a>
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login" aria-label="Sign in" title="Sign in">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v18h-7M3 12h13M11 7l5 5-5 5" /></svg>
+                        <span>Sign in</span>
+                    </a>
+                }
+            </nav>
+
+            <button class="signal-menu__toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open navigation menu">
+                <svg class="signal-menu__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+                <span>Menu</span>
+            </button>
 
             <nav class="signal-nav" id="main-navigation" aria-label="Main navigation">
-                <a asp-area="" asp-page="/Dashboard">Dashboard</a>
+                <a class="signal-nav__small-screen" asp-area="" asp-page="/Dashboard">Dashboard</a>
                 <a asp-area="" asp-page="/Modules">Learning route</a>
                 <a asp-area="" asp-page="/Index">Home</a>
-
-                <a class="signal-nav__action" asp-area="" asp-page="/Modules">
-                    View modules <span aria-hidden="true">↗</span>
-                </a>
 
                 @if (isSignedIn)
                 {
@@ -106,7 +126,6 @@
                     }
 
                     @if (isAdmin || isModuleOwner) { <a asp-page="/TrainingManagement">Manage training</a> }
-                    <a asp-page="/Notifications">Notifications</a>
                     <a asp-area="" asp-page="/AssessmentHistory">
                         My assessments
                     </a>
@@ -130,15 +149,11 @@
                 }
                 else
                 {
-                    <a asp-area="Identity" asp-page="/Account/Login">
-                        Sign in
-                    </a>
                     <a asp-area="Identity" asp-page="/Account/Register">
                         Register
                     </a>
                 }
             </nav>
-            </details>
         </div>
     </header>
 

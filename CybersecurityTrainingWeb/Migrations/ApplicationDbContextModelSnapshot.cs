@@ -246,6 +246,7 @@ namespace CybersecurityTrainingWeb.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CorrectOptionCode")
+                        .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("TEXT");
 

@@ -33,25 +33,32 @@ public class AssessmentModel : PageModel
     public int PassingPercentage => ResultUtils.AssessmentRules.GetPassingPercentage(_configuration);
     public List<QuestionDto> Questions { get; private set; } = [];
 
-    public async Task<IActionResult> OnGetAsync(int moduleId = 1, long? attemptId = null)
+    public async Task<IActionResult> OnGetAsync(int? moduleId = null, long? attemptId = null)
     {
         var userId = _userManager.GetUserId(User);
         if (userId is null) return Challenge();
 
         if (attemptId is not null)
         {
-            moduleId = await _dbContext.AssessmentAttempts.AsNoTracking()
-                .Where(a => a.Id == attemptId && a.UserId == userId &&
-                            a.Status == AssessmentAttemptStatus.InProgress)
-                .Select(a => a.Bank.ModuleId)
+            // Old bookmarks still work, but only for an attempt owned by this learner.
+            var savedAttempt = await _dbContext.AssessmentAttempts.AsNoTracking()
+                .Where(a => a.Id == attemptId && a.UserId == userId)
+                .Select(a => new { ModuleId = a.Bank.ModuleId, a.Status })
                 .SingleOrDefaultAsync();
-            if (moduleId == 0) return NotFound();
+            if (savedAttempt is null) return NotFound();
+            if (savedAttempt.Status == AssessmentAttemptStatus.Completed)
+                return RedirectToPage("/Results", new { attemptId });
+            if (savedAttempt.Status != AssessmentAttemptStatus.InProgress)
+                return RedirectToPage("/Module", new { id = savedAttempt.ModuleId });
+            return RedirectToPage("/Assessment", new { moduleId = savedAttempt.ModuleId });
         }
 
-        if (moduleId is < 1 or > 8) return RedirectToPage("/Modules");
+        if (moduleId is null) return RedirectToPage("/Modules");
+        if (moduleId is < 1 or > 8) return NotFound();
+        var selectedModuleId = moduleId.Value;
 
         if (!await ResultUtils.AssessmentRules.HasCompletedAllSectionsAsync(
-                _dbContext, userId, moduleId))
+                _dbContext, userId, selectedModuleId))
         {
             TempData["AssessmentNotice"] = "Complete all seven learning sections before starting the assessment.";
             return RedirectToPage("/Module", new { id = moduleId });
@@ -59,60 +66,49 @@ public class AssessmentModel : PageModel
 
         var passingPercentage = PassingPercentage;
         var alreadyPassed = await ResultUtils.HasUserPassed(
-            _dbContext, moduleId, userId, passingPercentage);
+            _dbContext, selectedModuleId, userId, passingPercentage);
         if (alreadyPassed)
         {
             TempData["AssessmentNotice"] = "You have already passed this module assessment.";
             return RedirectToPage("/Module", new { id = moduleId });
         }
 
-        AssessmentAttempt? attempt;
-        if (attemptId is not null)
-        {
-            attempt = await _dbContext.AssessmentAttempts.AsNoTracking()
-                .SingleOrDefaultAsync(a => a.Id == attemptId && a.UserId == userId &&
-                                           a.Status == AssessmentAttemptStatus.InProgress);
-            if (attempt is null) return NotFound();
-        }
-        else
-        {
-            attempt = await _dbContext.AssessmentAttempts.AsNoTracking()
-                .Where(a => a.UserId == userId && a.Status == AssessmentAttemptStatus.InProgress &&
-                            a.Bank.ModuleId == moduleId)
-                .OrderByDescending(a => a.StartedAtUtc)
-                .FirstOrDefaultAsync();
+        // Keep the module URL stable across refreshes and resume its latest saved attempt.
+        var attempt = await _dbContext.AssessmentAttempts.AsNoTracking()
+            .Where(a => a.UserId == userId && a.Status == AssessmentAttemptStatus.InProgress &&
+                        a.Bank.ModuleId == selectedModuleId)
+            .OrderByDescending(a => a.StartedAtUtc)
+            .ThenByDescending(a => a.Id)
+            .FirstOrDefaultAsync();
 
-            if (attempt is null)
+        if (attempt is null)
+        {
+            var published = await _dbContext.AssessmentBanks.AsNoTracking()
+                .Where(b => b.ModuleId == selectedModuleId && b.IsPublished)
+                .Select(b => new { b.Id, b.Code, b.Version })
+                .ToListAsync();
+
+            var choices = published.GroupBy(b => b.Code)
+                .Select(g => g.OrderByDescending(b => b.Version).First())
+                .ToList();
+            if (choices.Count == 0) return RedirectToPage("/Modules");
+
+            var bankHistory = await _dbContext.AssessmentAttempts.AsNoTracking()
+                .Where(a => a.UserId == userId && a.Bank.ModuleId == selectedModuleId)
+                .OrderBy(a => a.StartedAtUtc)
+                .Select(a => a.Bank.Code)
+                .ToListAsync();
+            var preferredCode = AttemptUtils.PickBank(bankHistory);
+            var selected = choices.FirstOrDefault(b => b.Code == preferredCode)
+                ?? choices[RandomNumberGenerator.GetInt32(choices.Count)];
+            attempt = new AssessmentAttempt
             {
-                var published = await _dbContext.AssessmentBanks.AsNoTracking()
-                    .Where(b => b.ModuleId == moduleId && b.IsPublished)
-                    .Select(b => new { b.Id, b.Code, b.Version })
-                    .ToListAsync();
-
-                var choices = published.GroupBy(b => b.Code)
-                    .Select(g => g.OrderByDescending(b => b.Version).First())
-                    .ToList();
-                if (choices.Count == 0) return RedirectToPage("/Modules");
-
-                var bankHistory = await _dbContext.AssessmentAttempts.AsNoTracking()
-                    .Where(a => a.UserId == userId && a.Bank.ModuleId == moduleId)
-                    .OrderBy(a => a.StartedAtUtc)
-                    .Select(a => a.Bank.Code)
-                    .ToListAsync();
-                var preferredCode = AttemptUtils.PickBank(bankHistory);
-                var selected = choices.FirstOrDefault(b => b.Code == preferredCode)
-                    ?? choices[RandomNumberGenerator.GetInt32(choices.Count)];
-                attempt = new AssessmentAttempt
-                {
-                    UserId = userId,
-                    AssessmentBankId = selected.Id,
-                    Status = AssessmentAttemptStatus.InProgress
-                };
-                _dbContext.AssessmentAttempts.Add(attempt);
-                await _dbContext.SaveChangesAsync();
-            }
-
-            return RedirectToPage("/Assessment", new { attemptId = attempt.Id });
+                UserId = userId,
+                AssessmentBankId = selected.Id,
+                Status = AssessmentAttemptStatus.InProgress
+            };
+            _dbContext.AssessmentAttempts.Add(attempt);
+            await _dbContext.SaveChangesAsync();
         }
 
         var realBank = await _dbContext.AssessmentBanks.AsNoTracking()
