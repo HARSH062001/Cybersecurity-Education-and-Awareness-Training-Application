@@ -88,7 +88,7 @@ select {
 }
 
 .signal-header__inner {
-  width: min(1400px, calc(100% - 48px));
+  width: min(1900px, calc(100% - 48px));
   min-height: 76px;
   margin-inline: auto;
   display: flex;
@@ -147,6 +147,15 @@ select {
   gap: 8px;
 }
 
+.signal-menu {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.signal-menu > summary {
+  display: none;
+}
+
 .signal-nav a {
   min-height: 42px;
   display: inline-flex;
@@ -170,6 +179,13 @@ select {
 .signal-nav .signal-nav__action:hover {
   background: #1c3538;
   color: #fff;
+}
+
+.signal-nav form {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin: 0 !important;
 }
 
 /* Headings, buttons and reusable panels */
@@ -1301,54 +1317,116 @@ button.btn {
         flex: 1 1 auto;
     }
 }
-/* Keep navigation labels together and give the brand its natural width. */
-.signal-header__inner {
-    flex-wrap: nowrap;
-}
-
-.signal-brand {
-    flex: 0 0 auto;
-    white-space: nowrap;
-}
-
-/* Prevent links from narrowing until their labels wrap word by word. */
-.signal-nav {
-    flex: 1 0 auto;
-    flex-wrap: nowrap;
-    gap: 2px;
-}
-
-.signal-nav a {
-    flex: 0 0 auto;
-    padding-inline: 7px;
-    font-size: 13px;
-    white-space: nowrap;
-}
-
-/* At narrower desktop and tablet widths, let the navigation use a second row. */
-@media (max-width: 1200px) {
+/* Collapse the long role-aware navigation before its links reach the screen edge. */
+@media (max-width: 1900px) {
     .signal-header__inner {
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 10px 20px;
         padding-block: 12px;
     }
 
-    .signal-nav {
-        flex: 1 1 100%;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+    .signal-brand {
+        flex: 1 1 auto;
+        min-width: 0;
+        white-space: normal;
+    }
+
+    .signal-brand > span:last-child {
+        display: grid;
+        min-width: 0;
+        line-height: 1.2;
+    }
+
+    .signal-brand small {
+        color: #b7c7c2;
+        font-size: 10px;
+    }
+
+    .signal-menu {
+        flex: 0 0 100%;
+    }
+
+    .signal-menu > summary {
+        width: fit-content;
+        min-height: 44px;
+        margin-left: auto;
+        padding: 9px 14px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid #729288;
+        border-radius: 4px;
+        color: #f7f7f1;
+        cursor: pointer;
+        font-weight: 650;
+        list-style: none;
+    }
+
+    .signal-menu > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .signal-menu > summary:hover,
+    .signal-menu[open] > summary {
+        background: #1c3538;
+        color: #fff;
+    }
+
+    .signal-menu__icon {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .signal-menu:not([open]) > .signal-nav {
+        display: none;
+    }
+
+    .signal-menu[open] > .signal-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+        justify-content: stretch;
+        gap: 4px;
+        padding-top: 8px;
+    }
+
+    .signal-nav a {
+        min-width: 0;
+        min-height: 44px;
+        padding: 8px 10px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .signal-nav form button {
+        width: 100%;
+        min-height: 44px;
+        white-space: nowrap;
     }
 }
 
-/* Keep the compact stacked header on phones. */
 @media (max-width: 640px) {
     .signal-header__inner {
-        align-items: flex-start;
+        width: min(100% - 28px, 1900px);
+        align-items: stretch;
         flex-direction: column;
+        gap: 10px;
+        padding-block: 12px;
     }
 
-    .signal-nav {
+    .signal-brand {
+        align-self: flex-start;
+    }
+
+    .signal-menu {
+        flex-basis: auto;
         width: 100%;
-        flex: 0 1 auto;
+    }
+
+    .signal-menu > summary {
+        margin-left: 0;
+    }
+
+    .signal-menu[open] > .signal-nav {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 135px), 1fr));
     }
 }
