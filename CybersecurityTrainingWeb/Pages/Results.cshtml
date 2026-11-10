@@ -49,10 +49,13 @@
                 <div class="results-answer-list" aria-label="Answer choices">
                     @foreach (var option in question.Options)
                     {
-                        var optionClass = option.IsCorrect
+                        // Show if user answered correctly, and show correct answer only if user passes
+                        var optionClass = (option.IsCorrect && Model.IsPassed)
                             ? "results-answer results-answer--correct"
                             : option.IsSelected
-                                ? "results-answer results-answer--incorrect"
+                                ? (option.IsCorrect) 
+                                    ? "results-answer results-answer--correct"
+                                    : "results-answer results-answer--incorrect"
                                 : "results-answer";
                         <div class="@optionClass">
                             <span class="results-answer__code">@option.Code</span>
@@ -66,7 +69,7 @@
                                 {
                                     <strong>Your answer · Incorrect</strong>
                                 }
-                                else if (option.IsCorrect)
+                                else if (option.IsCorrect && Model.IsPassed)
                                 {
                                     <strong>Correct answer</strong>
                                 }
