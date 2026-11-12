@@ -1,3 +1,4 @@
+// Handles saving answers and submitting an assessment for server-side marking.
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +31,7 @@ public static class AssessmentSubmissionEndpoints
         return endpoints;
     }
 
+    // Limit answer retrieval to the signed-in learner’s own attempt.
     private static async Task<IResult> GetSavedAnswersAsync(
         long attemptId,
         HttpContext http,
@@ -59,6 +61,7 @@ public static class AssessmentSubmissionEndpoints
         return Results.Ok(new { answers });
     }
 
+    // Save a validated selection against its question and in-progress attempt.
     private static async Task<IResult> SaveAnswerAsync(
         long attemptId,
         SaveAssessmentAnswerRequest request,
@@ -140,6 +143,7 @@ public static class AssessmentSubmissionEndpoints
         return Results.Ok(new { saved = true });
     }
 
+    // Validate the submitted attempt before calculating and saving its score.
     private static async Task<IResult> SubmitAsync(
         long attemptId,
         SubmitAssessmentRequest request,

@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the learner dashboard and next-module display.
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,6 +18,7 @@ public class DashboardModel : PageModel
         if (!System.IO.File.Exists(path))
             return;
 
+        // Read titles from the same content file used by the module catalogue.
         var records = JsonSerializer.Deserialize<List<ModuleRecord>>(
             System.IO.File.ReadAllText(path),
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? [];

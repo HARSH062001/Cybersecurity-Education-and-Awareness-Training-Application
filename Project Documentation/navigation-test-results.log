@@ -1,0 +1,8 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  CybersecurityTrainingWeb -> C:\Users\harsh\OneDrive\Desktop\Newcastle\CANVAS\comp6900 computering project\new Cybersecurity Training Application\CybersecurityTrainingWeb\bin\Debug\net10.0\CybersecurityTrainingWeb.dll
+  CybersecurityTrainingWeb.Tests -> C:\Users\harsh\OneDrive\Desktop\Newcastle\CANVAS\comp6900 computering project\new Cybersecurity Training Application\CybersecurityTrainingWeb.Tests\bin\Debug\net10.0\CybersecurityTrainingWeb.Tests.dll
+Test run for C:\Users\harsh\OneDrive\Desktop\Newcastle\CANVAS\comp6900 computering project\new Cybersecurity Training Application\CybersecurityTrainingWeb.Tests\bin\Debug\net10.0\CybersecurityTrainingWeb.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    31, Skipped:     0, Total:    31, Duration: 14 s - CybersecurityTrainingWeb.Tests.dll (net10.0)

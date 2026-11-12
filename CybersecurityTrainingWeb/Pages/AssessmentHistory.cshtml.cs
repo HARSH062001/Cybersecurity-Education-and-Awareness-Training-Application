@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the learner’s own assessment attempts.
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

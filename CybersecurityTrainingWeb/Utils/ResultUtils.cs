@@ -1,3 +1,4 @@
+// Provides shared rules for assessment eligibility, passing and attempt history.
 namespace CybersecurityTrainingWeb.Utils;
 
 using CybersecurityTrainingWeb.Data;

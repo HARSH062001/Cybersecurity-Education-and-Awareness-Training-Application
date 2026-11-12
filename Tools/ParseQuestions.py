@@ -1,3 +1,4 @@
+# Reads question-bank documents and prepares the assessment seed data.
 """
 Converts the question documents into a JSON file containing the questions, 
 answers and which module it belongs to

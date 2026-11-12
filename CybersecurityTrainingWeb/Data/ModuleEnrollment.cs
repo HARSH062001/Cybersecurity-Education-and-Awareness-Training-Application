@@ -1,3 +1,4 @@
+// Links a learner account to an assigned module.
 using System.ComponentModel.DataAnnotations;
 
 namespace CybersecurityTrainingWeb.Data;

@@ -1,3 +1,4 @@
+// Reads and updates the signed-in learner’s module section progress.
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -56,6 +57,7 @@ public static class ProgressEndpoints
         return Results.Ok(new { completedSections = sections });
     }
 
+    // Record or undo a valid section completion for the current learner.
     private static async Task<IResult> SaveModuleProgress(
         int id,
         ProgressUpdateRequest request,

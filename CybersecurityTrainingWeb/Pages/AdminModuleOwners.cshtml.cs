@@ -1,3 +1,4 @@
+// Loads and handles server-side data for administrator assignment of module owners.
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

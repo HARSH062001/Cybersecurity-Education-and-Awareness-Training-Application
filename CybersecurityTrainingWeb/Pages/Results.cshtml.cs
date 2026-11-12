@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the score and question feedback for a completed attempt.
 using CybersecurityTrainingWeb.Data;
 using CybersecurityTrainingWeb.Utils;
 using Microsoft.AspNetCore.Authorization;

@@ -1,3 +1,4 @@
+// Chooses an assessment bank while taking earlier attempts into account.
 namespace CybersecurityTrainingWeb.Utils;
 
 public static class AttemptUtils

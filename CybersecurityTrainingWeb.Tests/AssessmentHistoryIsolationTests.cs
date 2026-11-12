@@ -1,3 +1,4 @@
+// Checks that learners can see only their own assessment history.
 using System.Net;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Mvc.Testing;

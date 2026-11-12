@@ -1,3 +1,4 @@
+// Loads validated question-bank data and adds missing versions to the database.
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 

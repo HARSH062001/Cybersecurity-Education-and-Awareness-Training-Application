@@ -1,3 +1,4 @@
+// Configures the database, Identity, application services and request pipeline.
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

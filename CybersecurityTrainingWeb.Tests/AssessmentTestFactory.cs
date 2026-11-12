@@ -1,3 +1,4 @@
+// Creates an isolated application and database for assessment-related tests.
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;

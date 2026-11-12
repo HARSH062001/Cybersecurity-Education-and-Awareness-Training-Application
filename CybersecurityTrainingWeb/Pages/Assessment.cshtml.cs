@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the current assessment attempt and its questions.
 using System.Security.Cryptography;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;

@@ -1,3 +1,4 @@
+// Loads and handles server-side data for progress reporting for modules assigned to an owner.
 using System.Security.Claims;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;

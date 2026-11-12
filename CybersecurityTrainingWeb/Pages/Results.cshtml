@@ -1,3 +1,4 @@
+@* Renders the score and question feedback for a completed attempt. *@
 @page
 @model CybersecurityTrainingWeb.Pages.ResultsModel
 @{
@@ -60,21 +61,22 @@
                         <div class="@optionClass">
                             <span class="results-answer__code">@option.Code</span>
                             <span class="results-answer__text">@option.Text</span>
-                            <span class="results-answer__label">
-                                @if (option.IsSelected && option.IsCorrect)
-                                {
-                                    <strong>Your answer · Correct</strong>
-                                }
-                                else if (option.IsSelected)
-                                {
-                                    <strong>Your answer · Incorrect</strong>
-                                }
-                                else if (option.IsCorrect && Model.IsPassed)
-                                {
-                                    <strong>Correct answer</strong>
-                                }
-                            </span>
-                        </div>
+
+                            <span class="results-answer__status">
+                            @if (option.IsSelected && option.IsCorrect)
+                            {
+                                <strong>Your answer · Correct</strong>
+                            }
+                            else if (option.IsSelected)
+                            {
+                                <strong>Your answer · Incorrect</strong>
+                            }
+                            else if (option.IsCorrect && Model.IsPassed)
+                            {
+                                <strong>Correct answer</strong>
+                            }
+                        </span>
+                    </div>
                     }
                     @if (question.SelectedOptionCode is null)
                     {

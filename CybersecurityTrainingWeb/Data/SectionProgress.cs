@@ -1,3 +1,4 @@
+// Records that a learner completed a section of a module.
 using System.ComponentModel.DataAnnotations;
 
 namespace CybersecurityTrainingWeb.Data;

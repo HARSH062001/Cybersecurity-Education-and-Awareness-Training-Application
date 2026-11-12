@@ -1,3 +1,4 @@
+// Loads section progress and updates module and dashboard controls.
 (() => {
     const sectionKeys = [
         "purpose", "outcomes", "terms", "concepts",
@@ -91,6 +92,7 @@
             });
     }
 
+    // Count completed sections across all eight modules for the overall progress card.
     function updateOverallProgress() {
         const completedSections = [...progressByModule.values()]
             .reduce((total, completed) => total + completed.size, 0);
@@ -131,6 +133,7 @@
             });
     }
 
+    // Recommend the first module with unfinished sections; assessment scores are separate.
     function updateDashboardFocus() {
         const focusCards = document.querySelectorAll("[data-dashboard-focus]");
         if (!focusCards.length) return;
@@ -247,6 +250,7 @@
         );
     }
 
+    // Fetch the signed-in learner’s saved progress rather than relying on browser storage.
     async function getProgress(id, allowedKeys = sectionKeys) {
         const response = await fetch(`/api/progress/modules/${id}`, {
             credentials: "same-origin",

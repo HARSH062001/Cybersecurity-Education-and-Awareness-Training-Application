@@ -1,3 +1,4 @@
+# Prepares question-and-option preview data from the Word question banks.
 """Create learner-facing assessment preview data from the approved Word question banks.
 
 Correct answers, explanations, business impacts and references remain in the source

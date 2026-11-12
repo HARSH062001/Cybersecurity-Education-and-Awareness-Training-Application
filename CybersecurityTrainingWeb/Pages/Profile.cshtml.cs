@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the learner profile.
 using System.ComponentModel.DataAnnotations;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;

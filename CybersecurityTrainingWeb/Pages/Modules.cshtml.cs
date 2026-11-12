@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the module catalogue and enrolment controls.
 using System.Text.Json;
 using System.Security.Claims;
 using CybersecurityTrainingWeb.Data;

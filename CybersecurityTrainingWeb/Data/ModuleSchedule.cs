@@ -1,3 +1,4 @@
+// Stores the first assessment due date and repeat interval for a module.
 namespace CybersecurityTrainingWeb.Data;
 
 // A module schedule supplies the first deadline and recurring assessment interval.

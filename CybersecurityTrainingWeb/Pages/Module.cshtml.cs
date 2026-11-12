@@ -1,3 +1,4 @@
+// Loads and handles server-side data for a module’s learning sections, progress and assessment entry.
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -99,6 +100,7 @@ public class ModuleModel : PageModel
         return Page();
     }
 
+    // Split the content file into the seven sections used by the learning page.
     private static List<LearningSection> BuildLearningSections(List<ContentBlock> blocks)
     {
         var tables = blocks.Where(x => x.Kind == "table").ToList();

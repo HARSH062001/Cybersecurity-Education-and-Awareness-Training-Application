@@ -1,3 +1,4 @@
+// Stores assessment attempts and the answers recorded for each attempt.
 using System.ComponentModel.DataAnnotations;
 namespace CybersecurityTrainingWeb.Data;
 public enum AssessmentAttemptStatus

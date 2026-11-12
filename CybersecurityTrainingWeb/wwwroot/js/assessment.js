@@ -1,3 +1,4 @@
+// Manages assessment navigation, answer saving, resume and submission in the browser.
 (() => {
     const assessment = document.querySelector("[data-assessment]");
     if (!assessment) return;
@@ -28,6 +29,7 @@
     const panelForKey = key => panels.find(panel =>
         panel.querySelector("[data-answer-input]")?.dataset.answerInput === key);
 
+    // Queue saves per question so a slower earlier request cannot overwrite a newer selection.
     const persistAnswer = (key, selectedOptionCode) => {
         const panel = panelForKey(key);
         const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
@@ -77,6 +79,7 @@
         });
     };
 
+    // Restore the account’s saved selections when the learner resumes this attempt.
     const restoreSavedAnswers = async () => {
         try {
             const response = await fetch(

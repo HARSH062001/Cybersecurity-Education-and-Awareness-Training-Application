@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the application error page.
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

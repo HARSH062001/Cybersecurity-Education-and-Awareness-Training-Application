@@ -1,3 +1,4 @@
+// Checks the structure and completeness of the question-bank seed file.
 using CybersecurityTrainingWeb.Data;
 
 namespace CybersecurityTrainingWeb.Tests.Data;

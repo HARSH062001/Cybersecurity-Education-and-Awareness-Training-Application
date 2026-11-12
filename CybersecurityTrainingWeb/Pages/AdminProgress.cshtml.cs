@@ -1,3 +1,4 @@
+// Loads and handles server-side data for administrator reporting on learner progress.
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;

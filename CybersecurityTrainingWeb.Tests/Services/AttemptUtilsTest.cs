@@ -1,3 +1,4 @@
+// Checks assessment-bank selection against earlier bank choices.
 using CybersecurityTrainingWeb.Utils;
 
 namespace CybersecurityTrainingWeb.Tests.Data

@@ -1,3 +1,4 @@
+// Loads and handles server-side data for the signed-in learner’s enrolments and assessment reminders.
 using System.Security.Claims;
 using CybersecurityTrainingWeb.Data;
 using Microsoft.AspNetCore.Authorization;

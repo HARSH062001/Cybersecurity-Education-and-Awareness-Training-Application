@@ -1,3 +1,4 @@
+// Checks that signed-out visitors are directed to sign in before assessment access.
 using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
 

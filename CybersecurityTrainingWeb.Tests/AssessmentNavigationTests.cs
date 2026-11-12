@@ -1,3 +1,4 @@
+// Exercises assessment entry, recovery pages, ownership, retry and pass-lock behaviour.
 using System.Net;
 using CybersecurityTrainingWeb.Data;
 using CybersecurityTrainingWeb.Utils;

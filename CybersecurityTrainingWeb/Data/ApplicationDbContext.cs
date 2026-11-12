@@ -1,3 +1,4 @@
+// Defines the application data sets, relationships and database constraints.
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

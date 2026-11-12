@@ -1,26 +1,66 @@
 # Cybersecurity Education and Awareness Training Application
 
-COMP6900 coursework prototype — University of Newcastle.
+**COMP6900 Computing Project — University of Newcastle**
 
-## Stack and features
+## About the project
 
-ASP.NET Core Razor Pages (.NET 10), EF Core, SQLite and ASP.NET Core Identity.
+This application is a cybersecurity education and awareness prototype for
+workplace learners. It helps employees learn about common security risks,
+practise safer behaviours and check their knowledge through assessments.
 
-- Eight learning modules with seven sections each; account-specific saved progress.
-- Registration, profiles, sign-in, authenticator-app 2FA via Account security.
-- Learner self-enrolment and owner/admin enrolment into individual modules. Assign several modules to construct a learner pathway; there is no separate named pathway editor.
-- Database-backed question banks, server-assigned attempts, server-side objective marking, answers auto-saved per attempt and restored on resume, results, feedback and account-specific history.
-- Assessments unlock only after all seven learning sections are complete. Learners can retry non-passing attempts until they meet the pass mark. A passing result locks further attempts for that module. The pass mark is configurable with `Assessment:PassingPercentage` and currently defaults to 90%.
-- The module page shows the learner's best completed score. Results display every answer choice, mark the correct choice green and an incorrect selection red, and provide an explanation for each question.
-- Assessment entry and resume links use `/Assessment?moduleId=...`. The page resumes the learner's latest unfinished attempt for that module, or creates an attempt when eligible. Refreshing reuses the unfinished attempt. Old attempt bookmarks redirect to the module entry or, for completed attempts, their exact saved result.
-- Missing browser pages and unavailable assessment links show a recovery page with links back to modules and home while preserving HTTP 404. Requests for another learner's attempt receive the same generic response. API responses are not wrapped in the recovery page.
-- Admin progress reporting and module-owner assignment; owner reporting limited to assigned modules.
-- Manage training: admins manage all modules; module owners manage only their assigned modules. Enrol existing accounts by email and set a module's first assessment due date and repeat interval.
-- Notifications: signed-in learners see their own enrolments, due dates, overdue reminders and completion status. These are computed when the page opens; no background email, push delivery or read/unread inbox is implemented.
+The application contains eight learning modules. Learners can read the
+content, mark sections as complete and take a multiple-choice assessment.
+Their progress and results are saved to their account.
 
-## Setup
+The project was developed using ASP.NET Core Razor Pages, Entity Framework
+Core, ASP.NET Core Identity and a local SQLite database.
 
-Install the .NET 10 SDK and a compatible dotnet-ef tool (10.0.13 was used locally).
+## Main features
+
+- Eight cybersecurity learning modules, each with seven sections.
+- User registration, sign-in and profile management.
+- Saved learning progress for signed-in users.
+- Optional two-factor authentication using an authenticator app.
+- Multiple-choice assessments with saved answers and server-side marking.
+- Assessment history and review of completed attempts.
+- A default passing mark of **90%**.
+- Retakes after a failed attempt and a lock on further attempts after passing.
+- A learner dashboard and module progress information.
+- Administrator and module-owner functions.
+- Learner enrolments, assessment schedules and in-app notifications.
+- A responsive interface for different screen sizes.
+
+## Project structure
+
+| Folder or file | Purpose |
+| --- | --- |
+| `CybersecurityTrainingWeb/` | Main web application, learning content, database models and migrations. |
+| `CybersecurityTrainingWeb.Tests/` | Automated tests for application features and access rules. |
+| `01_Module Content/` | Source Word documents for the eight learning modules. |
+| `02_Question Banks/` | Source Word documents for the assessment question banks. |
+| `Demonstration database/` | A separate sample SQLite database and instructions. |
+| `Project Documentation/` | Project planning and supporting documentation. |
+| `Technical Design/` | Documentation about the application architecture and database design. |
+| `Tools/` | Python scripts for preparing assessment data and updating existing module text. |
+| `CybersecurityTrainingApplication.slnx` | Solution file for the application and test projects. |
+
+The project’s main application code is in `CybersecurityTrainingWeb`.
+
+## Requirements
+
+To build and run the project, install:
+
+- The **.NET 10 SDK**.
+- A compatible **`dotnet-ef`** tool for database migrations.
+- An editor or development environment such as Visual Studio or VS Code.
+
+To inspect the SQLite database visually, you can use **DB Browser for
+SQLite**. It is useful for viewing tables and records, but is not required
+to run the application.
+
+## Setting up and running the application
+
+Open PowerShell in the project folder and run:
 
 ```powershell
 cd CybersecurityTrainingWeb
@@ -29,66 +69,201 @@ dotnet ef database update
 dotnet run --launch-profile http
 ```
 
-Open http://localhost:5260. Run EF commands from the web project folder: the database connection is relative to that directory. Migrations create the schema, and EF's configured seeder imports Data/question_banks.json. Existing bank module/code/version combinations are skipped; publish a new version to preserve historical banks rather than silently changing existing keys. Back up an existing SQLite database before applying migrations.
+Then open:
+
+```text
+http://localhost:5260
+```
+
+The database connection is relative to the web project directory, so run
+the database commands from `CybersecurityTrainingWeb`.
+
+If `dotnet ef` is not available, install a compatible version of the
+`dotnet-ef` tool and then run the database update again.
+
+The migrations create or update the database schema. The question-bank
+seeding process uses `Data/question_banks.json` to add assessment content.
+If you already have a database with data you want to keep, make a backup
+before applying migrations.
 
 ## Database
 
-The application uses a local SQLite file, not a separately hosted SQL Server. When commands are run from `CybersecurityTrainingWeb`, the database is `CybersecurityTrainingWeb/cybertraining.db`. EF Core migrations define and update the schema; the application does not apply migrations automatically at startup. The question banks are seeded from `CybersecurityTrainingWeb/Data/question_banks.json`. Learning content is also maintained in project JSON files.
+The application uses a local SQLite database named:
 
-The database stores ASP.NET Identity accounts and roles, module enrolments and ownership, section progress, schedules, question banks, assessment attempts, and answers. Key tables include `AspNetUsers`, `AspNetRoles`, `AspNetUserRoles`, `SectionProgressEntries`, `ModuleEnrollments`, `ModuleOwnerAssignments`, `ModuleSchedules`, `AssessmentBanks`, `AssessmentQuestions`, `AssessmentOptions`, `AssessmentAttempts`, and `AssessmentAnswers`.
+```text
+CybersecurityTrainingWeb/cybertraining.db
+```
 
-To inspect the local database visually, open `CybersecurityTrainingWeb/cybertraining.db` in [DB Browser for SQLite](https://sqlitebrowser.org/dl/). Use **Database Structure** to inspect tables and **Browse Data** to view rows. The SQLite command-line shell can also list tables with `.tables` and show a table definition with `.schema AssessmentAttempts`.
+It stores information such as:
 
-Database files contain local account and learner data. Keep `*.db`, `*.db-wal`, and `*.db-shm` files out of source control and do not share them with the group. Share migrations or schema documentation instead. When an application instance is running, avoid editing its database in a separate browser tool.
+- User accounts and roles.
+- Module enrolments and ownership assignments.
+- Completed learning sections.
+- Assessment banks, questions and answer options.
+- Assessment attempts, selected answers and results.
+- Module schedules.
 
-Development permits registration without email confirmation. Other environments require confirmation; configure an email provider before deploying. Accounts and local database files are not included in source control.
+To inspect the database, open `cybertraining.db` in DB Browser for SQLite.
+Use **Database Structure** to view the tables and **Browse Data** to inspect
+their records.
 
-## Roles and account security
+The `Demonstration database` folder also contains a separate sample
+database. Its README explains what it contains and how to use it.
 
-Register a local test account first. To bootstrap an administrator in Development, configure AdminBootstrap:Email using local user secrets, then restart. Use the registered account's email; never commit passwords or secrets. Admins can still enrol in and complete learner training.
+A working database can contain account details and learner activity. Review
+its contents before sharing it, and use appropriate test accounts for
+demonstrations.
+
+## Learning and assessment journey
+
+1. A learner registers or signs in.
+2. They enrol, or are enrolled, in a module.
+3. They read the learning material and mark all seven sections as complete.
+4. The module assessment becomes available.
+5. They answer the multiple-choice questions and submit their attempt.
+6. The application marks the answers on the server and displays the result.
+
+The default pass mark is **90%**. A learner can retry after a failed attempt.
+Once they pass the module assessment, further attempts for that module are
+locked. The module page shows the learner’s best completed score.
+
+The pass mark can be configured using `Assessment:PassingPercentage` in
+`appsettings.json`.
+
+## Assessment feedback
+
+The results page displays the learner’s selected answers and explanations.
+
+For a failed attempt, the intended behaviour is to show whether the
+learner’s selected answers were correct or incorrect without highlighting an
+unselected correct option. After a passing attempt, the correct options can
+also be highlighted.
+
+The team should verify this behaviour in the final build, including an
+earlier failed attempt viewed after a later pass.
+
+## Accounts and roles
+
+The application uses ASP.NET Core Identity to manage accounts and roles.
+
+- **Learners** access modules, assessments, progress and their own results.
+- **Module owners** can access management functions for their assigned
+  modules.
+- **Administrators** can access broader training administration functions.
+
+To prepare an administrator account in the Development environment:
+
+1. Register the account in the application.
+2. From the `CybersecurityTrainingWeb` folder, configure the account’s email
+   using local user secrets:
 
 ```powershell
 dotnet user-secrets set "AdminBootstrap:Email" "your-registered-test-email"
 ```
 
-The admin Module owners page assigns owners to modules. Owners use Owner dashboard for reports and Manage training for enrolment and scheduling. Learners enable authenticator 2FA through Account security. 2FA is available but is not mandatory for every account.
+3. Restart the application.
 
-## Scheduling rules
+Use the email address of the registered test account. Do not place passwords
+or secrets in project files or GitHub.
 
-All entered and displayed deadlines use UTC. A repeat interval of 0 is a one-time assessment; 1–3650 sets recurring days. Before the first completed assessment the first due date applies. Afterwards the next deadline is the latest completed submission plus the repeat interval. One-time schedules show completed after a completed attempt. Existing completed attempts count. Awaiting-review attempts do not count as completed.
+Two-factor authentication can be enabled through **Account security**. It is
+available to users but is not compulsory in the current prototype.
 
-Schedules provide deadlines and reminders; they do not lock assessment availability based on the due date. The assessment pass rule independently prevents further attempts after a passing result. Updating a module schedule affects all currently enrolled learners and appears on their next Notifications visit. Enrolment is idempotent. Ownership is rechecked server-side for each management submission, and forms use Razor Pages antiforgery protection.
+## Training schedules and notifications
 
-## Verification
+Administrators can manage training across modules. Assigned module owners
+can manage their own modules.
 
-From the repository root:
+The management area supports enrolling an existing account and setting an
+assessment due date and repeat interval. Dates are shown in UTC.
+
+The notifications page displays a signed-in learner’s assignments and
+assessment reminders. These reminders are shown in the application when the
+page is opened; background email and push notifications are not implemented.
+
+A schedule provides a reminder. Assessment availability is controlled
+separately by the learning-section and passing rules.
+
+## Running the tests
+
+From the project root, run:
 
 ```powershell
 dotnet build CybersecurityTrainingWeb
 dotnet test CybersecurityTrainingWeb.Tests --verbosity minimal
 ```
 
-Stop the running local app before building if Windows reports locked output files. Tests use temporary databases for assessment history and management checks. Coverage includes signed-out assessment access, learner isolation, owner scope, enrolment duplication, schedule updates, notification isolation and question-bank validation; it is not exhaustive security assurance.
+The test project includes checks for assessment access, learner isolation,
+assessment navigation, question-bank structure, enrolments and management
+features. The tests use temporary databases for relevant checks.
 
-## Demonstration checklist
+Record the actual date and result of the team’s final test run in the
+project report. Automated tests and manual demonstrations do not replace a
+full security or production-readiness review.
 
-1. Register two disposable learner accounts; enable authenticator 2FA on one and demonstrate sign-in.
-2. Self-enrol, complete a section, refresh and sign in again; confirm saved progress and isolation between accounts. Confirm the assessment stays unavailable until all seven sections are complete.
-3. Start an assessment, select answers, then resume the same attempt; confirm answers are restored from the account. Complete a non-passing attempt and retry; confirm the learner can continue until passing, then the module shows the best score and locks further attempts.
-4. Inspect results: confirm all options are shown, the correct option is green, an incorrect selection is red, and each question includes its explanation. Confirm another learner cannot retrieve the result.
-5. Bootstrap an admin and assign a module owner. Confirm the owner sees only assigned-module reports.
-6. As owner, use Manage training to enrol the second learner into an assigned module. Repeat enrolment and confirm one row remains.
-7. Save a first due date in the past and a repeat interval of seven days. Sign in as the assigned learner; confirm Notifications shows overdue and links to study/assessment.
-8. Complete the assessment; refresh Notifications and confirm the recurring due date changes. Save a zero interval and confirm one-time completion status.
-9. Verify an unassigned owner cannot manage another module and an ordinary learner cannot access Manage training. Confirm admins can manage all modules and still use learner features.
-10. Check phone-width layouts, keyboard navigation and validation messages; record final team acceptance.
+## Maintaining module and assessment content
 
-## Remaining limitations
+The `Tools` folder provides developer tools for maintaining content:
 
-- The project author reports checking the eight module documents and 24 source question banks against the app content and answer keys. Questions are currently multiple choice (A–D); structural tests do not replace content review.
-- Written response questions are not currently used. Any future written question type needs an approved marking rubric and complete review workflow.
-- No named pathway editor, enrolment removal workflow, background notifications or mandatory 2FA policy.
-- The project author reports manually checking the application flows, including schedules, notifications and assessment results. Capture final demonstration evidence for the report.
-- Hosting, production email, operational backups and privacy/security review remain outstanding. This is a coursework prototype, not a production-ready service.
+- `ParseQuestions.py` prepares question-bank JSON, including answer
+  information.
+- `ImportQuestionPreviews.py` prepares preview data for an earlier frontend
+  workflow.
+- `UpdateModuleContent.py` updates an existing module paragraph or bullet in
+  `CybersecurityTrainingWeb/Data/module-content.json`. It previews changes by
+  default and creates a backup when a change is applied. It does not import
+  module Word documents or add or delete modules.
 
-The detailed project report is prepared separately. Do not commit local databases, demo passwords, personal learner data or unrelated resume files.
+For example, from the project root, list Module 1's content blocks:
+
+```powershell
+python Tools/UpdateModuleContent.py --module 1 --list
+```
+
+Place replacement text in a UTF-8 file, then preview the update by specifying
+the zero-based block number shown in the list:
+
+```powershell
+python Tools/UpdateModuleContent.py --module 1 --block 0 --text-file replacement.txt
+```
+
+Add `--apply` to that command only after reviewing the preview. The tool
+creates a timestamped backup before replacing the JSON. Headings and tables
+cannot be edited with this tool because they help define the module layout.
+Rebuild or restart the application as needed, then check the module page.
+
+The question-bank scripts require the `python-docx` package and may overwrite
+their output JSON, so back up and review the files before running them.
+The application seeds question banks into SQLite; changing the JSON alone
+does not automatically replace an existing bank with the same module, code
+and version. Review the seeding and versioning process and test on a copy
+before changing assessment data. The scripts are not needed for normal
+day-to-day use of the application.
+
+These tools require access to the project files and command line. The web
+interface does not currently let an administrator add, edit or delete module
+content, questions or question banks directly.
+
+## Current limitations
+
+This application is a coursework prototype. The current project does not
+include:
+
+- Production hosting or production email delivery.
+- Background email or push notifications.
+- An operational backup process.
+- A named multi-module pathway editor.
+- An enrolment-removal workflow.
+- A mandatory two-factor authentication policy.
+- A completed full privacy and security review.
+
+
+## Project documentation
+
+The `Technical Design` folder contains the system architecture and database
+design documentation. The `Project Documentation` folder contains supporting
+project material.
+
+The final team report and presentation are separate deliverables. They should
+describe the team’s actual contributions, testing results, completed goals,
+unfinished work and lessons learned.

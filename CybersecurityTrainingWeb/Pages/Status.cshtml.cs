@@ -1,3 +1,4 @@
+// Loads and handles server-side data for a recovery page for unavailable routes.
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

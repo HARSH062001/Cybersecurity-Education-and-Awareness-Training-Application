@@ -1,3 +1,4 @@
+// Extends an Identity account with the profile details used by the application.
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 

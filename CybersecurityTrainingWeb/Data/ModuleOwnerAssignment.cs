@@ -1,3 +1,4 @@
+// Links an authorised owner to a module they manage.
 using System.ComponentModel.DataAnnotations;
 
 namespace CybersecurityTrainingWeb.Data;

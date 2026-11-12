@@ -1,3 +1,4 @@
+// Defines question banks, their questions and the available answer options.
 using System.ComponentModel.DataAnnotations;
 
 namespace CybersecurityTrainingWeb.Data;

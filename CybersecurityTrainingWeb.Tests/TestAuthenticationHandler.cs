@@ -1,3 +1,4 @@
+// Provides controlled test identities for requests made by the test suite.
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;

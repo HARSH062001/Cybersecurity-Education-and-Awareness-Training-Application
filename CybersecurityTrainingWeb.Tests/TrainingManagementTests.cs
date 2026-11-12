@@ -1,3 +1,4 @@
+// Checks module-owner permissions, enrolment, schedules and notification isolation.
 using System.Net;
 using System.Security.Claims;
 using CybersecurityTrainingWeb.Data;
