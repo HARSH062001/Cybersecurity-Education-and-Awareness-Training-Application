@@ -23,4 +23,13 @@
     <Content Update="Data\assessment-preview.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
+  <!-- Refresh the learning content from the team's Word documents before building. -->
+  <PropertyGroup>
+    <ModulePython Condition="'$(ModulePython)' == '' and '$(OS)' == 'Windows_NT'">python</ModulePython>
+    <ModulePython Condition="'$(ModulePython)' == ''">python3</ModulePython>
+  </PropertyGroup>
+  <Target Name="SyncModuleContent" BeforeTargets="PrepareForBuild" Condition="'$(DesignTimeBuild)' != 'true' and '$(SkipModuleSync)' != 'true'">
+    <Exec Command="&quot;$(ModulePython)&quot; &quot;$(MSBuildProjectDirectory)/../Tools/SyncModulesFromWord.py&quot;" />
+  </Target>
+
 </Project>

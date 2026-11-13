@@ -52,6 +52,7 @@ To build and run the project, install:
 
 - The **.NET 10 SDK**.
 - A compatible **`dotnet-ef`** tool for database migrations.
+- **Python 3** on the command line for the automatic module-content sync.
 - An editor or development environment such as Visual Studio or VS Code.
 
 To inspect the SQLite database visually, you can use **DB Browser for
@@ -85,6 +86,26 @@ The migrations create or update the database schema. The question-bank
 seeding process uses `Data/question_banks.json` to add assessment content.
 If you already have a database with data you want to keep, make a backup
 before applying migrations.
+
+### Updating learning content during a build
+
+When the web project is built, `Tools/SyncModulesFromWord.py` reads the eight
+documents in `01_Module Content` and updates `Data/module-content.json` before
+the application is compiled. Python 3 is required; the script uses only its
+standard library. Close a Word document if it cannot be read during the build.
+If the generated content is unchanged, no file is rewritten. Otherwise, the
+previous JSON is backed up under `output/module-content-backups` before it is
+replaced. Review the modules after editing the documents: the importer expects
+their current headings and three-table structure, and builds fail if the source
+documents cannot be processed.
+
+The Word documents are the source of truth for automatic synchronization. A
+build can replace direct edits to the module JSON, so make lasting content
+changes in the corresponding Word document. This sync does not change the
+assessment question banks. To build temporarily without the sync, use
+`dotnet build -p:SkipModuleSync=true` from the web project folder; the existing
+JSON will be used. If your Python executable has a different name or path, set
+the build property `ModulePython` to it.
 
 ## Database
 
@@ -213,6 +234,9 @@ The `Tools` folder provides developer tools for maintaining content:
   `CybersecurityTrainingWeb/Data/module-content.json`. It previews changes by
   default and creates a backup when a change is applied. It does not import
   module Word documents or add or delete modules.
+- `SyncModulesFromWord.py` regenerates module content from the eight Word
+  documents during a normal build. It can overwrite direct JSON edits on the
+  next build; update the Word source for persistent changes.
 
 For example, from the project root, list Module 1's content blocks:
 
