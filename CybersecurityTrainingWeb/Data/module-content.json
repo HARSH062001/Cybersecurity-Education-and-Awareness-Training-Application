@@ -4,11 +4,6 @@
     "title": "Module 1 – Cybersecurity Fundamentals",
     "blocks": [
       {
-        "kind": "paragraph",
-        "text": "Employee learning module | Cybersecurity Education and Awareness Training Application",
-        "rows": []
-      },
-      {
         "kind": "heading",
         "text": "Module purpose",
         "rows": []
@@ -845,7 +840,7 @@
     "title": "Module 3 – Password and Identity Security",
     "blocks": [
       {
-        "kind": "paragraph",
+        "kind": "heading",
         "text": "Module purpose",
         "rows": []
       },
@@ -1166,6 +1161,11 @@
     "title": "Module 4 – Data Security and Privacy",
     "blocks": [
       {
+        "kind": "paragraph",
+        "text": "This module helps employees make careful decisions about work and personal information. It follows information through its everyday life cycle and shows how to share only what is needed, use approved storage and report a possible privacy incident.",
+        "rows": []
+      },
+      {
         "kind": "heading",
         "text": "Module purpose",
         "rows": []
@@ -1477,6 +1477,11 @@
     "title": "Module 5 – Network and Internet Security",
     "blocks": [
       {
+        "kind": "paragraph",
+        "text": "This module focuses on the internet choices employees make during a normal workday: opening a website, joining Wi Fi, downloading a file or connecting remotely. It explains what to check and when to use the organization’s approved tools.",
+        "rows": []
+      },
+      {
         "kind": "heading",
         "text": "Module purpose",
         "rows": []
@@ -1787,6 +1792,11 @@
     "id": 6,
     "title": "Module 6 – Device and Physical Security",
     "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "This module turns device security into a practical routine. It covers screen locks, software updates, endpoint protection, USB devices, physical security and backups, with attention to what employees should do when a device goes missing or behaves strangely.",
+        "rows": []
+      },
       {
         "kind": "heading",
         "text": "Module purpose",
@@ -2104,6 +2114,11 @@
     "title": "Module 7 – AI Literacy and AI Security",
     "blocks": [
       {
+        "kind": "paragraph",
+        "text": "This module introduces employees to safe, thoughtful use of AI tools. It explains that AI generated outputs can be wrong or misleading, that prompts may contain sensitive information, and that people remain responsible for checking decisions and following workplace rules. This is learning content; it does not mean the project application will include AI features.",
+        "rows": []
+      },
+      {
         "kind": "heading",
         "text": "Module purpose",
         "rows": []
@@ -2419,6 +2434,11 @@
     "id": 8,
     "title": "Module 8 – Incident Reporting and Cyber Hygiene",
     "blocks": [
+      {
+        "kind": "paragraph",
+        "text": "This module helps employees recognize when something may be wrong and report it clearly. It covers what to report, what information to share, how to follow containment instructions and how daily habits such as updates and backups support recovery.",
+        "rows": []
+      },
       {
         "kind": "heading",
         "text": "Module purpose",

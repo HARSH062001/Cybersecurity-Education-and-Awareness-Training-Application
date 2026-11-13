@@ -40,11 +40,11 @@ for m in data:
    style_node=e.find('./'+w+'pPr/'+w+'pStyle')
    style=style_node.get(w+'val','') if style_node is not None else ''
    if re.match(r'^Module\s+\d+\s',text,re.I) and len(text)<100: continue
-   if text.startswith('Employee learning module for the Cybersecurity Education'): continue
+   if text.startswith('Employee learning module') and 'Cybersecurity Education and Awareness Training Application' in text: continue
    new=category(text,style,current); current=new
    # Structural markers are supplied separately, not duplicated in the learning content.
    if text.strip().lower() in ('key terms','workplace examples','assessment coverage'): continue
-   kind='heading' if style.startswith('Heading') else 'bullet' if style.lower().startswith('listbullet') else 'paragraph'
+   kind='heading' if style.startswith('Heading') or text.lower() == 'module purpose' else 'bullet' if style.lower().startswith('listbullet') else 'paragraph'
    groups[current].append(block(kind,text)); extracted.append(text)
   elif e.tag==w+'tbl':
    rows=[]
@@ -59,6 +59,12 @@ for m in data:
  if table_count!=3: raise ValueError(f'Module {m["id"]}: expected 3 tables, found {table_count}')
  for n in names:
   if not groups[n]: raise ValueError(f'Module {m["id"]}: empty {n} section')
+ # Scenario-led documents also contain a concise overview under learning outcomes.
+ # Show that overview on the catalogue and module header before the scenario.
+ if m['id'] >= 4:
+  overview=next((b['text'] for b in groups['outcomes'] if b['kind']=='paragraph'),None)
+  if not overview: raise ValueError(f'Module {m["id"]}: missing overview paragraph')
+  groups['purpose'].insert(0,block('paragraph',overview))
  blocks=[]
  for i,n in enumerate(names):
   if i: blocks.append(block('heading',markers[i-1]))
